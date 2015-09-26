@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B698FAD1BB63300001DD03E /* AppDelegate.swift */; };
-		5B698FB01BB63300001DD03E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B698FAF1BB63300001DD03E /* ViewController.swift */; };
+		5B698FB01BB63300001DD03E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B698FAF1BB63300001DD03E /* LoginViewController.swift */; };
 		5B698FB31BB63300001DD03E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B698FB11BB63300001DD03E /* Main.storyboard */; };
 		5B698FB51BB63300001DD03E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B698FB41BB63300001DD03E /* Assets.xcassets */; };
 		5B698FB81BB63300001DD03E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */; };
@@ -54,7 +54,7 @@
 /* Begin PBXFileReference section */
 		5B698FAA1BB63300001DD03E /* Capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B698FAD1BB63300001DD03E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B698FAF1BB63300001DD03E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B698FAF1BB63300001DD03E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B698FB21BB63300001DD03E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B698FB41BB63300001DD03E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B698FB71BB63300001DD03E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				5B698FAD1BB63300001DD03E /* AppDelegate.swift */,
-				5B698FAF1BB63300001DD03E /* ViewController.swift */,
+				5B698FAF1BB63300001DD03E /* LoginViewController.swift */,
 				5B698FB11BB63300001DD03E /* Main.storyboard */,
 				5B698FB41BB63300001DD03E /* Assets.xcassets */,
 				5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */,
@@ -332,7 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B698FB01BB63300001DD03E /* ViewController.swift in Sources */,
+				5B698FB01BB63300001DD03E /* LoginViewController.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +566,7 @@
 				5B698FD41BB63300001DD03E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B698FD51BB63300001DD03E /* Build configuration list for PBXNativeTarget "CapstoneTests" */ = {
 			isa = XCConfigurationList;
@@ -574,6 +575,7 @@
 				5B698FD71BB63300001DD03E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B698FD81BB63300001DD03E /* Build configuration list for PBXNativeTarget "CapstoneUITests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +584,7 @@
 				5B698FDA1BB63300001DD03E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
