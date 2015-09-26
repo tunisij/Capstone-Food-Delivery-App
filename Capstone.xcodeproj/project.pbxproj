@@ -151,7 +151,6 @@
 				5B698FEB1BB6339E001DD03E /* CoreGraphics.framework */,
 				5B698FE91BB63399001DD03E /* CFNetwork.framework */,
 				5B698FE71BB6338F001DD03E /* AudioToolbox.framework */,
-				5B698FDD1BB6337E001DD03E /* Bolts.framework */,
 				5B698FDE1BB6337E001DD03E /* Parse.framework */,
 				5B698FDF1BB6337E001DD03E /* ParseFacebookUtilsV4.framework */,
 				5B698FE01BB6337E001DD03E /* ParseTwitterUtils.framework */,
@@ -161,6 +160,7 @@
 				5B698FC11BB63300001DD03E /* CapstoneTests */,
 				5B698FCC1BB63300001DD03E /* CapstoneUITests */,
 				5B698FAB1BB63300001DD03E /* Products */,
+				5B698FDD1BB6337E001DD03E /* Bolts.framework */,
 			);
 			sourceTree = "<group>";
 		};

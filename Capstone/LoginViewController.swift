@@ -22,20 +22,20 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         super.viewDidAppear(animated)
         
         if PFUser.currentUser() == nil {
-            let loginTitle = UILabel()
-            let signupTitle = UILabel()
-            loginTitle.text = "Food Delivery"
-            signupTitle.text = "Food Delivery"
+//            let loginTitle = UILabel()
+//            let signupTitle = UILabel()
+//            loginTitle.text = "Food Delivery"
+//            signupTitle.text = "Food Delivery"
             
             let loginViewController = PFLogInViewController()
-            loginViewController.logInView?.logo = loginTitle
+//            loginViewController.logInView?.logo = loginTitle
             loginViewController.delegate = self
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook, .Twitter]
             
-            let signupViewController = PFSignUpViewController()
-            signupViewController.signUpView?.logo = signupTitle
-            signupViewController.delegate = self
-            loginViewController.signUpController = signupViewController
+//            let signupViewController = PFSignUpViewController()
+//            signupViewController.signUpView?.logo = signupTitle
+//            signupViewController.delegate = self
+//            loginViewController.signUpController = signupViewController
             
             self.presentViewController(loginViewController, animated: true, completion: nil)
             

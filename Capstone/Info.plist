@@ -78,5 +78,18 @@
             </dict>
         </dict>
     </dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb1636876426595192</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1636876426595192</string>
+    <key>FacebookDisplayName</key>
+    <string>Food Delivery</string>
 </dict>
 </plist>
