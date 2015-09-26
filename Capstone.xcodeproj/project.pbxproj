@@ -32,6 +32,8 @@
 		5B698FFA1BB633C9001DD03E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FF91BB633C9001DD03E /* libsqlite3.tbd */; };
 		5B698FFC1BB633CE001DD03E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FFB1BB633CE001DD03E /* Accounts.framework */; };
 		5B698FFE1BB633D3001DD03E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FFD1BB633D3001DD03E /* Social.framework */; };
+		5BF103FD1BB6511B00C5E318 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		5B698FF91BB633C9001DD03E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5B698FFB1BB633CE001DD03E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5B698FFD1BB633D3001DD03E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +96,14 @@
 			files = (
 				5B698FFE1BB633D3001DD03E /* Social.framework in Frameworks */,
 				5B698FFC1BB633CE001DD03E /* Accounts.framework in Frameworks */,
+				5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */,
 				5B698FFA1BB633C9001DD03E /* libsqlite3.tbd in Frameworks */,
 				5B698FF81BB633C2001DD03E /* libz.tbd in Frameworks */,
 				5B698FF61BB633BA001DD03E /* SystemConfiguration.framework in Frameworks */,
 				5B698FF41BB633B4001DD03E /* StoreKit.framework in Frameworks */,
 				5B698FF21BB633AF001DD03E /* Security.framework in Frameworks */,
 				5B698FF01BB633AA001DD03E /* QuartzCore.framework in Frameworks */,
+				5BF103FD1BB6511B00C5E318 /* FBSDKCoreKit.framework in Frameworks */,
 				5B698FEE1BB633A4001DD03E /* CoreLocation.framework in Frameworks */,
 				5B698FEC1BB6339E001DD03E /* CoreGraphics.framework in Frameworks */,
 				5B698FEA1BB63399001DD03E /* CFNetwork.framework in Frameworks */,
@@ -131,6 +137,8 @@
 		5B698FA11BB63300001DD03E = {
 			isa = PBXGroup;
 			children = (
+				5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */,
+				5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */,
 				5B698FFD1BB633D3001DD03E /* Social.framework */,
 				5B698FFB1BB633CE001DD03E /* Accounts.framework */,
 				5B698FF91BB633C9001DD03E /* libsqlite3.tbd */,
@@ -259,6 +267,7 @@
 		5B698FA21BB63300001DD03E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "John Tunisi";
 				TargetAttributes = {
@@ -473,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -481,6 +491,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gvsu.Capstone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -488,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -496,6 +509,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gvsu.Capstone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

@@ -19,6 +19,8 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if PFUser.currentUser() == nil {
             let loginTitle = UILabel()
             let signupTitle = UILabel()
