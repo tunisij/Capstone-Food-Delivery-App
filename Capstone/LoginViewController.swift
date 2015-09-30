@@ -39,6 +39,8 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
             
             self.presentViewController(loginViewController, animated: true, completion: nil)
             
+        } else {
+            self.performSegueWithIdentifier("mainMenuSeque", sender: self)
         }
     }
 

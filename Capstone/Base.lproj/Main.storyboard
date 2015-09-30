@@ -15,12 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oes-bk-gen">
+                                <rect key="frame" x="264" y="269" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="jeL-BC-blQ" kind="show" identifier="mainMenuSeque" id="xlO-ik-LWV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515" y="475"/>
+            <point key="canvasLocation" x="451" y="121"/>
         </scene>
         <!--Orders-->
         <scene sceneID="pbY-mi-geQ">
@@ -54,7 +67,7 @@
         <!--Home-->
         <scene sceneID="DBh-20-TUx">
             <objects>
-                <viewController id="nOg-9W-fK5" userLabel="Home" sceneMemberID="viewController">
+                <viewController id="nOg-9W-fK5" userLabel="Home" customClass="HomeViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fTv-3f-gAc"/>
                         <viewControllerLayoutGuide type="bottom" id="zT0-hT-dS3"/>
@@ -77,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RT1-m2-zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2738" y="1431"/>
+            <point key="canvasLocation" x="979" y="1391"/>
         </scene>
         <!--Settings-->
         <scene sceneID="SEc-VJ-TOO">
@@ -136,7 +149,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoO-8z-YKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248" y="475"/>
+            <point key="canvasLocation" x="1078" y="503"/>
         </scene>
         <!--Driver-->
         <scene sceneID="h2x-dE-wyR">
