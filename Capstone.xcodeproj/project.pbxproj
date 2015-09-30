@@ -137,30 +137,11 @@
 		5B698FA11BB63300001DD03E = {
 			isa = PBXGroup;
 			children = (
-				5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */,
-				5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */,
-				5B698FFD1BB633D3001DD03E /* Social.framework */,
-				5B698FFB1BB633CE001DD03E /* Accounts.framework */,
-				5B698FF91BB633C9001DD03E /* libsqlite3.tbd */,
-				5B698FF71BB633C2001DD03E /* libz.tbd */,
-				5B698FF51BB633BA001DD03E /* SystemConfiguration.framework */,
-				5B698FF31BB633B4001DD03E /* StoreKit.framework */,
-				5B698FF11BB633AF001DD03E /* Security.framework */,
-				5B698FEF1BB633AA001DD03E /* QuartzCore.framework */,
-				5B698FED1BB633A4001DD03E /* CoreLocation.framework */,
-				5B698FEB1BB6339E001DD03E /* CoreGraphics.framework */,
-				5B698FE91BB63399001DD03E /* CFNetwork.framework */,
-				5B698FE71BB6338F001DD03E /* AudioToolbox.framework */,
-				5B698FDE1BB6337E001DD03E /* Parse.framework */,
-				5B698FDF1BB6337E001DD03E /* ParseFacebookUtilsV4.framework */,
-				5B698FE01BB6337E001DD03E /* ParseTwitterUtils.framework */,
-				5B698FE11BB6337E001DD03E /* ParseUI.framework */,
-				5B698FDB1BB63305001DD03E /* MapKit.framework */,
+				AA3F2AFF1BBC840F00F47B1C /* Frameworks */,
 				5B698FAC1BB63300001DD03E /* Capstone */,
 				5B698FC11BB63300001DD03E /* CapstoneTests */,
 				5B698FCC1BB63300001DD03E /* CapstoneUITests */,
 				5B698FAB1BB63300001DD03E /* Products */,
-				5B698FDD1BB6337E001DD03E /* Bolts.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,6 +184,33 @@
 				5B698FCF1BB63300001DD03E /* Info.plist */,
 			);
 			path = CapstoneUITests;
+			sourceTree = "<group>";
+		};
+		AA3F2AFF1BBC840F00F47B1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B698FF91BB633C9001DD03E /* libsqlite3.tbd */,
+				5B698FF71BB633C2001DD03E /* libz.tbd */,
+				5B698FF11BB633AF001DD03E /* Security.framework */,
+				5B698FEF1BB633AA001DD03E /* QuartzCore.framework */,
+				5B698FED1BB633A4001DD03E /* CoreLocation.framework */,
+				5B698FEB1BB6339E001DD03E /* CoreGraphics.framework */,
+				5B698FE91BB63399001DD03E /* CFNetwork.framework */,
+				5B698FE71BB6338F001DD03E /* AudioToolbox.framework */,
+				5B698FDE1BB6337E001DD03E /* Parse.framework */,
+				5B698FDF1BB6337E001DD03E /* ParseFacebookUtilsV4.framework */,
+				5B698FE01BB6337E001DD03E /* ParseTwitterUtils.framework */,
+				5B698FE11BB6337E001DD03E /* ParseUI.framework */,
+				5B698FDB1BB63305001DD03E /* MapKit.framework */,
+				5B698FDD1BB6337E001DD03E /* Bolts.framework */,
+				5B698FF31BB633B4001DD03E /* StoreKit.framework */,
+				5B698FF51BB633BA001DD03E /* SystemConfiguration.framework */,
+				5B698FFB1BB633CE001DD03E /* Accounts.framework */,
+				5B698FFD1BB633D3001DD03E /* Social.framework */,
+				5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */,
+				5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
