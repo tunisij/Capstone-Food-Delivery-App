@@ -7,7 +7,7 @@
         <!--Orders-->
         <scene sceneID="pbY-mi-geQ">
             <objects>
-                <tableViewController id="nPb-cZ-Hs1" userLabel="Orders" sceneMemberID="viewController">
+                <tableViewController id="nPb-cZ-Hs1" userLabel="Orders" customClass="OrdersTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y4z-Bc-X6z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +95,7 @@
         <!--History-->
         <scene sceneID="iDy-gq-0mT">
             <objects>
-                <viewController id="q2y-bR-x1G" userLabel="History" sceneMemberID="viewController">
+                <viewController id="q2y-bR-x1G" userLabel="History" customClass="HistoryViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KbN-HJ-hiQ"/>
                         <viewControllerLayoutGuide type="bottom" id="8ii-Bk-BZq"/>
@@ -135,7 +135,7 @@
         <!--Driver-->
         <scene sceneID="h2x-dE-wyR">
             <objects>
-                <viewController id="fYL-v3-GrT" userLabel="Driver" sceneMemberID="viewController">
+                <viewController id="fYL-v3-GrT" userLabel="Driver" customClass="DriverViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A8W-3F-ADo"/>
                         <viewControllerLayoutGuide type="bottom" id="DWx-ep-EaA"/>
