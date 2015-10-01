@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ParseFacebookUtilsV4
 
 class SettingsViewController: UIViewController {
     
@@ -17,5 +18,10 @@ class SettingsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    @IBAction func logoutButton(sender: UIButton) {
+        PFUser.logOut()
+        self.performSegueWithIdentifier(loginSeque, sender: self)
     }
 }
