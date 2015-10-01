@@ -56,7 +56,6 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
             PFUser.currentUser()!.username = twitterUsername
             PFUser.currentUser()!.saveEventually(nil)
         } else if PFFacebookUtils.isLinkedWithUser(user) {
-         //  let facebookName = PFFacebookUtils.facebookLoginManager().
             getUserDataFromFacebookProfile(user)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
