@@ -14,12 +14,21 @@ import ParseFacebookUtilsV4
 
 class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
+    let driver = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        var tabBarViewControllers = self.viewControllers
+        
+        if !driver && tabBarViewControllers?.count == 5 {
+            tabBarViewControllers?.removeAtIndex(2)
+            self.setViewControllers(tabBarViewControllers, animated: true)
+        }
         
         if PFUser.currentUser() == nil {
             //let loginTitle = UILabel()
