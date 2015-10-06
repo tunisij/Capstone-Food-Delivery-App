@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="nPb-cZ-Hs1" id="f5i-G2-tWf"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Orders" id="8SW-42-A8A"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="Purchase Order-25" selectedImage="Purchase Order Filled-25" id="8SW-42-A8A"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0a-qp-z7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +104,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="6If-sO-TiX" userLabel="Settings"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings-25" selectedImage="Settings Filled-25" id="6If-sO-TiX" userLabel="Settings"/>
                     <connections>
                         <outlet property="driverSwitch" destination="nsX-ch-194" id="5Ex-PF-BIt"/>
                         <segue destination="jeL-BC-blQ" kind="show" identifier="loginSeque" id="9kQ-q5-Gbc"/>
@@ -128,7 +128,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" id="XZ3-m7-Mae" userLabel="History"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="XZ3-m7-Mae" userLabel="History"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mqx-aA-YH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +170,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Driver" id="pOM-lV-eQX" userLabel="Driver"/>
+                    <tabBarItem key="tabBarItem" title="Driver" image="Driver-25" selectedImage="Driver Filled-25" id="pOM-lV-eQX" userLabel="Driver"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDy-A6-6ws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,7 +180,7 @@
         <scene sceneID="dFV-19-Zpb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aCD-H8-UUY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="AQu-qh-b22" userLabel="Home"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home-25" selectedImage="Home Filled-25" id="AQu-qh-b22" userLabel="Home"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dfb-PJ-4qx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -197,4 +197,14 @@
             <point key="canvasLocation" x="1934" y="1581"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Driver Filled-25" width="25" height="25"/>
+        <image name="Driver-25" width="25" height="25"/>
+        <image name="Home Filled-25" width="25" height="25"/>
+        <image name="Home-25" width="25" height="25"/>
+        <image name="Purchase Order Filled-25" width="25" height="25"/>
+        <image name="Purchase Order-25" width="25" height="25"/>
+        <image name="Settings Filled-25" width="25" height="25"/>
+        <image name="Settings-25" width="25" height="25"/>
+    </resources>
 </document>
