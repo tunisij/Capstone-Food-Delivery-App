@@ -33,7 +33,6 @@
 		5B698FFE1BB633D3001DD03E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FFD1BB633D3001DD03E /* Social.framework */; };
 		5B94D8931BBCCB17006BD77E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94D8921BBCCB17006BD77E /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 		5B94D8951BBCCDCE006BD77E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94D8941BBCCDCE006BD77E /* MainTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
-		5BAB339F1BC33212006AD3C1 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB339E1BC33212006AD3C1 /* Order.swift */; settings = {ASSET_TAGS = (); }; };
 		5BF103FD1BB6511B00C5E318 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		AA3F2B011BBC85A800F47B1C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B001BBC85A800F47B1C /* HistoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -93,7 +92,6 @@
 		5B698FFD1BB633D3001DD03E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5B94D8921BBCCB17006BD77E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5B94D8941BBCCDCE006BD77E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		5BAB339E1BC33212006AD3C1 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = ../Order.swift; sourceTree = "<group>"; };
 		5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		AA3F2B001BBC85A800F47B1C /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */,
 				5B698FB11BB63300001DD03E /* Main.storyboard */,
 				5B94D8941BBCCDCE006BD77E /* MainTabBarController.swift */,
-				5BAB339E1BC33212006AD3C1 /* Order.swift */,
 				AA3F2B041BBC85CF00F47B1C /* OrdersTableViewController.swift */,
 				AA3F2B021BBC85B300F47B1C /* SettingsViewController.swift */,
 				5B698FB41BB63300001DD03E /* Assets.xcassets */,
@@ -373,7 +370,6 @@
 				AA3F2B051BBC85CF00F47B1C /* OrdersTableViewController.swift in Sources */,
 				AA3F2B011BBC85A800F47B1C /* HistoryViewController.swift in Sources */,
 				5B94D8951BBCCDCE006BD77E /* MainTabBarController.swift in Sources */,
-				5BAB339F1BC33212006AD3C1 /* Order.swift in Sources */,
 				5B94D8931BBCCB17006BD77E /* Constants.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,
 				AA3F2B031BBC85B300F47B1C /* SettingsViewController.swift in Sources */,
