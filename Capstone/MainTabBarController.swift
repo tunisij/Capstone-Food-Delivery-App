@@ -13,8 +13,7 @@ import ParseTwitterUtils
 import ParseFacebookUtilsV4
 
 class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
-    
-    let driver = false
+    var tabBarViewControllers:[UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +22,7 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        var tabBarViewControllers = self.viewControllers
-        
-        if !driver && tabBarViewControllers?.count == 5 {
-            tabBarViewControllers?.removeAtIndex(2)
-            self.setViewControllers(tabBarViewControllers, animated: true)
-        }
+        tabBarViewControllers = self.viewControllers!
         
         if PFUser.currentUser() == nil {
             //let loginTitle = UILabel()
@@ -50,6 +44,22 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
         }
     }
     
+    func checkIfDriver() -> Bool {
+        var driver = false
+        PFUser.currentUser()!.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
+            driver = ((PFUser.currentUser()!.objectForKey("Driver") as? Bool) == nil) ? false : PFUser.currentUser()!.objectForKey("Driver") as! Bool
+        }
+
+        return driver
+    }
+    
+    func setDriverTab(isDriver: Bool) -> Void {
+        if !isDriver && tabBarViewControllers.count == 5 {
+            tabBarViewControllers.removeAtIndex(2)
+            self.setViewControllers(tabBarViewControllers, animated: true)
+        }
+    }
+    
     func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
         
         if (!username.isEmpty || !password.isEmpty) {
@@ -68,6 +78,8 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
             getUserDataFromFacebookProfile(user)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        setDriverTab(checkIfDriver())
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
@@ -77,18 +89,15 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-        
         if (PFTwitterUtils.isLinkedWithUser(user)) {
             let twitterUsername = PFTwitterUtils.twitter()!.screenName
             PFUser.currentUser()!.username = twitterUsername
             PFUser.currentUser()!.saveEventually(nil)
         }
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
-        
         print("Failed to sign up...")
     }
     
@@ -118,4 +127,13 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
             thisUser.saveInBackground()
         })
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//        if (segue.identifier == "segueTest") {
+//            var svc = segue!.destinationViewController as SettingsViewController;
+//            
+//            svc.toPass = textField.text
+//            
+//        }
+//    }
 }

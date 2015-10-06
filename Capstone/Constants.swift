@@ -8,6 +8,7 @@
 
 
 let dismiss = "Dismiss"
+let driver = "Driver"
 let email = "email"
 let fields = "fields"
 let loginError = "Login Error"
@@ -16,3 +17,4 @@ let mainMenuSeque = "mainMenuSeque"
 let me = "me"
 let name = "name"
 let pleaseloginToTwitter = "Please login to Twitter"
+let user = "User"

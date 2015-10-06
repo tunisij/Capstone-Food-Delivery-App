@@ -79,19 +79,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9w-wX-hFe">
-                                <rect key="frame" x="212" y="96" width="48" height="30"/>
+                                <rect key="frame" x="20" y="28" width="48" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutButton:" destination="PXr-3e-QDt" eventType="touchUpInside" id="Eg0-5c-jmH"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nsX-ch-194">
+                                <rect key="frame" x="111" y="61" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="driverSwitch:" destination="PXr-3e-QDt" eventType="valueChanged" id="UT4-IY-ffH"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWP-QD-aag">
+                                <rect key="frame" x="20" y="66" width="46" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="6If-sO-TiX" userLabel="Settings"/>
                     <connections>
+                        <outlet property="driverSwitch" destination="nsX-ch-194" id="5Ex-PF-BIt"/>
                         <segue destination="jeL-BC-blQ" kind="show" identifier="loginSeque" id="9kQ-q5-Gbc"/>
                     </connections>
                 </viewController>
