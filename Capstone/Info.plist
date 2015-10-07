@@ -93,6 +93,8 @@
 	</array>
 	<key>FacebookAppID</key>
 	<string>1636876426595192</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Accessing location to find food places in the area</string>
 	<key>FacebookDisplayName</key>
 	<string>Food Delivery</string>
 </dict>
