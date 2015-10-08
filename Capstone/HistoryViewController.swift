@@ -9,10 +9,12 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
+    var model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let tbc = self.tabBarController  as! MainTabBarController
+        model = tbc.model
     }
     
     override func viewDidAppear(animated: Bool) {

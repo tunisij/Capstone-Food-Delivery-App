@@ -14,6 +14,7 @@ import ParseFacebookUtilsV4
 
 class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     var tabBarViewControllers:[UIViewController] = []
+    let model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,7 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
         }
         self.dismissViewControllerAnimated(true, completion: nil)
         
+        askForLocation()
         setDriverTab(checkIfDriver())
     }
     
@@ -128,12 +130,10 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
         })
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if (segue.identifier == "segueTest") {
-//            var svc = segue!.destinationViewController as SettingsViewController;
-//            
-//            svc.toPass = textField.text
-//            
-//        }
-//    }
+    func askForLocation() -> Void {
+        model.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        model.locationManager.requestWhenInUseAuthorization()
+        model.locationManager.startUpdatingLocation()
+    }
+
 }

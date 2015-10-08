@@ -6,4 +6,8 @@
 //  Copyright © 2015 John Tunisi. All rights reserved.
 //
 
-import Foundation
+import CoreLocation
+
+class Model {
+    let locationManager = CLLocationManager()
+}
