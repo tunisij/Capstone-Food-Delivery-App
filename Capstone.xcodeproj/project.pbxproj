@@ -37,9 +37,9 @@
 		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		AA3F2B011BBC85A800F47B1C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B001BBC85A800F47B1C /* HistoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		AA3F2B031BBC85B300F47B1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B021BBC85B300F47B1C /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AA3F2B051BBC85CF00F47B1C /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B041BBC85CF00F47B1C /* OrdersTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		AA3F2B071BBC85DC00F47B1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		AA3F2B091BBC85E600F47B1C /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B081BBC85E600F47B1C /* DriverViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		AAC55BA51BCC4808006CD873 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E00F29831BC5BDD2002DAA94 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00F29821BC5BDD2002DAA94 /* Model.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -97,9 +97,9 @@
 		5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		AA3F2B001BBC85A800F47B1C /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		AA3F2B021BBC85B300F47B1C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		AA3F2B041BBC85CF00F47B1C /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AA3F2B081BBC85E600F47B1C /* DriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		E00F29821BC5BDD2002DAA94 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,7 +180,7 @@
 				5B698FB11BB63300001DD03E /* Main.storyboard */,
 				5B94D8941BBCCDCE006BD77E /* MainTabBarController.swift */,
 				E00F29821BC5BDD2002DAA94 /* Model.swift */,
-				AA3F2B041BBC85CF00F47B1C /* OrdersTableViewController.swift */,
+				AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */,
 				AA3F2B021BBC85B300F47B1C /* SettingsViewController.swift */,
 				5B698FB41BB63300001DD03E /* Assets.xcassets */,
 				5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */,
@@ -370,7 +370,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA3F2B051BBC85CF00F47B1C /* OrdersTableViewController.swift in Sources */,
 				AA3F2B011BBC85A800F47B1C /* HistoryViewController.swift in Sources */,
 				5B94D8951BBCCDCE006BD77E /* MainTabBarController.swift in Sources */,
 				5B94D8931BBCCB17006BD77E /* Constants.swift in Sources */,
@@ -379,6 +378,7 @@
 				AA3F2B031BBC85B300F47B1C /* SettingsViewController.swift in Sources */,
 				AA3F2B091BBC85E600F47B1C /* DriverViewController.swift in Sources */,
 				AA3F2B071BBC85DC00F47B1C /* HomeViewController.swift in Sources */,
+				AAC55BA51BCC4808006CD873 /* OrdersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
