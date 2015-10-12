@@ -19,6 +19,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         let tbc = self.tabBarController  as! MainTabBarController
         model = tbc.model
         model.locationManager.delegate = self
+        
+        
+        
+        
+        
+        //dismiss keyboard
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -43,5 +54,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.mapView.showsPointsOfInterest = true
         self.mapView.showsCompass = true
         self.mapView.showsBuildings = true
+    }
+    
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }
