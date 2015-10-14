@@ -133,6 +133,7 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
     func askForLocation() -> Void {
         model.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         model.locationManager.requestWhenInUseAuthorization()
+        model.locationManager.requestLocation()
         model.locationManager.startUpdatingLocation()
     }
 

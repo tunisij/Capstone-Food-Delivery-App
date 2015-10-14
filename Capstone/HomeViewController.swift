@@ -25,6 +25,38 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         super.viewDidAppear(animated)
     }
     
+    override func viewDidLayoutSubviews() {
+        mapView.scrollEnabled = true
+        mapView.zoomEnabled = true
+        mapView.rotateEnabled = true
+        mapView.showsCompass = true
+        mapView.showsPointsOfInterest = true
+        mapView.reloadInputViews()
+        
+//        let request = MKLocalSearchRequest()
+//        request.naturalLanguageQuery = "Pizza"
+//        request.region = mapView.region
+//        
+//        let search = MKLocalSearch(request: request)
+//        
+//        search.startWithCompletionHandler({(response: MKLocalSearchResponse!,
+//            error: NSError!) in
+//            
+//            if error != nil {
+//                println("Error occured in search: \(error.localizedDescription)")
+//            } else if response.mapItems.count == 0 {
+//                println("No matches found")
+//            } else {
+//                println("Matches found")
+//                
+//                for item in response.mapItems as! [MKMapItems] {
+//                    println("Name = \(item.name)")
+//                    println("Phone = \(item.phoneNumber)")
+//                }
+//            }
+//        })
+    }
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let latitude = model.locationManager.location?.coordinate.latitude
         let longitude = model.locationManager.location?.coordinate.longitude
@@ -33,8 +65,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     func initZoom(latitude: Double, longitude: Double) -> Void {
         let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let span = MKCoordinateSpanMake(0.15, 0.12)
-        let region = MKCoordinateRegionMake(coordinate, span)
+        let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
         
         self.mapView.setRegion(region, animated: true)
     }
