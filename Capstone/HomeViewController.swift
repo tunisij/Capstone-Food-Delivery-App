@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var mapView: MKMapView!
     
     var model = Model()
+    var hasLocation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,30 +21,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         model = tbc.model
         model.locationManager.delegate = self
         
-        
-        
-        
-        
-        //dismiss keyboard
-        
-        //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         
+        hasLocation = false
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    override func viewDidLayoutSubviews() {
-        mapView.scrollEnabled = true
-        mapView.zoomEnabled = true
-        mapView.rotateEnabled = true
-        mapView.showsCompass = true
-        mapView.showsPointsOfInterest = true
-        mapView.reloadInputViews()
-        
+//    override func viewDidLayoutSubviews() {
 //        let request = MKLocalSearchRequest()
 //        request.naturalLanguageQuery = "Pizza"
 //        request.region = mapView.region
@@ -66,12 +54,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
 //                }
 //            }
 //        })
-    }
+//    }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let latitude = model.locationManager.location?.coordinate.latitude
-        let longitude = model.locationManager.location?.coordinate.longitude
-        initZoom(latitude!, longitude: longitude!)
+        if !hasLocation {
+            hasLocation = true
+            model.locationManager.stopUpdatingLocation()
+            model.locationManager.startMonitoringSignificantLocationChanges()
+            
+            let locationArray = locations as NSArray
+            let locationObj = locationArray.lastObject as! CLLocation
+            let coord = locationObj.coordinate
+            
+            initZoom(coord.latitude, longitude: coord.longitude)
+        }
     }
     
     func initZoom(latitude: Double, longitude: Double) -> Void {

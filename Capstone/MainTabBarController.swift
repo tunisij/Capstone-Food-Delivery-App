@@ -42,6 +42,8 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
             //            loginViewController.signUpController = signupViewController
             
             self.presentViewController(loginViewController, animated: false, completion: nil)
+        } else {
+            askForLocation()
         }
     }
     
@@ -133,7 +135,6 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
     func askForLocation() -> Void {
         model.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         model.locationManager.requestWhenInUseAuthorization()
-        model.locationManager.requestLocation()
         model.locationManager.startUpdatingLocation()
     }
 
