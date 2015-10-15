@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logoutButton(sender: UIButton) {
         PFUser.logOut()
-        self.performSegueWithIdentifier(loginSeque, sender: self)
+        self.performSegueWithIdentifier(loginSegue, sender: self)
     }
     
     @IBAction func driverSwitch(sender: UISwitch) {

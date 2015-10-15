@@ -4,137 +4,129 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Orders-->
-        <scene sceneID="pbY-mi-geQ">
+        <!--Orders Detail View Controller-->
+        <scene sceneID="DZI-IV-S9I">
             <objects>
-                <tableViewController id="nPb-cZ-Hs1" userLabel="Orders" customClass="OrdersTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y4z-Bc-X6z">
+                <viewController id="Ouc-sK-3cI" customClass="OrdersDetailViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xVG-5t-Fm4"/>
+                        <viewControllerLayoutGuide type="bottom" id="vdQ-ic-4EZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rfp-85-aO9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection headerTitle="In Progress Orders" id="tMo-Wc-tCO">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uaU-BN-CsC">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uaU-BN-CsC" id="Le0-mx-E8a">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SY-aa-KyW">
-                                                    <rect key="frame" x="19" y="7" width="89" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="+ Add Order"/>
-                                                </button>
-                                            </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vi9-dc-thK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AbQ-Nm-T8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3574" y="938"/>
+        </scene>
+        <!--Orders View Controller-->
+        <scene sceneID="gag-eF-g3f">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="hfZ-bq-QJ7" userLabel="Orders View Controller" customClass="OrdersTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kjk-0T-QVh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewRowCell" editingAccessoryType="disclosureIndicator" id="GLk-xD-qnE">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLk-xD-qnE" id="8R9-Fn-6Dk">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-HA-7P6">
+                                            <rect key="frame" x="8" y="7" width="103" height="30"/>
                                             <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2SV-RI-c4q">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2SV-RI-c4q" id="cty-PE-5MB">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbh-sD-b0f">
-                                                    <rect key="frame" x="19" y="7" width="89" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="+ Add Order"/>
-                                                </button>
-                                            </subviews>
+                                            <state key="normal" title="+ Add new row"/>
+                                            <connections>
+                                                <action selector="AddNewRow:" destination="hfZ-bq-QJ7" eventType="touchUpInside" id="afj-4W-Z6N"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" editingAccessoryType="disclosureIndicator" textLabel="HtG-sZ-qup" detailTextLabel="1Mm-BR-cok" style="IBUITableViewCellStyleSubtitle" id="tVX-WK-Tna">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tVX-WK-Tna" id="jri-rp-M97">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HtG-sZ-qup">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bDY-on-7Jm">
-                                        <rect key="frame" x="0.0" y="116" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bDY-on-7Jm" id="UiH-Ol-3uA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDk-Em-ab1">
-                                                    <rect key="frame" x="19" y="7" width="89" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="+ Add Order"/>
-                                                </button>
-                                            </subviews>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Mm-BR-cok">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Completed Orders" id="bHl-tb-1Q3">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6es-Bq-i9Z">
-                                        <rect key="frame" x="0.0" y="188" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6es-Bq-i9Z" id="DAE-v5-WEL">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8T-ZR-b4j">
-                                                    <rect key="frame" x="19" y="7" width="89" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="Groceries"/>
-                                                </button>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="O00-xA-bjL">
-                                        <rect key="frame" x="0.0" y="232" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O00-xA-bjL" id="eR5-Bc-dtf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaI-XP-DlR">
-                                                    <rect key="frame" x="19" y="7" width="89" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="+ Add Order"/>
-                                                </button>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XiE-HE-Zl9">
-                                        <rect key="frame" x="0.0" y="276" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XiE-HE-Zl9" id="Iqv-rW-xDn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aw-q9-CLg">
-                                                    <rect key="frame" x="19" y="7" width="89" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="+ Add Order"/>
-                                                </button>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <segue destination="9bI-Vw-Nqp" kind="showDetail" identifier="showOrderDetail" id="YSB-ne-T1S"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="nPb-cZ-Hs1" id="Fme-6S-8vZ"/>
-                            <outlet property="delegate" destination="nPb-cZ-Hs1" id="f5i-G2-tWf"/>
+                            <outlet property="dataSource" destination="hfZ-bq-QJ7" id="uxA-5L-oXu"/>
+                            <outlet property="delegate" destination="hfZ-bq-QJ7" id="nyG-wP-al9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Orders" image="Purchase Order-25" selectedImage="Purchase Order Filled-25" id="8SW-42-A8A"/>
+                    <navigationItem key="navigationItem" title="Orders" id="QHz-mI-k78" userLabel="Orders"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q0a-qp-z7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1o-OL-hpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="708"/>
+            <point key="canvasLocation" x="3574" y="226"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qk0-Ta-Feu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDU-XK-WxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="3HO-91-i6J" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nVF-q9-qPf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hfZ-bq-QJ7" kind="relationship" relationship="rootViewController" id="n3U-HA-C2e"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="2754" y="226"/>
+        </scene>
+        <!--Orders-->
+        <scene sceneID="Hyz-RC-GqE">
+            <objects>
+                <splitViewController id="WhM-gw-dTY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Orders" image="Purchase Order-25" selectedImage="Purchase Order Filled-25" id="pUS-HZ-K8z"/>
+                    <connections>
+                        <segue destination="3HO-91-i6J" kind="relationship" relationship="masterViewController" id="ZQX-CK-dMi"/>
+                        <segue destination="9bI-Vw-Nqp" kind="relationship" relationship="detailViewController" id="TYZ-gm-9TE"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCK-tg-YWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1934" y="556"/>
         </scene>
         <!--Home-->
         <scene sceneID="DBh-20-TUx">
@@ -235,32 +227,12 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings-25" selectedImage="Settings Filled-25" id="6If-sO-TiX" userLabel="Settings"/>
                     <connections>
                         <outlet property="driverSwitch" destination="nsX-ch-194" id="5Ex-PF-BIt"/>
-                        <segue destination="jeL-BC-blQ" kind="show" identifier="loginSeque" id="9kQ-q5-Gbc"/>
+                        <segue destination="jeL-BC-blQ" kind="show" identifier="loginSegue" id="9kQ-q5-Gbc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gx-UF-qeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="-159"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="iDy-gq-0mT">
-            <objects>
-                <viewController id="q2y-bR-x1G" userLabel="History" customClass="HistoryViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KbN-HJ-hiQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="8ii-Bk-BZq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5Ic-Ig-agZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="XZ3-m7-Mae" userLabel="History"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mqx-aA-YH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1934" y="-1028"/>
+            <point key="canvasLocation" x="1934" y="-245"/>
         </scene>
         <!--Title-->
         <scene sceneID="bEq-YB-05h">
@@ -274,9 +246,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="aCD-H8-UUY" kind="relationship" relationship="viewControllers" id="FKc-zM-IYu"/>
-                        <segue destination="nPb-cZ-Hs1" kind="relationship" relationship="viewControllers" id="w3W-73-3St"/>
+                        <segue destination="WhM-gw-dTY" kind="relationship" relationship="viewControllers" id="yPS-Jc-vCO"/>
                         <segue destination="fYL-v3-GrT" kind="relationship" relationship="viewControllers" id="Pb0-yp-Ss1"/>
-                        <segue destination="q2y-bR-x1G" kind="relationship" relationship="viewControllers" id="b85-f6-EB1"/>
                         <segue destination="PXr-3e-QDt" kind="relationship" relationship="viewControllers" id="c14-b6-4c9"/>
                     </connections>
                 </tabBarController>
@@ -324,6 +295,25 @@
             </objects>
             <point key="canvasLocation" x="1934" y="1581"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TTW-bL-h11">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9bI-Vw-Nqp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vhr-ck-gP4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ouc-sK-3cI" kind="relationship" relationship="rootViewController" id="0LA-Dh-QSA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pFx-wj-5Ki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2754" y="938"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Driver Filled-25" width="25" height="25"/>
@@ -335,4 +325,7 @@
         <image name="Settings Filled-25" width="25" height="25"/>
         <image name="Settings-25" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YSB-ne-T1S"/>
+    </inferredMetricsTieBreakers>
 </document>
