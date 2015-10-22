@@ -153,6 +153,7 @@
 		5B3157241BCF1B7E00657003 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */,
 				AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */,
 				5B3157251BCF281F00657003 /* OrdersDetailViewController.swift */,
 			);
@@ -191,7 +192,6 @@
 				5B3157241BCF1B7E00657003 /* Orders */,
 				5B94D8941BBCCDCE006BD77E /* MainTabBarController.swift */,
 				E00F29821BC5BDD2002DAA94 /* Model.swift */,
-				E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */,
 				AA3F2B021BBC85B300F47B1C /* SettingsViewController.swift */,
 				5B698FB41BB63300001DD03E /* Assets.xcassets */,
 				5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */,
