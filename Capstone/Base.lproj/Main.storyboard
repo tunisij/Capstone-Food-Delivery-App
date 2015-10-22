@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jeL-BC-blQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jeL-BC-blQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -42,9 +42,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-HA-7P6">
-                                            <rect key="frame" x="8" y="7" width="103" height="30"/>
+                                            <rect key="frame" x="8" y="7" width="181" height="30"/>
                                             <animations/>
-                                            <state key="normal" title="+ Add new row"/>
+                                            <state key="normal" title="+ Create a new order"/>
                                             <connections>
                                                 <action selector="AddNewRow:" destination="hfZ-bq-QJ7" eventType="touchUpInside" id="afj-4W-Z6N"/>
                                             </connections>
@@ -97,10 +97,28 @@
             </objects>
             <point key="canvasLocation" x="3574" y="226"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="xMy-Vb-dsT">
+            <objects>
+                <viewController id="9lS-Eh-6FN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jMk-QB-8rB"/>
+                        <viewControllerLayoutGuide type="bottom" id="hXu-kb-woL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="epy-lJ-qa5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qo0-DO-7g9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4272" y="226"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qk0-Ta-Feu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SDU-XK-WxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="3HO-91-i6J" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nVF-q9-qPf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -111,6 +129,7 @@
                         <segue destination="hfZ-bq-QJ7" kind="relationship" relationship="rootViewController" id="n3U-HA-C2e"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDU-XK-WxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2754" y="226"/>
         </scene>
