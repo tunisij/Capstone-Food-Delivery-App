@@ -31,11 +31,22 @@ class CustomerOrderViewController:  UIViewController {
     
     
     
+    override func viewDidLoad() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
     
     
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
     
     
 }
