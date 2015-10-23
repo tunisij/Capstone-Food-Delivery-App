@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jeL-BC-blQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Orders Detail View Controller-->
@@ -42,8 +43,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-HA-7P6">
-                                            <rect key="frame" x="8" y="7" width="181" height="30"/>
+                                            <rect key="frame" x="8" y="7" width="299" height="30"/>
                                             <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="+ Create a new order"/>
                                             <connections>
                                                 <action selector="AddNewRow:" destination="hfZ-bq-QJ7" eventType="touchUpInside" id="afj-4W-Z6N"/>
@@ -110,64 +112,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-kf-jwz">
-                                <rect key="frame" x="8" y="184" width="246" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a header for your order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nb-9u-8pE">
+                                <rect key="frame" x="20" y="87" width="296" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="aBV-gQ-hOX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-kf-jwz">
+                                <rect key="frame" x="20" y="116" width="246" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select order type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXf-5g-Sa1">
-                                <rect key="frame" x="14" y="222" width="246" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select order type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXf-5g-Sa1">
+                                <rect key="frame" x="20" y="154" width="246" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-3v-pEb">
-                                <rect key="frame" x="14" y="251" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-3v-pEb">
+                                <rect key="frame" x="20" y="183" width="51" height="31"/>
                                 <animations/>
                                 <connections>
                                     <action selector="CustomerOrderTypeSwitch:" destination="9lS-Eh-6FN" eventType="valueChanged" id="mWj-QU-3xE"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Groceries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4I-n2-yjM">
-                                <rect key="frame" x="82" y="251" width="182" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="z" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4I-n2-yjM">
+                                <rect key="frame" x="77" y="183" width="182" height="31"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="182" id="Swa-y9-6Xm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a description for your order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5d1-3M-WFM">
+                                <rect key="frame" x="20" y="230" width="258" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a description for your order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5d1-3M-WFM">
-                                <rect key="frame" x="8" y="290" width="258" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="one hard shell taco and a bean burrito with a XL baja blast" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MBE-pY-V1B">
-                                <rect key="frame" x="14" y="319" width="258" height="189"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="one hard shell taco and a bean burrito with a XL baja blast" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MBE-pY-V1B">
+                                <rect key="frame" x="20" y="259" width="258" height="94"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z5-l9-MmU">
-                                <rect key="frame" x="82" y="516" width="110" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z5-l9-MmU">
+                                <rect key="frame" x="88" y="372" width="110" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Order Complete"/>
                                 <connections>
                                     <segue destination="hfZ-bq-QJ7" kind="show" id="ndo-fE-u7I"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a header for your order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nb-9u-8pE">
-                                <rect key="frame" x="8" y="155" width="296" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YhP-3v-pEb" firstAttribute="top" secondItem="i4I-n2-yjM" secondAttribute="top" id="0pv-Qx-egc"/>
+                            <constraint firstItem="qXf-5g-Sa1" firstAttribute="leading" secondItem="YhP-3v-pEb" secondAttribute="leading" id="5LQ-iK-uD8"/>
+                            <constraint firstItem="i4I-n2-yjM" firstAttribute="centerX" secondItem="5Nb-9u-8pE" secondAttribute="centerX" id="8pQ-js-5Zs"/>
+                            <constraint firstItem="5d1-3M-WFM" firstAttribute="leading" secondItem="YhP-3v-pEb" secondAttribute="leading" id="9Rg-wS-kbM"/>
+                            <constraint firstItem="MBE-pY-V1B" firstAttribute="trailing" secondItem="5d1-3M-WFM" secondAttribute="trailing" id="Axg-mq-iIw"/>
+                            <constraint firstItem="iT0-kf-jwz" firstAttribute="top" secondItem="5Nb-9u-8pE" secondAttribute="bottom" constant="8" symbolic="YES" id="Ccj-H2-y3P"/>
+                            <constraint firstItem="7Z5-l9-MmU" firstAttribute="leading" secondItem="epy-lJ-qa5" secondAttribute="leadingMargin" constant="68" id="FNU-vo-mSH"/>
+                            <constraint firstItem="qXf-5g-Sa1" firstAttribute="top" secondItem="iT0-kf-jwz" secondAttribute="bottom" constant="8" symbolic="YES" id="INt-UY-dD2"/>
+                            <constraint firstItem="7Z5-l9-MmU" firstAttribute="top" secondItem="MBE-pY-V1B" secondAttribute="bottom" constant="19" id="IwN-KR-EhT"/>
+                            <constraint firstItem="5d1-3M-WFM" firstAttribute="top" secondItem="YhP-3v-pEb" secondAttribute="bottom" constant="16" id="KHe-V2-ISt"/>
+                            <constraint firstItem="MBE-pY-V1B" firstAttribute="top" secondItem="5d1-3M-WFM" secondAttribute="bottom" constant="8" symbolic="YES" id="MNc-N6-kkg"/>
+                            <constraint firstItem="MBE-pY-V1B" firstAttribute="leading" secondItem="5d1-3M-WFM" secondAttribute="leading" id="RrF-y0-Whv"/>
+                            <constraint firstItem="YhP-3v-pEb" firstAttribute="top" secondItem="qXf-5g-Sa1" secondAttribute="bottom" constant="8" symbolic="YES" id="ZBV-bv-s5U"/>
+                            <constraint firstItem="qXf-5g-Sa1" firstAttribute="centerX" secondItem="7Z5-l9-MmU" secondAttribute="centerX" id="gHm-GM-zxf"/>
+                            <constraint firstItem="i4I-n2-yjM" firstAttribute="leading" secondItem="YhP-3v-pEb" secondAttribute="trailing" constant="8" symbolic="YES" id="gkV-8s-csq"/>
+                            <constraint firstItem="iT0-kf-jwz" firstAttribute="leading" secondItem="5Nb-9u-8pE" secondAttribute="leading" id="h0r-Ez-M6h"/>
+                            <constraint firstItem="hXu-kb-woL" firstAttribute="top" secondItem="7Z5-l9-MmU" secondAttribute="bottom" constant="198" id="lgl-hd-OLl"/>
+                            <constraint firstItem="5Nb-9u-8pE" firstAttribute="top" secondItem="jMk-QB-8rB" secondAttribute="bottom" constant="67" id="m16-SF-zfh"/>
+                            <constraint firstItem="YhP-3v-pEb" firstAttribute="bottom" secondItem="i4I-n2-yjM" secondAttribute="bottom" id="osi-hx-lDg"/>
+                            <constraint firstItem="qXf-5g-Sa1" firstAttribute="leading" secondItem="iT0-kf-jwz" secondAttribute="leading" id="wrN-aX-Uqp"/>
+                            <constraint firstItem="qXf-5g-Sa1" firstAttribute="leading" secondItem="epy-lJ-qa5" secondAttribute="leadingMargin" id="ymz-9p-avx"/>
+                            <constraint firstItem="qXf-5g-Sa1" firstAttribute="trailing" secondItem="iT0-kf-jwz" secondAttribute="trailing" id="znZ-We-3eO"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="orderTypeLabel" destination="i4I-n2-yjM" id="cWl-fq-r85"/>

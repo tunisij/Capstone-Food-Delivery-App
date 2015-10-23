@@ -18,11 +18,11 @@ class CustomerOrderViewController:  UIViewController {
         
         if orderTypeSwitch.on {
             orderTypeLabel.text = "Fast Food"
-            orderTypeSwitch.setOn(false, animated: true)
+         //   orderTypeSwitch.setOn(false, animated: true)
         }
         else {
             orderTypeLabel.text = "Groceries"
-            orderTypeSwitch.setOn(true, animated: true)
+     //       orderTypeSwitch.setOn(true, animated: true)
             
         }
         
