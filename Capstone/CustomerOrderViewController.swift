@@ -14,15 +14,33 @@ class CustomerOrderViewController:  UIViewController {
     
     @IBOutlet weak var orderTypeLabel: UILabel!
     
+    var userOrder: CustomerOrder!
+    
+    @IBOutlet weak var headerField: UITextField!
+    
+    @IBOutlet weak var descriptionField: UITextView!
+    
+    var createdYet: Bool = false
+    
+    @IBAction func orderCompleteButton(sender: AnyObject) {
+        let oHead: String = headerField.text!
+        let oNum: Int = 1
+        let oDesc: String = descriptionField.text
+        
+        userOrder = CustomerOrder(name: oHead, number: oNum, message: oDesc)
+        createdYet = true
+        
+    }
+    
     @IBAction func CustomerOrderTypeSwitch(sender: AnyObject) {
         
         if orderTypeSwitch.on {
             orderTypeLabel.text = "Fast Food"
-         //   orderTypeSwitch.setOn(false, animated: true)
+          orderTypeSwitch.setOn(false, animated: true)
         }
         else {
             orderTypeLabel.text = "Groceries"
-     //       orderTypeSwitch.setOn(true, animated: true)
+            orderTypeSwitch.setOn(true, animated: true)
             
         }
         
