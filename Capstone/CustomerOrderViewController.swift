@@ -21,27 +21,29 @@ class CustomerOrderViewController:  UIViewController {
     @IBOutlet weak var descriptionField: UITextView!
     
     var createdYet: Bool = false
-    
+    var type: Bool = true
     @IBAction func orderCompleteButton(sender: AnyObject) {
+        print(createdYet)
         let oHead: String = headerField.text!
         let oNum: Int = 1
         let oDesc: String = descriptionField.text
         
         userOrder = CustomerOrder(name: oHead, number: oNum, message: oDesc)
         createdYet = true
+        print(userOrder.orderMessage)
         
     }
     
     @IBAction func CustomerOrderTypeSwitch(sender: AnyObject) {
-        
-        if orderTypeSwitch.on {
+        if (type){
             orderTypeLabel.text = "Fast Food"
           orderTypeSwitch.setOn(false, animated: true)
+            type = false
         }
         else {
             orderTypeLabel.text = "Groceries"
             orderTypeSwitch.setOn(true, animated: true)
-            
+            type = true
         }
         
         
@@ -50,6 +52,7 @@ class CustomerOrderViewController:  UIViewController {
     
     
     override func viewDidLoad() {
+        createdYet = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
 

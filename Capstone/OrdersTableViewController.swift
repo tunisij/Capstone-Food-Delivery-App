@@ -79,7 +79,6 @@ class OrdersTableViewController: UITableViewController {
     }
     
     // MARK: - Segues
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showOrderDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
