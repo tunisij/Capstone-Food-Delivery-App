@@ -9,8 +9,13 @@
 import UIKit
 
 class OrdersTableViewController: UITableViewController {
+    
+    var count: Int = 0
     var detailViewController: OrdersDetailViewController? = nil
+    var nextOrder: CustomerOrder = CustomerOrder(name: "TableTestHeader", number: -1, message: "TableTestMessage")
+    var orders = [CustomerOrder]()
     var objects = [AnyObject]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

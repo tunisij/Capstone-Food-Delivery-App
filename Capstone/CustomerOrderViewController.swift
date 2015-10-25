@@ -64,6 +64,22 @@ class CustomerOrderViewController:  UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "customerOrder"{
+            let vc = segue.destinationViewController as! OrdersTableViewController
+            if createdYet{
+                vc.nextOrder = userOrder
+                print(vc.nextOrder.orderMessage)
+            }
+            
+        }
+        //viewController.nextOrder = userOrder
+        
+    }
+    
+
 
     
     

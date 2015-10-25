@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,34 +12,41 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="JjO-Qu-Pqx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KTn-W9-kvw">
-                                <rect key="frame" x="20" y="28" width="286" height="248"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LaunchScreenNames" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-7p-IeY">
+                                <rect key="frame" x="61" y="310" width="427" height="270"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="286" id="BOm-v6-urx"/>
-                                    <constraint firstAttribute="height" constant="248" id="c2Q-Wc-OfD"/>
+                                    <constraint firstAttribute="width" constant="427" id="Cgg-RR-9lL"/>
+                                    <constraint firstAttribute="height" constant="270" id="d1I-du-EpI"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="427" id="jss-3F-os6"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenNames" translatesAutoresizingMaskIntoConstraints="NO" id="5pM-w7-Ud8">
-                                <rect key="frame" x="31" y="291" width="285" height="274"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F75-Nh-iH8">
+                                <rect key="frame" x="0.0" y="253" width="550" height="50"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="285" id="bu9-hT-xkK"/>
-                                </constraints>
-                            </imageView>
+                                <attributedString key="attributedText">
+                                    <fragment content="DeliveryPal">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="30" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KTn-W9-kvw" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="0CY-CP-FWL"/>
-                            <constraint firstItem="KTn-W9-kvw" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="1yX-F8-ER1"/>
-                            <constraint firstItem="5pM-w7-Ud8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="11" id="6lS-Ab-uGn"/>
-                            <constraint firstItem="5pM-w7-Ud8" firstAttribute="top" secondItem="KTn-W9-kvw" secondAttribute="bottom" constant="15" id="96C-fC-ySe"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="5pM-w7-Ud8" secondAttribute="bottom" constant="35" id="ECM-XV-z2d"/>
+                            <constraint firstItem="F75-Nh-iH8" firstAttribute="centerX" secondItem="JjO-Qu-Pqx" secondAttribute="centerX" constant="-36.5" id="Dnz-5g-uNE"/>
+                            <constraint firstItem="Ngo-7p-IeY" firstAttribute="centerX" secondItem="JjO-Qu-Pqx" secondAttribute="centerX" constant="-25.5" id="dW8-XS-uHF"/>
+                            <constraint firstItem="Ngo-7p-IeY" firstAttribute="top" secondItem="F75-Nh-iH8" secondAttribute="bottom" constant="8" id="isS-S4-wqg"/>
+                            <constraint firstItem="F75-Nh-iH8" firstAttribute="centerY" secondItem="JjO-Qu-Pqx" secondAttribute="centerY" constant="-22.5" id="rRI-W0-f7J"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -50,7 +56,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreenIcon" width="1920" height="1080"/>
         <image name="LaunchScreenNames" width="1920" height="1080"/>
     </resources>
 </document>
