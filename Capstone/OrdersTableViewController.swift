@@ -78,6 +78,17 @@ class OrdersTableViewController: UITableViewController {
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
+    
+    //alert box method
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        
+        let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for \(objects[indexPath.row].orderName)\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showOrderDetail" {
