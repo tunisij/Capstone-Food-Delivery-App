@@ -2,8 +2,8 @@
 //  HomeViewController.swift
 //  Capstone
 //
-//  Created by Ethan Christensen on 9/30/15.
-//  Copyright © 2015 John Tunisi. All rights reserved.
+//  Created by John Tunisi, Ross Bryan, Ethan Christensen,  Ethan Keel  on 9/30/15.
+//  Copyright © 2015 John Tunisi, Ross Bryan, Ethan Christensen,  Ethan Keel.  All rights reserved.
 //
 
 import UIKit

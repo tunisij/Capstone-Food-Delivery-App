@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Capstone
 //
-//  Created by John Tunisi on 9/25/15.
+//  Created by John Tunisi, Ross Bryan, Ethan Christensen,  Ethan Keel on 9/25/15.
 //  Copyright © 2015 John Tunisi. All rights reserved.
 //
 
