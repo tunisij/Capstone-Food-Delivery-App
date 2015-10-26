@@ -13,8 +13,8 @@ class OrdersTableViewController: UITableViewController {
     var count: Int = 0
     var detailViewController: OrdersDetailViewController? = nil
     var nextOrder: CustomerOrder = CustomerOrder(name: "TableTestHeader", number: -1, message: "TableTestMessage")
-    var orders = [CustomerOrder]()
-    var objects = [AnyObject]()
+    var objects = [CustomerOrder]()
+  //  var objects = [AnyObject]()
 
 
     override func viewDidLoad() {
@@ -53,8 +53,8 @@ class OrdersTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCellWithIdentifier("AddNewRowCell", forIndexPath: indexPath)
         } else {
             cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-            let object = objects[indexPath.row] as! NSDate
-            cell.textLabel!.text = object.description
+            let object = objects[indexPath.row]
+            cell.textLabel!.text = object.orderName
         }
         return cell
     }
@@ -73,7 +73,7 @@ class OrdersTableViewController: UITableViewController {
     }
     
     func insertNewObject(sender: AnyObject, index: Int) {
-        objects.insert(NSDate(), atIndex: 0)
+        objects.insert(nextOrder, atIndex: 0)
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -82,7 +82,8 @@ class OrdersTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showOrderDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                
+                let object = objects[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! OrdersDetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()

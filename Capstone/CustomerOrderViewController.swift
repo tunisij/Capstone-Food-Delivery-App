@@ -22,6 +22,8 @@ class CustomerOrderViewController:  UIViewController {
     
     var createdYet: Bool = false
     var type: Bool = true
+    
+    
     @IBAction func orderCompleteButton(sender: AnyObject) {
         print(createdYet)
         let oHead: String = headerField.text!
@@ -67,6 +69,9 @@ class CustomerOrderViewController:  UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

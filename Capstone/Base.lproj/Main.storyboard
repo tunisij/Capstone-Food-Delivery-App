@@ -29,7 +29,7 @@
                                             <state key="normal" title="+ Create a new order"/>
                                             <connections>
                                                 <action selector="AddNewRow:" destination="hfZ-bq-QJ7" eventType="touchUpInside" id="afj-4W-Z6N"/>
-                                                <segue destination="9lS-Eh-6FN" kind="show" id="Xvx-cv-uOJ"/>
+                                                <segue destination="9lS-Eh-6FN" kind="show" identifier="customerOrder" id="Xvx-cv-uOJ"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -65,7 +65,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="Bw1-xB-YKM" kind="show" id="ax5-aQ-OwV"/>
+                                    <segue destination="Bw1-xB-YKM" kind="show" identifier="detailView" id="ax5-aQ-OwV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -170,7 +170,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-kf-jwz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Taco Bell" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-kf-jwz">
                                 <rect key="frame" x="20" y="116" width="246" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
