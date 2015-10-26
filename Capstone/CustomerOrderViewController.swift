@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-class CustomerOrderViewController:  UIViewController {
-    @IBOutlet weak var orderTypeSwitch: UISwitch!
+class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    
     
     @IBOutlet weak var orderTypeLabel: UILabel!
     
@@ -21,6 +22,25 @@ class CustomerOrderViewController:  UIViewController {
     
     var createdYet: Bool = false
     var type: Bool = true
+    
+    
+    @IBOutlet weak var picker: UIPickerView!
+     var pickerData: [String] = [String]()
+    
+    // The number of columns of data
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
     
     
     @IBAction func orderCompleteButton(sender: AnyObject) {
@@ -35,27 +55,19 @@ class CustomerOrderViewController:  UIViewController {
         
     }
     
-    @IBAction func CustomerOrderTypeSwitch(sender: AnyObject) {
-        if (type){
-            orderTypeLabel.text = "Fast Food"
-          orderTypeSwitch.setOn(false, animated: true)
-            type = false
-        }
-        else {
-            orderTypeLabel.text = "Groceries"
-            orderTypeSwitch.setOn(true, animated: true)
-            type = true
-        }
-        
-        
-    }
-    
     
     
     override func viewDidLoad() {
         createdYet = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
+        
+        // Connect data:
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        
+        // Input data into the Array:
+        pickerData = ["Pick Up", "Fast Food", "Groceries"]
 
     }
     
