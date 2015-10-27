@@ -13,7 +13,7 @@ class CustomerOrder{
     let orderName: String;
     let orderNumber: Int;
     var orderMessage: String;
-    
+    //var orderType: String
     
     
     

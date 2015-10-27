@@ -28,7 +28,7 @@
                                             <state key="normal" title="+ Create a new order"/>
                                             <connections>
                                                 <action selector="AddNewRow:" destination="hfZ-bq-QJ7" eventType="touchUpInside" id="afj-4W-Z6N"/>
-                                                <segue destination="9lS-Eh-6FN" kind="show" identifier="customerOrder" id="Xvx-cv-uOJ"/>
+                                                <segue destination="9lS-Eh-6FN" kind="show" id="7Yu-UR-hFU"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -46,7 +46,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="Bw1-xB-YKM" kind="show" identifier="detailView" id="ax5-aQ-OwV"/>
+                                    <segue destination="GKW-th-cxw" kind="show" identifier="detailView" id="ax5-aQ-OwV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -119,6 +119,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Qc6-JD-AjM"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="GGW-P2-4us" id="qcH-fS-5xo"/>
                         <outlet property="headerLabel" destination="HI7-01-GnN" id="X8f-VO-eGB"/>
@@ -127,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUO-ZT-8K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608" y="489"/>
+            <point key="canvasLocation" x="4420" y="489"/>
         </scene>
         <!--Customer Order View Controller-->
         <scene sceneID="xMy-Vb-dsT">
@@ -142,64 +143,115 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a header for your order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nb-9u-8pE">
-                                <rect key="frame" x="20" y="87" width="296" height="21"/>
+                                <rect key="frame" x="10" y="72" width="276" height="28"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Taco Bell" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-kf-jwz">
-                                <rect key="frame" x="20" y="116" width="246" height="30"/>
+                                <rect key="frame" x="12" y="108" width="274" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select order type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXf-5g-Sa1">
-                                <rect key="frame" x="20" y="154" width="246" height="21"/>
+                                <rect key="frame" x="12" y="146" width="246" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="one hard shell taco and a bean burrito with a XL baja blast" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MBE-pY-V1B">
-                                <rect key="frame" x="14" y="397" width="258" height="94"/>
+                                <rect key="frame" x="4" y="297" width="266" height="94"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z5-l9-MmU">
-                                <rect key="frame" x="20" y="490" width="239" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Save Order"/>
-                                <connections>
-                                    <action selector="orderCompleteButton:" destination="9lS-Eh-6FN" eventType="touchUpInside" id="yI7-Sd-AZc"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a description for your order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5d1-3M-WFM">
-                                <rect key="frame" x="10" y="368" width="258" height="21"/>
+                                <rect key="frame" x="4" y="261" width="258" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHv-Bo-p6j">
-                                <rect key="frame" x="20" y="192" width="246" height="147"/>
+                                <rect key="frame" x="10" y="167" width="276" height="71"/>
                                 <animations/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z5-l9-MmU">
+                                <rect key="frame" x="0.0" y="510" width="266" height="41"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Save Order">
+                                    <color key="titleColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="orderCompleteButton:" destination="9lS-Eh-6FN" eventType="touchUpInside" id="yI7-Sd-AZc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Delivery Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2D-GX-Dz5">
+                                <rect key="frame" x="4" y="351" width="258" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-MA-3bQ">
+                                <rect key="frame" x="4" y="380" width="72" height="28"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFr-6G-nP7">
+                                <rect key="frame" x="4" y="416" width="72" height="42"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Zip Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ5-hv-oTt">
+                                <rect key="frame" x="4" y="458" width="86" height="44"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-He-iMd">
+                                <rect key="frame" x="84" y="377" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-gk-4hS">
+                                <rect key="frame" x="84" y="420" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bS8-JP-9le">
+                                <rect key="frame" x="84" y="465" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="adressField" destination="2Bv-He-iMd" id="ASR-ar-qn1"/>
+                        <outlet property="cityField" destination="xEu-gk-4hS" id="65O-E4-tkO"/>
                         <outlet property="descriptionField" destination="MBE-pY-V1B" id="c5L-O3-50W"/>
                         <outlet property="headerField" destination="iT0-kf-jwz" id="Jma-ga-17b"/>
                         <outlet property="picker" destination="GHv-Bo-p6j" id="lY8-M8-rN0"/>
+                        <outlet property="zipField" destination="bS8-JP-9le" id="ajt-yJ-QkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo0-DO-7g9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4350" y="-241"/>
+            <point key="canvasLocation" x="4286" y="-241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qk0-Ta-Feu">
@@ -397,6 +449,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxd-Ud-EvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1934" y="1581"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OCT-UK-YEG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GKW-th-cxw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h6M-AY-hdt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bw1-xB-YKM" kind="relationship" relationship="rootViewController" id="Trd-3H-L03"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1oa-C6-6ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3608" y="489"/>
         </scene>
     </scenes>
     <resources>

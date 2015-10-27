@@ -6,15 +6,18 @@
 //  Copyright © 2015 JJohn Tunisi, Ross Bryan, Ethan Christensen,  Ethan Keel . All rights reserved.
 //
 
+
 import UIKit
+import Parse
 
 class OrdersTableViewController: UITableViewController {
     
     var count: Int = 0
     var detailViewController: OrdersDetailViewController? = nil
     var nextOrder: CustomerOrder = CustomerOrder(name: "TableTestHeader", number: -1, message: "TableTestMessage")
-    var objects = [CustomerOrder]()
-  //  var objects = [AnyObject]()
+  
+    
+    
 
 
     override func viewDidLoad() {
@@ -43,7 +46,7 @@ class OrdersTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return globalOrders.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -53,7 +56,7 @@ class OrdersTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCellWithIdentifier("AddNewRowCell", forIndexPath: indexPath)
         } else {
             cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-            let object = objects[indexPath.row]
+            let object = globalOrders[indexPath.row]
             cell.textLabel!.text = object.orderName
         }
         return cell
@@ -65,7 +68,7 @@ class OrdersTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
+            globalOrders.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -73,7 +76,7 @@ class OrdersTableViewController: UITableViewController {
     }
     
     func insertNewObject(sender: AnyObject, index: Int) {
-        objects.insert(nextOrder, atIndex: 0)
+        globalOrders.insert(nextOrder, atIndex: 0)
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -82,7 +85,7 @@ class OrdersTableViewController: UITableViewController {
     //alert box method
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         
-        let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for \(objects[indexPath.row].orderName)\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for \(globalOrders[indexPath.row].orderName)\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
         
@@ -94,7 +97,7 @@ class OrdersTableViewController: UITableViewController {
         if segue.identifier == "showOrderDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 
-                let object = objects[indexPath.row]
+                let object = globalOrders[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! OrdersDetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -106,4 +109,44 @@ class OrdersTableViewController: UITableViewController {
     @IBAction func AddNewRow(sender: UIButton) {
         insertNewObject(self, index: 1)
     }
+    
+    /*
+    func retrievePlaces() {
+        let query = PFQuery(className: parseOrderClass)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) in
+            if error == nil {
+                let pfobjects = objects as! [PFObject]
+                for object in pfobjects {
+                    let place = object[self.placeColumnKey] as! String
+                    let vote = object[self.voteColumnKey] as! Int
+                    if !self.eateries.contains(place) {
+                        self.eateries.append(place)
+                        self.votes.append(vote)
+                        self.updateTableView()
+                    }
+                }
+            } else {
+                print("Error: \(error!)")
+            }
+        }
+        */
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+

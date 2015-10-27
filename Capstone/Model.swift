@@ -9,5 +9,16 @@
 import CoreLocation
 
 class Model {
+    var userOrder: CustomerOrder
     let locationManager = CLLocationManager()
+    
+    init(order: CustomerOrder){
+        userOrder = order
+    }
+    
+    init(){
+        userOrder = CustomerOrder(name: "a", number: 1, message: "a")
+    }
+    
+    
 }

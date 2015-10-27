@@ -6,7 +6,6 @@
 //  Copyright © 2015 John Tunisi. All rights reserved.
 //
 
-
 let dismiss = "Dismiss"
 let driver = "Driver"
 let email = "email"
@@ -16,6 +15,10 @@ let loginSegue = "loginSegue"
 let mainMenuSegue = "mainMenuSegue"
 let me = "me"
 let name = "name"
+let parseOrderClass = "order"
 let pleaseloginToTwitter = "Please login to Twitter"
 let showOrderDetail = "showOrderDetail"
 let user = "User"
+
+var globalOrders = [CustomerOrder]()
+
