@@ -8,6 +8,7 @@
 
 import UIKit
 import ParseFacebookUtilsV4
+import MMDrawerController
 
 class SettingsViewController: UIViewController {
     var currentUser = PFUser.currentUser()
@@ -17,10 +18,10 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tbc = self.tabBarController  as! MainTabBarController
-        model = tbc.model
-        
-        driverSwitch.setOn(checkIfDriver(), animated: false)
+//        let tbc = self.tabBarController  as! MainTabBarController
+//        model = tbc.model
+//        
+//        driverSwitch.setOn(checkIfDriver(), animated: false)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -48,5 +49,10 @@ class SettingsViewController: UIViewController {
             PFUser.currentUser()?.setValue(false, forKey: driver)
         }
         PFUser.currentUser()?.saveEventually()
+    }
+    
+    @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
 }

@@ -9,6 +9,7 @@
 
 import UIKit
 import Parse
+import MMDrawerController
 
 class OrdersTableViewController: UITableViewController {
     
@@ -108,6 +109,11 @@ class OrdersTableViewController: UITableViewController {
     
     @IBAction func AddNewRow(sender: UIButton) {
         insertNewObject(self, index: 1)
+    }
+    
+    @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
     /*

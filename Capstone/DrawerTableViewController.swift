@@ -33,50 +33,49 @@ class DrawerTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("showView", forIndexPath: indexPath)
-        
-        switch indexPath.row {
+        let cell = tableView.dequeueReusableCellWithIdentifier("DrawerCell", forIndexPath: indexPath)
+    
+        cell.textLabel?.text = labels[indexPath.row]
+
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch (indexPath.row) {
         case 0:
-            let centerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
-            let centerNavController = UINavigationController(rootViewController: centerViewController)
+            let homeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+            let homeNavController = UINavigationController(rootViewController: homeViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
-            appDelegate.centerContainer!.centerViewController = centerNavController
+            appDelegate.centerContainer!.centerViewController = homeNavController
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         case 1:
-            let centerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("OrdersTableViewController") as! OrdersTableViewController
-            let centerNavController = UINavigationController(rootViewController: centerViewController)
+            let ordersTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("OrdersTableViewController") as! OrdersTableViewController
+            let ordersTableNavController = UINavigationController(rootViewController: ordersTableViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
-            appDelegate.centerContainer!.centerViewController = centerNavController
+            appDelegate.centerContainer!.centerViewController = ordersTableNavController
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         case 2:
-            let centerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DriverViewController") as! DriverViewController
-            let centerNavController = UINavigationController(rootViewController: centerViewController)
+            let driverViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DriverViewController") as! DriverViewController
+            let driverNavController = UINavigationController(rootViewController: driverViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
-            appDelegate.centerContainer!.centerViewController = centerNavController
+            appDelegate.centerContainer!.centerViewController = driverNavController
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         case 3:
-            let centerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
-            let centerNavController = UINavigationController(rootViewController: centerViewController)
+            let settingsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
+            let settingsNavController = UINavigationController(rootViewController: settingsViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
-            appDelegate.centerContainer!.centerViewController = centerNavController
+            appDelegate.centerContainer!.centerViewController = settingsNavController
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         default: break
-
         }
-        
-        
-
-        // Configure the cell...
-
-        return cell
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jeL-BC-blQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aCD-H8-UUY">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Orders View Controller-->
         <scene sceneID="gag-eF-g3f">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="hfZ-bq-QJ7" userLabel="Orders View Controller" customClass="OrdersTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OrdersTableViewController" clearsSelectionOnViewWillAppear="NO" id="hfZ-bq-QJ7" userLabel="Orders View Controller" customClass="OrdersTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kjk-0T-QVh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,11 +55,17 @@
                             <outlet property="delegate" destination="hfZ-bq-QJ7" id="nyG-wP-al9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Orders" id="QHz-mI-k78" userLabel="Orders"/>
+                    <navigationItem key="navigationItem" title="Orders" id="QHz-mI-k78" userLabel="Orders">
+                        <barButtonItem key="leftBarButtonItem" image="Menu Filled-25" id="jyi-S3-y0z">
+                            <connections>
+                                <action selector="drawerMenuClicked:" destination="hfZ-bq-QJ7" id="MPI-tz-hvB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1o-OL-hpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608" y="-241"/>
+            <point key="canvasLocation" x="1003" y="204"/>
         </scene>
         <!--Orders Detail View Controller-->
         <scene sceneID="e17-zy-83e">
@@ -128,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUO-ZT-8K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4420" y="489"/>
+            <point key="canvasLocation" x="2448" y="204"/>
         </scene>
         <!--Customer Order View Controller-->
         <scene sceneID="xMy-Vb-dsT">
@@ -251,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo0-DO-7g9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4286" y="-241"/>
+            <point key="canvasLocation" x="1728" y="-509"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qk0-Ta-Feu">
@@ -268,25 +274,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDU-XK-WxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2762" y="-222"/>
-        </scene>
-        <!--Orders-->
-        <scene sceneID="Hyz-RC-GqE">
-            <objects>
-                <splitViewController id="WhM-gw-dTY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Orders" image="Purchase Order-25" selectedImage="Purchase Order Filled-25" id="pUS-HZ-K8z"/>
-                    <connections>
-                        <segue destination="3HO-91-i6J" kind="relationship" relationship="masterViewController" id="ZQX-CK-dMi"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pCK-tg-YWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1998" y="-212"/>
+            <point key="canvasLocation" x="274" y="204"/>
         </scene>
         <!--Home-->
         <scene sceneID="DBh-20-TUx">
             <objects>
-                <viewController id="nOg-9W-fK5" userLabel="Home" customClass="HomeViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="nOg-9W-fK5" userLabel="Home" customClass="HomeViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fTv-3f-gAc"/>
                         <viewControllerLayoutGuide type="bottom" id="zT0-hT-dS3"/>
@@ -332,19 +325,25 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Lo-Pv-NUa"/>
+                    <navigationItem key="navigationItem" id="5Lo-Pv-NUa">
+                        <barButtonItem key="leftBarButtonItem" image="Menu Filled-25" id="lMk-5Y-jUs">
+                            <connections>
+                                <action selector="drawerMenuClicked:" destination="nOg-9W-fK5" id="tGK-x6-sYW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="W23-Ha-ugU" id="Q3p-pe-gwh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RT1-m2-zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2655" y="1581"/>
+            <point key="canvasLocation" x="1003" y="1615"/>
         </scene>
         <!--Settings-->
         <scene sceneID="SEc-VJ-TOO">
             <objects>
-                <viewController id="PXr-3e-QDt" userLabel="Settings" customClass="SettingsViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="PXr-3e-QDt" userLabel="Settings" customClass="SettingsViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dMf-p0-jhe"/>
                         <viewControllerLayoutGuide type="bottom" id="dbF-O1-zsf"/>
@@ -361,59 +360,43 @@
                                     <action selector="logoutButton:" destination="PXr-3e-QDt" eventType="touchUpInside" id="Eg0-5c-jmH"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nsX-ch-194">
-                                <rect key="frame" x="111" y="61" width="51" height="31"/>
-                                <animations/>
-                                <connections>
-                                    <action selector="driverSwitch:" destination="PXr-3e-QDt" eventType="valueChanged" id="UT4-IY-ffH"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWP-QD-aag">
-                                <rect key="frame" x="20" y="66" width="46" height="21"/>
+                                <rect key="frame" x="20" y="77" width="46" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nsX-ch-194">
+                                <rect key="frame" x="74" y="72" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="driverSwitch:" destination="PXr-3e-QDt" eventType="valueChanged" id="UT4-IY-ffH"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="Settings-25" selectedImage="Settings Filled-25" id="6If-sO-TiX" userLabel="Settings"/>
+                    <navigationItem key="navigationItem" id="8NG-b2-Omy">
+                        <barButtonItem key="leftBarButtonItem" image="Menu Filled-25" id="8Qe-Hb-ekq">
+                            <connections>
+                                <action selector="drawerMenuClicked:" destination="PXr-3e-QDt" id="0co-Vi-Pi4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="driverSwitch" destination="nsX-ch-194" id="5Ex-PF-BIt"/>
-                        <segue destination="jeL-BC-blQ" kind="show" identifier="loginSegue" id="9kQ-q5-Gbc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gx-UF-qeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="-241"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="bEq-YB-05h">
-            <objects>
-                <tabBarController title="Title" id="jeL-BC-blQ" customClass="MainTabBarController" customModule="Capstone" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="T8l-XP-lM4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="aCD-H8-UUY" kind="relationship" relationship="viewControllers" id="FKc-zM-IYu"/>
-                        <segue destination="WhM-gw-dTY" kind="relationship" relationship="viewControllers" id="yPS-Jc-vCO"/>
-                        <segue destination="fYL-v3-GrT" kind="relationship" relationship="viewControllers" id="Pb0-yp-Ss1"/>
-                        <segue destination="PXr-3e-QDt" kind="relationship" relationship="viewControllers" id="c14-b6-4c9"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aoO-8z-YKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1078" y="503"/>
+            <point key="canvasLocation" x="1003" y="919"/>
         </scene>
         <!--Driver-->
         <scene sceneID="h2x-dE-wyR">
             <objects>
-                <viewController id="fYL-v3-GrT" userLabel="Driver" customClass="DriverViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverViewController" id="fYL-v3-GrT" userLabel="Driver" customClass="DriverViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A8W-3F-ADo"/>
                         <viewControllerLayoutGuide type="bottom" id="DWx-ep-EaA"/>
@@ -424,11 +407,17 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Driver" image="Driver-25" selectedImage="Driver Filled-25" id="pOM-lV-eQX" userLabel="Driver"/>
+                    <navigationItem key="navigationItem" id="Luz-jn-gBD">
+                        <barButtonItem key="leftBarButtonItem" image="Menu Filled-25" id="bAl-TP-Y1R">
+                            <connections>
+                                <action selector="drawerMenuClicked:" destination="fYL-v3-GrT" id="div-xJ-2dD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDy-A6-6ws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="2486"/>
+            <point key="canvasLocation" x="1003" y="2316"/>
         </scene>
         <!--Home-->
         <scene sceneID="dFV-19-Zpb">
@@ -448,7 +437,48 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxd-Ud-EvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="1581"/>
+            <point key="canvasLocation" x="274" y="1615"/>
+        </scene>
+        <!--Drawer Table View Controller-->
+        <scene sceneID="h92-UE-bG6">
+            <objects>
+                <tableViewController storyboardIdentifier="DrawerTableViewController" id="Hg9-eO-4SJ" customClass="DrawerTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QQM-5C-JiC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrawerCell" textLabel="amC-6V-ba2" style="IBUITableViewCellStyleDefault" id="N9n-8c-Xxc">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N9n-8c-Xxc" id="C24-Jn-CmD">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="amC-6V-ba2">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Hg9-eO-4SJ" id="qXq-0d-GRq"/>
+                            <outlet property="delegate" destination="Hg9-eO-4SJ" id="7QZ-wh-sK7"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B5d-Np-cUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458" y="1615"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OCT-UK-YEG">
@@ -467,7 +497,47 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oa-C6-6ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608" y="489"/>
+            <point key="canvasLocation" x="1728" y="204"/>
+        </scene>
+        <!--Driver-->
+        <scene sceneID="BaN-wd-hAp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lb8-RI-vz9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Driver" image="Driver-25" selectedImage="Driver Filled-25" id="pOM-lV-eQX" userLabel="Driver"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6TZ-Iu-ehI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fYL-v3-GrT" kind="relationship" relationship="rootViewController" id="phn-19-1o9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TnD-HK-Yqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="2316"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="jCl-QD-5sD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q7x-oV-Zpo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings-25" selectedImage="Settings Filled-25" id="6If-sO-TiX" userLabel="Settings"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tup-df-LsX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PXr-3e-QDt" kind="relationship" relationship="rootViewController" id="BY7-Fd-tRk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZVP-JO-N96" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="919"/>
         </scene>
     </scenes>
     <resources>
@@ -475,8 +545,7 @@
         <image name="Driver-25" width="25" height="25"/>
         <image name="Home Filled-25" width="25" height="25"/>
         <image name="Home-25" width="25" height="25"/>
-        <image name="Purchase Order Filled-25" width="25" height="25"/>
-        <image name="Purchase Order-25" width="25" height="25"/>
+        <image name="Menu Filled-25" width="25" height="25"/>
         <image name="Settings Filled-25" width="25" height="25"/>
         <image name="Settings-25" width="25" height="25"/>
     </resources>

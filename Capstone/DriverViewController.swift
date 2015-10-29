@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMDrawerController
 
 class DriverViewController: UIViewController {
     var model = Model()
@@ -19,5 +20,10 @@ class DriverViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
 }
