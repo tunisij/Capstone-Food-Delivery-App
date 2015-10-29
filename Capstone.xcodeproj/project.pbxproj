@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B971BE2C24E00351796 /* DrawerTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B698FAD1BB63300001DD03E /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		1680421F72E45D1DE78B1F24 /* Pods-Capstone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0E2C67F159ADFD8B136839 /* Pods-Capstone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.release.xcconfig"; sourceTree = "<group>"; };
 		57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B5D563C1BE2CE29004EB5B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailViewController.swift; sourceTree = "<group>"; };
 		5B692B971BE2C24E00351796 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
 		5B698FAA1BB63300001DD03E /* Capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +195,7 @@
 		5B698FAC1BB63300001DD03E /* Capstone */ = {
 			isa = PBXGroup;
 			children = (
+				5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */,
 				5B698FAD1BB63300001DD03E /* AppDelegate.swift */,
 				5B94D8921BBCCB17006BD77E /* Constants.swift */,
 				AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */,
@@ -385,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */,
 				5B698FB81BB63300001DD03E /* LaunchScreen.storyboard in Resources */,
 				5B698FB51BB63300001DD03E /* Assets.xcassets in Resources */,
 			);
@@ -506,6 +510,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B5D563C1BE2CE29004EB5B8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
