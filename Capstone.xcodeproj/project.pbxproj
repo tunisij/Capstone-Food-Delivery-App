@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B3157261BCF281F00657003 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3157251BCF281F00657003 /* OrdersDetailViewController.swift */; };
+		5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B698FAD1BB63300001DD03E /* AppDelegate.swift */; };
 		5B698FB31BB63300001DD03E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B698FB11BB63300001DD03E /* Main.storyboard */; };
 		5B698FB51BB63300001DD03E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B698FB41BB63300001DD03E /* Assets.xcassets */; };
@@ -36,6 +36,7 @@
 		5B94D8951BBCCDCE006BD77E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94D8941BBCCDCE006BD77E /* MainTabBarController.swift */; };
 		5BF103FD1BB6511B00C5E318 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */; };
 		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; };
+		91446D2837C047DC7F87B423 /* Pods_Capstone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */; };
 		AA3F2B031BBC85B300F47B1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B021BBC85B300F47B1C /* SettingsViewController.swift */; };
 		AA3F2B071BBC85DC00F47B1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */; };
 		AA3F2B091BBC85E600F47B1C /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B081BBC85E600F47B1C /* DriverViewController.swift */; };
@@ -63,7 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B3157251BCF281F00657003 /* OrdersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersDetailViewController.swift; path = ../OrdersDetailViewController.swift; sourceTree = "<group>"; };
+		1680421F72E45D1DE78B1F24 /* Pods-Capstone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.debug.xcconfig"; sourceTree = "<group>"; };
+		1B0E2C67F159ADFD8B136839 /* Pods-Capstone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.release.xcconfig"; sourceTree = "<group>"; };
+		57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailViewController.swift; sourceTree = "<group>"; };
 		5B698FAA1BB63300001DD03E /* Capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B698FAD1BB63300001DD03E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B698FB21BB63300001DD03E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				5B698FE41BB6337E001DD03E /* ParseFacebookUtilsV4.framework in Frameworks */,
 				5B698FE21BB6337E001DD03E /* Bolts.framework in Frameworks */,
 				5B698FE51BB6337E001DD03E /* ParseTwitterUtils.framework in Frameworks */,
+				91446D2837C047DC7F87B423 /* Pods_Capstone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +163,7 @@
 				E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */,
 				E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */,
 				AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */,
-				5B3157251BCF281F00657003 /* OrdersDetailViewController.swift */,
+				5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */,
 			);
 			name = Orders;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				5B698FC11BB63300001DD03E /* CapstoneTests */,
 				5B698FCC1BB63300001DD03E /* CapstoneUITests */,
 				5B698FAB1BB63300001DD03E /* Products */,
+				656B829069D21AF01E72F799 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,6 +227,15 @@
 			path = CapstoneUITests;
 			sourceTree = "<group>";
 		};
+		656B829069D21AF01E72F799 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1680421F72E45D1DE78B1F24 /* Pods-Capstone.debug.xcconfig */,
+				1B0E2C67F159ADFD8B136839 /* Pods-Capstone.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AA3F2AFF1BBC840F00F47B1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +259,7 @@
 				5B698FFD1BB633D3001DD03E /* Social.framework */,
 				5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */,
 				5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */,
+				57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -263,9 +279,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B698FD21BB63300001DD03E /* Build configuration list for PBXNativeTarget "Capstone" */;
 			buildPhases = (
+				7830D3ED7FDF2F99AD9B35F3 /* Check Pods Manifest.lock */,
 				5B698FA61BB63300001DD03E /* Sources */,
 				5B698FA71BB63300001DD03E /* Frameworks */,
 				5B698FA81BB63300001DD03E /* Resources */,
+				0CF0536BBEEF81459F976305 /* Embed Pods Frameworks */,
+				C9BCF4992946DA1910848893 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -388,6 +407,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0CF0536BBEEF81459F976305 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Capstone/Pods-Capstone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7830D3ED7FDF2F99AD9B35F3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C9BCF4992946DA1910848893 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Capstone/Pods-Capstone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5B698FA61BB63300001DD03E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -397,12 +464,12 @@
 				5B94D8931BBCCB17006BD77E /* Constants.swift in Sources */,
 				E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */,
 				E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */,
+				5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */,
 				E00F29831BC5BDD2002DAA94 /* Model.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,
 				AA3F2B031BBC85B300F47B1C /* SettingsViewController.swift in Sources */,
 				AA3F2B091BBC85E600F47B1C /* DriverViewController.swift in Sources */,
 				AA3F2B071BBC85DC00F47B1C /* HomeViewController.swift in Sources */,
-				5B3157261BCF281F00657003 /* OrdersDetailViewController.swift in Sources */,
 				AAC55BA51BCC4808006CD873 /* OrdersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +608,7 @@
 		};
 		5B698FD31BB63300001DD03E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1680421F72E45D1DE78B1F24 /* Pods-Capstone.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -561,6 +629,7 @@
 		};
 		5B698FD41BB63300001DD03E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B0E2C67F159ADFD8B136839 /* Pods-Capstone.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
