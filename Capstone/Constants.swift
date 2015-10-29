@@ -6,19 +6,7 @@
 //  Copyright © 2015 John Tunisi. All rights reserved.
 //
 
-let dismiss = "Dismiss"
-let driver = "Driver"
-let email = "email"
-let fields = "fields"
-let loginError = "Login Error"
-let loginSegue = "loginSegue"
-let mainMenuSegue = "mainMenuSegue"
-let me = "me"
-let name = "name"
-let parseOrderClass = "order"
-let pleaseloginToTwitter = "Please login to Twitter"
-let showOrderDetail = "showOrderDetail"
-let user = "User"
 
+//TODO: remove Constants.swift once this is removed
 var globalOrders = [CustomerOrder]()
 

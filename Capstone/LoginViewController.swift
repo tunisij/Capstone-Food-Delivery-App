@@ -78,8 +78,8 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
-        let alert = UIAlertController(title: loginError, message: pleaseloginToTwitter, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: dismiss, style: UIAlertActionStyle.Default, handler: nil))
+        let alert = UIAlertController(title: "Login Error", message: "Please login to Twitter", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "dismiss", style: UIAlertActionStyle.Default, handler: nil))
         logInController.presentViewController(alert, animated: true, completion: nil)
     }
     
@@ -100,14 +100,14 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
         var username  : String?
         var userEmail : String?
 
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: me, parameters: [fields : "email, name"] )
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "email, name"] )
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
             if ((error) != nil) {
                 // Process error
             } else {
-                userEmail = result.valueForKey(email) as? String
-                username = result.valueForKey(name) as? String
+                userEmail = result.valueForKey("email") as? String
+                username = result.valueForKey("name") as? String
             }
             
             let thisUser: PFUser = user

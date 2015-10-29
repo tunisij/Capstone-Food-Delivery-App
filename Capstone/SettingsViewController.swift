@@ -34,14 +34,14 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logoutButton(sender: UIButton) {
         PFUser.logOut()
-        self.performSegueWithIdentifier(loginSegue, sender: self)
+        self.performSegueWithIdentifier("loginSegue", sender: self)
     }
     
     @IBAction func driverSwitch(sender: UISwitch) {
         if sender.on {
-            PFUser.currentUser()?.setValue(true, forKey: driver)
+            PFUser.currentUser()?.setValue(true, forKey: "Driver")
         } else {
-            PFUser.currentUser()?.setValue(false, forKey: driver)
+            PFUser.currentUser()?.setValue(false, forKey: "Driver")
         }
         PFUser.currentUser()?.saveEventually()
     }
