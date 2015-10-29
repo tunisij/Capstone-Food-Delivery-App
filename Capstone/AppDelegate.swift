@@ -25,9 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFTwitterUtils.initializeWithConsumerKey("A9XzEBtc52Oc89GBnvI31EqB3", consumerSecret: "UObkkdmsvnP7xMsUrqVDdtjjYMlyxscS0RXvR31u5YVbNVW190")
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
  
-        
-//        var rootViewController = self.window!.rootViewController
-        
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
         let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController

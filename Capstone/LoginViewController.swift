@@ -12,7 +12,7 @@ import ParseUI
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
 
-class MainTabBarController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
     let locationManager = CLLocationManager()
     
@@ -41,6 +41,7 @@ class MainTabBarController: UIViewController, PFLogInViewControllerDelegate, PFS
             
             self.presentViewController(loginViewController, animated: false, completion: nil)
         } else {
+//            self.performSegueWithIdentifier("HomeSegue", sender: self)
             askForLocation()
         }
     }
@@ -71,7 +72,7 @@ class MainTabBarController: UIViewController, PFLogInViewControllerDelegate, PFS
         } else if PFFacebookUtils.isLinkedWithUser(user) {
             getUserDataFromFacebookProfile(user)
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("HomeSegue", sender: self)
         
         askForLocation()
     }
