@@ -10,20 +10,39 @@ import UIKit
 import Parse
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
+import MMDrawerController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var centerContainer: MMDrawerController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("zvhXcEZ8w8FRpjCV4Kpsgo8LK1NbXgc1BxuOsbtV",
             clientKey: "Zjp5wewW8WW5HqqVlkzTlohJq7WvCKkcvdERGfpm")
         
         PFTwitterUtils.initializeWithConsumerKey("A9XzEBtc52Oc89GBnvI31EqB3", consumerSecret: "UObkkdmsvnP7xMsUrqVDdtjjYMlyxscS0RXvR31u5YVbNVW190")
-        
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+ 
         
+//        var rootViewController = self.window!.rootViewController
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+        let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DrawerTableViewController") as! DrawerTableViewController
+                        
+        let leftSideNav = UINavigationController(rootViewController: leftViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
+            
+        centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
+            
+        window!.rootViewController = centerContainer
+        window!.makeKeyAndVisible()
+
         return true
     }
     

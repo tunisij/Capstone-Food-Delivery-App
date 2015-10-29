@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import MMDrawerController
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
@@ -17,9 +18,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tbc = self.tabBarController  as! MainTabBarController
-        model = tbc.model
-        model.locationManager.delegate = self
+//        let tbc = self.tabBarController  as! MainTabBarController
+//        model = tbc.model
+//        model.locationManager.delegate = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
@@ -81,6 +82,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.mapView.showsPointsOfInterest = true
         self.mapView.showsCompass = true
         self.mapView.showsBuildings = true
+    }
+    
+    @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
     func DismissKeyboard(){

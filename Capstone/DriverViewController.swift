@@ -13,8 +13,8 @@ class DriverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tbc = self.tabBarController  as! MainTabBarController
-        model = tbc.model
+//        let tbc = self.tabBarController  as! MainTabBarController
+//        model = tbc.model
     }
     
     override func viewDidAppear(animated: Bool) {
