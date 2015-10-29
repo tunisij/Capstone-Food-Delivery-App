@@ -13,14 +13,12 @@ import MMDrawerController
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
-    var model = Model()
+    let locationManager = CLLocationManager()
     var hasLocation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let tbc = self.tabBarController  as! MainTabBarController
-//        model = tbc.model
-//        model.locationManager.delegate = self
+        locationManager.delegate = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
@@ -60,8 +58,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !hasLocation {
             hasLocation = true
-            model.locationManager.stopUpdatingLocation()
-            model.locationManager.startMonitoringSignificantLocationChanges()
+            locationManager.stopUpdatingLocation()
+            locationManager.startMonitoringSignificantLocationChanges()
             
             let locationArray = locations as NSArray
             let locationObj = locationArray.lastObject as! CLLocation

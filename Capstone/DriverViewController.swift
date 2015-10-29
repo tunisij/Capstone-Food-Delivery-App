@@ -10,12 +10,9 @@ import UIKit
 import MMDrawerController
 
 class DriverViewController: UIViewController {
-    var model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let tbc = self.tabBarController  as! MainTabBarController
-//        model = tbc.model
     }
     
     override func viewDidAppear(animated: Bool) {

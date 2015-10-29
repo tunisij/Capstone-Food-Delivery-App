@@ -16,10 +16,6 @@ class OrdersTableViewController: UITableViewController {
     var count: Int = 0
     var detailViewController: OrdersDetailViewController? = nil
     var nextOrder: CustomerOrder = CustomerOrder(name: "TableTestHeader", number: -1, message: "TableTestMessage")
-  
-    
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,9 +12,9 @@ import ParseUI
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
 
-class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
-    var tabBarViewControllers:[UIViewController] = []
-    let model = Model()
+class MainTabBarController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +22,6 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        tabBarViewControllers = self.viewControllers!
         
         if PFUser.currentUser() == nil {
             //let loginTitle = UILabel()
@@ -56,13 +54,6 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
         return driver
     }
     
-    func setDriverTab(isDriver: Bool) -> Void {
-        if !isDriver && tabBarViewControllers.count == 5 {
-            tabBarViewControllers.removeAtIndex(2)
-            self.setViewControllers(tabBarViewControllers, animated: true)
-        }
-    }
-    
     func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
         
         if (!username.isEmpty || !password.isEmpty) {
@@ -83,7 +74,6 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
         self.dismissViewControllerAnimated(true, completion: nil)
         
         askForLocation()
-        setDriverTab(checkIfDriver())
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
@@ -133,9 +123,9 @@ class MainTabBarController: UITabBarController, PFLogInViewControllerDelegate, P
     }
     
     func askForLocation() -> Void {
-        model.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        model.locationManager.requestWhenInUseAuthorization()
-        model.locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 
 }

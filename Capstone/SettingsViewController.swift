@@ -12,16 +12,11 @@ import MMDrawerController
 
 class SettingsViewController: UIViewController {
     var currentUser = PFUser.currentUser()
-    var model = Model()
     
     @IBOutlet weak var driverSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let tbc = self.tabBarController  as! MainTabBarController
-//        model = tbc.model
-//        
-//        driverSwitch.setOn(checkIfDriver(), animated: false)
     }
     
     override func viewDidAppear(animated: Bool) {
