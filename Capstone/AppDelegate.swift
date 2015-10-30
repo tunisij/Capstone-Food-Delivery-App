@@ -11,6 +11,7 @@ import Parse
 import ParseTwitterUtils
 import ParseFacebookUtilsV4
 import MMDrawerController
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         PFTwitterUtils.initializeWithConsumerKey("A9XzEBtc52Oc89GBnvI31EqB3", consumerSecret: "UObkkdmsvnP7xMsUrqVDdtjjYMlyxscS0RXvR31u5YVbNVW190")
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        GMSServices.provideAPIKey("AIzaSyD6A3UC612PRvsyUIk_t5odUkVZveXjO0w")
+
  
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
