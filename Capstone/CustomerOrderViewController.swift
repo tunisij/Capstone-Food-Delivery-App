@@ -10,6 +10,14 @@ import UIKit
 import Parse
 
 class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    //DB Key
+    let classNameKey: String = "Orders"
+    //Orders DB Key for order number
+    let orderNumberColumnKey: String = "orderNumber"
+    let orderNameKey: String = "OrderHeader"
+    let orderDescriptionKey: String = "OrderDescription"
+    
     //Text Field for User Input Order Header
     @IBOutlet weak var headerField: UITextField!
     //Text Field for User Input Order Description
@@ -21,7 +29,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     //Text Field for user order zip code
     @IBOutlet weak var zipField: UITextField!
     //String that will combine the above 3 to provide 1 return into the Parse database
-  //  let orderLocation: String
+    //  let orderLocation: String
     
     
     
@@ -68,15 +76,17 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
      **********************************/
     @IBAction func orderCompleteButton(sender: AnyObject) {
         //PULL data from the DATABASE
-        var query = PFQuery(className:"Orders")
-        query.getObjectInBackgroundWithId("xWMyZEGZ") {
-            (gameScore: PFObject?, error: NSError?) -> Void in
-            if error == nil && gameScore != nil {
-                print(gameScore)
-            } else {
-                print(error)
-            }
-        }
+        //getting orderNumber to add to order
+//        var query = PFQuery(className: classNameKey)
+//        query.whereKeyExists(orderNumberColumnKey){
+//            query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+//                if error == nil {
+//                    print(classNameKey)
+//                } else {
+//                    print(error)
+//                }
+//            }
+//        }
         //get data from PFObject
         // let score = gameScore["score"] as Int
         let oHead: String = headerField.text!
@@ -87,9 +97,9 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         
         //SAVE INTO DATABASE
         //insert user order into parse database
-        let insertOrder = PFObject(className:"Order")
-        insertOrder["OrderHeader"] = oHead
-        insertOrder["OrderDescription"] = oDesc
+        let insertOrder = PFObject(className: classNameKey)
+        insertOrder[orderNameKey] = oHead
+        insertOrder[orderDescriptionKey] = oDesc
         //insertOrder["OrderType"] =
         insertOrder["OrderNumber"] = oNum
         
