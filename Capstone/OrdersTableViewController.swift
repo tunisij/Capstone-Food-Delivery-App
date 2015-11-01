@@ -17,6 +17,7 @@ class OrdersTableViewController: UITableViewController {
     var detailViewController: OrdersDetailViewController? = nil
     var nextOrder: CustomerOrder = CustomerOrder(name: "TableTestHeader", number: -1, message: "TableTestMessage")
     var orderList = [CustomerOrder]()
+    var refreshController = UIRefreshControl()
     
     /**********************************
      *
@@ -25,10 +26,36 @@ class OrdersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         insertNewObject(self, index: 0)
-        
-        
-        var query = PFQuery(className: "Order")
+        self.refreshControl = refreshController
+        self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
+ 
+        getOrders()
+        //        if let split = self.splitViewController {
+        //            let controllers = split.viewControllers
+        //            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? OrdersDetailViewController
+        //        }
+    }
+    
+    /**********************************
+     *
+     *
+     **********************************/
+    func didRefresh() {
+        self.refreshControl?.beginRefreshing()
+        orderList.removeAll()
+        getOrders()
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
+    
+    /**********************************
+     *
+     *
+     **********************************/
+    func getOrders(){
+        let query = PFQuery(className: "Order")
         query.whereKeyExists("OrderHeader")
+        
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
             if error == nil {
                 let pfobjects = objects
@@ -46,12 +73,7 @@ class OrdersTableViewController: UITableViewController {
             }
             
         }
-        //        if let split = self.splitViewController {
-        //            let controllers = split.viewControllers
-        //            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? OrdersDetailViewController
-        //        }
     }
-    
     
     /**********************************
      *
@@ -131,8 +153,8 @@ class OrdersTableViewController: UITableViewController {
      **********************************/
     func insertNewObject(sender: AnyObject, index: Int) {
         //   orderList.insert(, atIndex: 0)
-        let indexPath = NSIndexPath(forRow: index, inSection: 0)
-  //      self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        _ = (forRow: index, inSection: 0)
+        //      self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     
@@ -140,7 +162,7 @@ class OrdersTableViewController: UITableViewController {
      *
      *
      **********************************/
-    //alert box method
+     //alert box method
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         
         let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
@@ -154,7 +176,7 @@ class OrdersTableViewController: UITableViewController {
      *
      *
      **********************************/
-    // MARK: - Segues
+     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showOrderDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
