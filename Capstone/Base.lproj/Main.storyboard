@@ -32,14 +32,6 @@
                                                 <segue destination="9lS-Eh-6FN" kind="show" id="7Yu-UR-hFU"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taN-Nu-eqY">
-                                            <rect key="frame" x="527" y="5" width="46" height="30"/>
-                                            <animations/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <segue destination="9lS-Eh-6FN" kind="show" id="c7m-Q8-HPk"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -55,7 +47,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="GKW-th-cxw" kind="show" identifier="detailView" id="ax5-aQ-OwV"/>
+                                    <segue destination="Bw1-xB-YKM" kind="show" identifier="showOrderDetail" id="rXd-fw-KoY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -143,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUO-ZT-8K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2448" y="204"/>
+            <point key="canvasLocation" x="1698" y="292"/>
         </scene>
         <!--Customer Order View Controller-->
         <scene sceneID="xMy-Vb-dsT">
@@ -441,25 +433,6 @@
             </objects>
             <point key="canvasLocation" x="-458" y="1615"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="OCT-UK-YEG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GKW-th-cxw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h6M-AY-hdt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Bw1-xB-YKM" kind="relationship" relationship="rootViewController" id="Trd-3H-L03"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1oa-C6-6ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1728" y="204"/>
-        </scene>
         <!--Driver-->
         <scene sceneID="BaN-wd-hAp">
             <objects>
@@ -510,7 +483,4 @@
         <image name="Settings Filled-25" width="25" height="25"/>
         <image name="Settings-25" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="7Yu-UR-hFU"/>
-    </inferredMetricsTieBreakers>
 </document>
