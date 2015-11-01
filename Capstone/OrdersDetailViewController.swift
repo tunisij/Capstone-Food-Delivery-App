@@ -22,12 +22,20 @@ class OrdersDetailViewController: UIViewController {
     @IBOutlet weak var numberLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    /**********************************
+     *
+     *
+     **********************************/
     func configureView() {
 //        if let detail = self.detailItem as! NSArray? {
 //            
 //        }
     }
     
+    /**********************************
+     *
+     *
+     **********************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureView()
@@ -41,6 +49,10 @@ class OrdersDetailViewController: UIViewController {
 
     }
     
+    /**********************************
+     *
+     *
+     **********************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

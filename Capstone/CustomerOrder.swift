@@ -15,8 +15,10 @@ class CustomerOrder{
     var orderMessage: String;
     //var orderType: String
     
-    
-    
+    /**********************************
+    *
+    *
+    **********************************/
     init(name: String, number: Int, message: String) {
         orderName = name;
         orderNumber = number;

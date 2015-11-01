@@ -18,6 +18,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     let locationManager = CLLocationManager()
     var hasLocation = false
     
+    /**********************************
+     *
+     *
+     **********************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -29,6 +33,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         hasLocation = false
     }
     
+    /**********************************
+     *
+     *
+     **********************************/
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -85,16 +93,28 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
 //        self.mapView.showsBuildings = true
 //    }
     
+    /**********************************
+    *
+    *
+    **********************************/
     @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
+    /**********************************
+     *
+     *
+     **********************************/
     func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
+    /**********************************
+     *
+     *
+     **********************************/
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
@@ -103,6 +123,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
+    /**********************************
+     *
+     *
+     **********************************/
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
