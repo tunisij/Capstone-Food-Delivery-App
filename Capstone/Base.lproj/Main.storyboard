@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aCD-H8-UUY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aCD-H8-UUY">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Orders View Controller-->
@@ -29,6 +29,14 @@
                                             <connections>
                                                 <action selector="AddNewRow:" destination="hfZ-bq-QJ7" eventType="touchUpInside" id="afj-4W-Z6N"/>
                                                 <segue destination="9lS-Eh-6FN" kind="show" id="7Yu-UR-hFU"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taN-Nu-eqY">
+                                            <rect key="frame" x="527" y="5" width="46" height="30"/>
+                                            <animations/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <segue destination="9lS-Eh-6FN" kind="show" id="c7m-Q8-HPk"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -169,7 +177,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="one hard shell taco and a bean burrito with a XL baja blast" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MBE-pY-V1B">
-                                <rect key="frame" x="4" y="297" width="266" height="94"/>
+                                <rect key="frame" x="4" y="297" width="258" height="54"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -186,7 +194,7 @@
                                 <animations/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z5-l9-MmU">
-                                <rect key="frame" x="0.0" y="510" width="266" height="41"/>
+                                <rect key="frame" x="4" y="365" width="125" height="34"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Save Order">
@@ -196,63 +204,14 @@
                                     <action selector="orderCompleteButton:" destination="9lS-Eh-6FN" eventType="touchUpInside" id="yI7-Sd-AZc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Delivery Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2D-GX-Dz5">
-                                <rect key="frame" x="4" y="351" width="258" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-MA-3bQ">
-                                <rect key="frame" x="4" y="380" width="72" height="28"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFr-6G-nP7">
-                                <rect key="frame" x="4" y="416" width="72" height="42"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Zip Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ5-hv-oTt">
-                                <rect key="frame" x="4" y="458" width="86" height="44"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-He-iMd">
-                                <rect key="frame" x="84" y="377" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-gk-4hS">
-                                <rect key="frame" x="84" y="420" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bS8-JP-9le">
-                                <rect key="frame" x="84" y="465" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="adressField" destination="2Bv-He-iMd" id="ASR-ar-qn1"/>
-                        <outlet property="cityField" destination="xEu-gk-4hS" id="65O-E4-tkO"/>
                         <outlet property="descriptionField" destination="MBE-pY-V1B" id="c5L-O3-50W"/>
                         <outlet property="headerField" destination="iT0-kf-jwz" id="Jma-ga-17b"/>
                         <outlet property="picker" destination="GHv-Bo-p6j" id="lY8-M8-rN0"/>
-                        <outlet property="zipField" destination="bS8-JP-9le" id="ajt-yJ-QkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo0-DO-7g9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -568,4 +527,7 @@
         <image name="Settings Filled-25" width="25" height="25"/>
         <image name="Settings-25" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Yu-UR-hFU"/>
+    </inferredMetricsTieBreakers>
 </document>

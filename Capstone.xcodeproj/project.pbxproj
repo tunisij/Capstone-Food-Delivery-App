@@ -33,7 +33,6 @@
 		5B698FFA1BB633C9001DD03E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FF91BB633C9001DD03E /* libsqlite3.tbd */; };
 		5B698FFC1BB633CE001DD03E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FFB1BB633CE001DD03E /* Accounts.framework */; };
 		5B698FFE1BB633D3001DD03E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FFD1BB633D3001DD03E /* Social.framework */; };
-		5B94D8931BBCCB17006BD77E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94D8921BBCCB17006BD77E /* Constants.swift */; };
 		5B94D8951BBCCDCE006BD77E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94D8941BBCCDCE006BD77E /* LoginViewController.swift */; };
 		5BF103FD1BB6511B00C5E318 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */; };
 		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; };
@@ -99,7 +98,6 @@
 		5B698FF91BB633C9001DD03E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5B698FFB1BB633CE001DD03E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5B698FFD1BB633D3001DD03E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		5B94D8921BBCCB17006BD77E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5B94D8941BBCCDCE006BD77E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 			children = (
 				5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */,
 				5B698FAD1BB63300001DD03E /* AppDelegate.swift */,
-				5B94D8921BBCCB17006BD77E /* Constants.swift */,
 				AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */,
 				5B692B971BE2C24E00351796 /* DrawerTableViewController.swift */,
 				5B3157241BCF1B7E00657003 /* Orders */,
@@ -477,7 +474,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B94D8951BBCCDCE006BD77E /* LoginViewController.swift in Sources */,
-				5B94D8931BBCCB17006BD77E /* Constants.swift in Sources */,
 				5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */,
 				E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */,
 				E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */,
