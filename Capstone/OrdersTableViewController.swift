@@ -59,10 +59,11 @@ class OrdersTableViewController: UITableViewController {
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
             if error == nil {
                 let pfobjects = objects
+                if objects != nil {
                 for object in pfobjects! {
                     let uOrder = object["OrderHeader"] as! String
                     let uDesc = object["OrderDescription"] as! String
-                    let uNum: Int = object["OrderNumber"] as! Int
+                    let uNum: Int = 1 //object["OrderNumber"] as! Int
                     self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
                     print(uOrder)
                     self.tableView.reloadData()
@@ -70,7 +71,7 @@ class OrdersTableViewController: UITableViewController {
             }
             else {
                 print("Error: \(error!)")
-            }
+                } }
             
         }
     }
