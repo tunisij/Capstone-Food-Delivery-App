@@ -12,7 +12,7 @@ import Parse
 class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //DB Key
-    let classNameKey: String = "Orders"
+    let classNameKey: String = "Order"
     //Orders DB Key for order number
     let orderNumberColumnKey: String = "orderNumber"
     let orderNameKey: String = "OrderHeader"

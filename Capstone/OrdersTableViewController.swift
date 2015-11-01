@@ -96,7 +96,7 @@ class OrdersTableViewController: UITableViewController {
     func insertNewObject(sender: AnyObject, index: Int) {
         //   orderList.insert(, atIndex: 0)
         let indexPath = NSIndexPath(forRow: index, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+  //      self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     
