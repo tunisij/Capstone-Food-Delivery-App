@@ -55,7 +55,7 @@ class OrdersTableViewController: UITableViewController {
     func getOrders(){
         let query = PFQuery(className: "Order")
         query.whereKeyExists("OrderHeader")
-        
+        query.addDescendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
             if error == nil {
                 let pfobjects = objects
