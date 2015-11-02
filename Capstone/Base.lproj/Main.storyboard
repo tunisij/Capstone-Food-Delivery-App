@@ -138,7 +138,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGW-P2-4us">
-                                <rect key="frame" x="20" y="218" width="279" height="136"/>
+                                <rect key="frame" x="20" y="218" width="573" height="382"/>
                                 <animations/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
