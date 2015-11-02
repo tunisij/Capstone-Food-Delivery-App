@@ -117,7 +117,7 @@ class OrdersTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         
-        var statusImage: UIImage = UIImage(named: "redstatus.png")!
+        let statusImage: UIImage = UIImage(named: "redstatus.png")!
         
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("AddNewRowCell", forIndexPath: indexPath)
