@@ -107,7 +107,7 @@ class OrdersTableViewController: UITableViewController {
      *
      **********************************/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderList.count
+        return orderList.count+1
     }
     
     /**********************************
@@ -124,9 +124,9 @@ class OrdersTableViewController: UITableViewController {
         } else {
             let cell2: OrdersTableCell
             cell2 = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! OrdersTableCell
-            let object = orderList[indexPath.row]
+            let object = orderList[indexPath.row-1]
             cell2.orderHeaderLabel.text = object.orderName
-            print ("Image loaded1 \(statusImage)")
+          //  print ("Image loaded1 \(statusImage)")
             cell2.orderStatusImage.image = statusImage
             return cell2
         }
@@ -205,7 +205,7 @@ class OrdersTableViewController: UITableViewController {
      *
      **********************************/
     @IBAction func AddNewRow(sender: UIButton) {
-        insertNewObject(self, index: 1)
+        insertNewObject(self, index: 0)
     }
     
     /**********************************
