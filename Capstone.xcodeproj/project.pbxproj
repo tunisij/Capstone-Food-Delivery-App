@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		337A40C01BE6F65900965698 /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337A40BF1BE6F65900965698 /* DriverTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3390142C1BE7F52B000B4377 /* AcceptedOrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3390142B1BE7F52B000B4377 /* AcceptedOrdersTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		33B9BC1F1BE7AFB300254AE1 /* OrderRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B9BC1E1BE7AFB300254AE1 /* OrderRequestTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */; };
 		5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */; };
@@ -72,6 +73,7 @@
 		1680421F72E45D1DE78B1F24 /* Pods-Capstone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0E2C67F159ADFD8B136839 /* Pods-Capstone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.release.xcconfig"; sourceTree = "<group>"; };
 		337A40BF1BE6F65900965698 /* DriverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTableViewController.swift; sourceTree = "<group>"; };
+		3390142B1BE7F52B000B4377 /* AcceptedOrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptedOrdersTableViewController.swift; sourceTree = "<group>"; };
 		33B9BC1E1BE7AFB300254AE1 /* OrderRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderRequestTableViewController.swift; sourceTree = "<group>"; };
 		57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5D563C1BE2CE29004EB5B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				337A40BF1BE6F65900965698 /* DriverTableViewController.swift */,
 				33B9BC1E1BE7AFB300254AE1 /* OrderRequestTableViewController.swift */,
+				3390142B1BE7F52B000B4377 /* AcceptedOrdersTableViewController.swift */,
 			);
 			name = Drivers;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */,
 				337A40C01BE6F65900965698 /* DriverTableViewController.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,
+				3390142C1BE7F52B000B4377 /* AcceptedOrdersTableViewController.swift in Sources */,
 				E01E3C5A1BE648260075155F /* OrdersTableCell.swift in Sources */,
 				AA3F2B031BBC85B300F47B1C /* SettingsViewController.swift in Sources */,
 				AA3F2B071BBC85DC00F47B1C /* HomeViewController.swift in Sources */,

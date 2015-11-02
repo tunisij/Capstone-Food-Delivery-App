@@ -50,7 +50,7 @@
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
-                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="19" name="HelveticaNeue"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
@@ -155,14 +155,14 @@
                                 <rect key="frame" x="20" y="109" width="107" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order created - waiting for driver to accept" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g0-4g-jR1">
                                 <rect key="frame" x="135" y="108" width="328" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUO-ZT-8K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698" y="292"/>
+            <point key="canvasLocation" x="1728" y="448"/>
         </scene>
         <!--Customer Order View Controller-->
         <scene sceneID="xMy-Vb-dsT">
@@ -252,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo0-DO-7g9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1728" y="-509"/>
+            <point key="canvasLocation" x="1728" y="-261"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qk0-Ta-Feu">
@@ -370,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="1003" y="2376"/>
         </scene>
-        <!--Order Request Table View Controller-->
+        <!--Requested Orders-->
         <scene sceneID="0rz-fB-ggE">
             <objects>
-                <tableViewController storyboardIdentifier="rderRequestTableViewController" id="Fdd-5X-Cdo" customClass="OrderRequestTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="rderRequestTableViewController" title="Requested Orders" id="Fdd-5X-Cdo" customClass="OrderRequestTableViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8zY-Y2-E98">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,7 +405,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpa-qi-HdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="2376"/>
+            <point key="canvasLocation" x="1728" y="1992"/>
+        </scene>
+        <!--Accepted Orders-->
+        <scene sceneID="Yc8-c1-UEo">
+            <objects>
+                <tableViewController title="Accepted Orders" id="A0W-9Y-0BA" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="trf-dp-wL7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JPJ-B6-FdY">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JPJ-B6-FdY" id="H6o-tW-JF2">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="A0W-9Y-0BA" id="wVu-64-VYa"/>
+                            <outlet property="delegate" destination="A0W-9Y-0BA" id="TkT-VG-5Fl"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MQI-5F-Z4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728" y="2682"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="oSJ-yY-q3s">
@@ -424,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZW-U0-4ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="1615"/>
+            <point key="canvasLocation" x="1728" y="1155"/>
         </scene>
         <!--Settings-->
         <scene sceneID="SEc-VJ-TOO">
