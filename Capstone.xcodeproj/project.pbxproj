@@ -42,6 +42,9 @@
 		AA3F2B091BBC85E600F47B1C /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B081BBC85E600F47B1C /* DriverViewController.swift */; };
 		AAC55BA51BCC4808006CD873 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */; };
 		E01E3C5A1BE648260075155F /* OrdersTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E3C591BE648260075155F /* OrdersTableCell.swift */; };
+		E050BB0D1BE7DE0400ADEAE4 /* greenstatus in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0A1BE7DE0400ADEAE4 /* greenstatus */; };
+		E050BB0E1BE7DE0400ADEAE4 /* yellowstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */; };
+		E050BB0F1BE7DE0400ADEAE4 /* redstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */; };
 		E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */; };
 		E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +111,9 @@
 		AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		AAC60DB21BE3EE960087AEC0 /* Capstone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Capstone-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		E01E3C591BE648260075155F /* OrdersTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableCell.swift; sourceTree = "<group>"; };
+		E050BB0A1BE7DE0400ADEAE4 /* greenstatus */ = {isa = PBXFileReference; lastKnownFileType = file; path = greenstatus; sourceTree = "<group>"; };
+		E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowstatus.png; sourceTree = "<group>"; };
+		E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redstatus.png; sourceTree = "<group>"; };
 		E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrderViewController.swift; sourceTree = "<group>"; };
 		E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +181,9 @@
 			children = (
 				AA3F2AFF1BBC840F00F47B1C /* Frameworks */,
 				5B698FAC1BB63300001DD03E /* Capstone */,
+				E050BB0A1BE7DE0400ADEAE4 /* greenstatus */,
+				E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */,
+				E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */,
 				5B698FC11BB63300001DD03E /* CapstoneTests */,
 				5B698FCC1BB63300001DD03E /* CapstoneUITests */,
 				5B698FAB1BB63300001DD03E /* Products */,
@@ -389,8 +398,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */,
+				E050BB0E1BE7DE0400ADEAE4 /* yellowstatus.png in Resources */,
+				E050BB0F1BE7DE0400ADEAE4 /* redstatus.png in Resources */,
 				5B698FB81BB63300001DD03E /* LaunchScreen.storyboard in Resources */,
 				5B698FB51BB63300001DD03E /* Assets.xcassets in Resources */,
+				E050BB0D1BE7DE0400ADEAE4 /* greenstatus in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,7 @@ class OrdersTableViewController: UITableViewController {
         insertNewObject(self, index: 0)
         self.refreshControl = refreshController
         self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
- 
+        
         getOrders()
         //        if let split = self.splitViewController {
         //            let controllers = split.viewControllers
@@ -60,17 +60,17 @@ class OrdersTableViewController: UITableViewController {
             if error == nil {
                 let pfobjects = objects
                 if objects != nil {
-                for object in pfobjects! {
-                    let uOrder = object["OrderHeader"] as! String
-                    let uDesc = object["OrderDescription"] as! String
-                    let uNum: Int = 1 //object["OrderNumber"] as! Int
-                    self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
-                    print(uOrder)
-                    self.tableView.reloadData()
+                    for object in pfobjects! {
+                        let uOrder = object["OrderHeader"] as! String
+                        let uDesc = object["OrderDescription"] as! String
+                        let uNum: Int = 1 //object["OrderNumber"] as! Int
+                        self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
+                        print(uOrder)
+                        self.tableView.reloadData()
+                    }
                 }
-            }
-            else {
-                print("Error: \(error!)")
+                else {
+                    print("Error: \(error!)")
                 } }
             
         }
@@ -115,16 +115,20 @@ class OrdersTableViewController: UITableViewController {
      *
      **********************************/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
+        let cell: OrdersTableCell
+        var image : UIImage = UIImage(named: "redstatus.png")!
+        cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! OrdersTableCell
+        let object = orderList[indexPath.row]
+        cell.orderHeaderLabel.text = object.orderName
+        cell.orderStatusImage.image = image
         
-        if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCellWithIdentifier("AddNewRowCell", forIndexPath: indexPath)
-        } else {
-            cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-            let object = orderList[indexPath.row]
-            cell.textLabel!.text = object.orderName
-        }
         return cell
+        
+        
+        //
+        //        var image : UIImage = UIImage(named: "osx_design_view_messages")
+        //        println("The loaded image: \(image)")
+        //        cell.imageView.image = image
     }
     
     /**********************************

@@ -11,5 +11,9 @@ import Foundation
 import Parse
 
 class OrdersTableCell: UITableViewCell {
+    
+    @IBOutlet weak var orderStatusImage: UIImageView!
+    
+    @IBOutlet weak var orderHeaderLabel: UILabel!
 
 }
