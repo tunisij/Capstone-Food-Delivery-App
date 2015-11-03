@@ -188,7 +188,7 @@ class OrdersTableViewController: UITableViewController {
         if segue.identifier == "showOrderDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 
-                let object = orderList[indexPath.row]
+                let object = orderList[indexPath.row-1]
                 let controller = segue.destinationViewController as! OrdersDetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -217,26 +217,8 @@ class OrdersTableViewController: UITableViewController {
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-    /*
-    func retrievePlaces() {
-    let query = PFQuery(className: parseOrderClass)
-    query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) in
-    if error == nil {
-    let pfobjects = objects as! [PFObject]
-    for object in pfobjects {
-    let place = object[self.placeColumnKey] as! String
-    let vote = object[self.voteColumnKey] as! Int
-    if !self.eateries.contains(place) {
-    self.eateries.append(place)
-    self.votes.append(vote)
-    self.updateTableView()
-    }
-    }
-    } else {
-    print("Error: \(error!)")
-    }
-    }
-    */
+
+
 }
 
 

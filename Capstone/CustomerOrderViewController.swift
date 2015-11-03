@@ -13,6 +13,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     
     //DB Key
     let classNameKey: String = "Order"
+    let numberNameKey: String = "OrderNumberClass"
     //Orders DB Key for order number
     let orderNumberColumnKey: String = "orderNumber"
     let orderNameKey: String = "OrderHeader"
@@ -31,8 +32,8 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     //String that will combine the above 3 to provide 1 return into the Parse database
     //  let orderLocation: String
     
-    
-    
+    var orderNumber: Int = -1
+    var orderType: String = ""
     //Has the user SAVED the order?
     //by default, no
     var createdYet: Bool = false
@@ -66,6 +67,19 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     *
     **********************************/
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        if row == 0 {
+            orderType = "Fast Food"
+        }
+        
+        if row == 1 {
+            orderType = "Pick Up"
+        }
+        
+        if row == 2 {
+            orderType = "Groceries"
+        }
+        
         return pickerData[row]
     }
     
@@ -75,12 +89,41 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
      *
      **********************************/
     @IBAction func orderCompleteButton(sender: AnyObject) {
-        //PULL data from the DATABASE
-        //getting orderNumber to add to order
-//        var query = PFQuery(className: classNameKey)
-//        query.whereKeyExists(orderNumberColumnKey){
-//            query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        let query = PFQuery(className: numberNameKey)
+        query.whereKeyExists("oCounter")
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
+            if error == nil {
+                let pfobjects = objects
+                if objects != nil {
+                    for object in pfobjects! {
+                        //get the number
+                        self.orderNumber = object["oCounter"] as! Int
+                        //increment by one
+                        self.orderNumber++
+                        if (self.orderNumber == -1){
+                            print("Error Saving order number")
+                        }
+                        else {
+                        object["oCounter"] = self.orderNumber
+                        object.saveInBackground()
+                        }
+                    }
+                }
+                else {
+                    print("Error: \(error!)")
+                } }
+            
+        }
+
+//        //PULL data from the DATABASE
+//        //getting orderNumber to add to order
+//        var query = PFQuery(className: numberNameKey)
+//        query.whereKeyExists("oCounter"){
+//            query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
 //                if error == nil {
+//                     for object in pfobjects {
+//                        
+//                    }
 //                    print(classNameKey)
 //                } else {
 //                    print(error)
@@ -90,7 +133,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         //get data from PFObject
         // let score = gameScore["score"] as Int
         let oHead: String = headerField.text!
-        let oNum: Int = 1
+        let oNum: Int = orderNumber
         let oDesc: String = descriptionField.text
         // let oType: String =
         
@@ -98,10 +141,12 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         //SAVE INTO DATABASE
         //insert user order into parse database
         let insertOrder = PFObject(className: classNameKey)
+        
         insertOrder[orderNameKey] = oHead
         insertOrder[orderDescriptionKey] = oDesc
-        //insertOrder["OrderType"] =
+        insertOrder["orderType"] = orderType
         insertOrder["OrderNumber"] = oNum
+        insertOrder["orderStatus"] = 0 //order created, not yet assigned
         
         //check on save into database
         insertOrder.saveInBackgroundWithBlock {
@@ -116,6 +161,24 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         }
         //set to TRUE because user clicked SAVE button
         createdYet = true
+        
+        // Get the presenting/previous view
+        let previousView = self.presentingViewController as? UINavigationController
+        // Dismiss the current view controller then pop the others
+        // upon completion
+        self.dismissViewControllerAnimated(true, completion:  {
+            
+            // Get an array of the current view controllers on your nav stack
+            let viewControllers: [UIViewController] = previousView!.viewControllers as [UIViewController];
+            
+            // Then either pop two view controllers, i.e. pop
+            // to viewControllers[viewControllers.count - 2], or
+            // pop to the second view controller in the nav stack,
+            // i.e. viewControllers[1]. (In this case I've used the
+            // first option.)
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 1], animated: true);
+            
+        });
     }
     
     
@@ -133,7 +196,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         self.picker.dataSource = self
         
         // Input data into the Array:
-        pickerData = ["Pick Up", "Fast Food", "Groceries"]
+        pickerData = ["Fast Food","Pick Up", "Groceries"]
         
     }
     
