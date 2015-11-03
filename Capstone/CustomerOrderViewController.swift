@@ -88,7 +88,12 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
      * SAVES order into the database
      *
      **********************************/
+    var myDebugCounter: Int = 0
     @IBAction func orderCompleteButton(sender: AnyObject) {
+        myDebugCounter++
+        print("Button pressed, count at: \(myDebugCounter)")
+        //PULL data from the DATABASE
+        //getting orderNumber to add to order
         let query = PFQuery(className: numberNameKey)
         query.whereKeyExists("oCounter")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
@@ -105,7 +110,12 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
                         }
                         else {
                         object["oCounter"] = self.orderNumber
-                        object.saveInBackground()
+                            do {
+                        _ = try! object.save()
+                            }
+                            catch _ {
+                                print("Fuck!!!")
+                            }
                         }
                     }
                 }
@@ -115,39 +125,23 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
             
         }
 
-//        //PULL data from the DATABASE
-//        //getting orderNumber to add to order
-//        var query = PFQuery(className: numberNameKey)
-//        query.whereKeyExists("oCounter"){
-//            query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
-//                if error == nil {
-//                     for object in pfobjects {
-//                        
-//                    }
-//                    print(classNameKey)
-//                } else {
-//                    print(error)
-//                }
-//            }
-//        }
         //get data from PFObject
         // let score = gameScore["score"] as Int
         let oHead: String = headerField.text!
         let oNum: Int = orderNumber
         let oDesc: String = descriptionField.text
         // let oType: String =
-        
-        
+        if oNum == -1{
+            print( "shit this is not working")
+        }   
         //SAVE INTO DATABASE
         //insert user order into parse database
         let insertOrder = PFObject(className: classNameKey)
-        
         insertOrder[orderNameKey] = oHead
         insertOrder[orderDescriptionKey] = oDesc
         insertOrder["orderType"] = orderType
         insertOrder["OrderNumber"] = oNum
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
-        
         //check on save into database
         insertOrder.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
