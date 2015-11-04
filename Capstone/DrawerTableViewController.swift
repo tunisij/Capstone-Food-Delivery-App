@@ -13,10 +13,6 @@ class DrawerTableViewController: UITableViewController {
     
     let labels = ["Home", "Orders", "Driver", "Settings"]
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,34 +20,18 @@ class DrawerTableViewController: UITableViewController {
          self.clearsSelectionOnViewWillAppear = false
     }
 
-    /**********************************
-     *
-     *
-     **********************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    /**********************************
-     *
-     *
-     **********************************/
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    /**********************************
-     *
-     *
-     **********************************/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return labels.count
     }
 
-    /**********************************
-     *
-     *
-     **********************************/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DrawerCell", forIndexPath: indexPath)
     
@@ -59,11 +39,7 @@ class DrawerTableViewController: UITableViewController {
 
         return cell
     }
-    
-    /**********************************
-     *
-     *
-     **********************************/
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.row) {
         case 0:
@@ -91,8 +67,8 @@ class DrawerTableViewController: UITableViewController {
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         case 3:
-            let settingsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
-            let settingsNavController = UINavigationController(rootViewController: settingsViewController)
+            let settingsTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsTableViewController") as! SettingsTableViewController
+            let settingsNavController = UINavigationController(rootViewController: settingsTableViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
             appDelegate.centerContainer!.centerViewController = settingsNavController
@@ -102,10 +78,6 @@ class DrawerTableViewController: UITableViewController {
         }
     }
 
-    /**********************************
-     *
-     *
-     **********************************/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "HomeViewSegue" {
 //            if let indexPath = self.tableView.indexPathForSelectedRow {

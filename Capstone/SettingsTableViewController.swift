@@ -10,17 +10,29 @@ import UIKit
 import ParseFacebookUtilsV4
 import MMDrawerController
 
-class SettingsViewController: UIViewController {
+class SettingsTableViewController: UITableViewController {
     var currentUser = PFUser.currentUser()
-    
-    @IBOutlet weak var driverSwitch: UISwitch!
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("SwitchCell", forIndexPath: indexPath)
+        
+        return cell
     }
     
     func checkIfDriver() -> Bool {
@@ -32,7 +44,7 @@ class SettingsViewController: UIViewController {
         return driver
     }
     
-    @IBAction func logoutButton(sender: UIButton) {
+    @IBAction func logoutButtonClicked(sender: UIBarButtonItem) {
         PFUser.logOut()
         self.performSegueWithIdentifier("loginSegue", sender: self)
     }
