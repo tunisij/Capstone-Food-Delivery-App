@@ -156,23 +156,9 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         //set to TRUE because user clicked SAVE button
         createdYet = true
         
-        // Get the presenting/previous view
-        let previousView = self.presentingViewController as? UINavigationController
-        // Dismiss the current view controller then pop the others
-        // upon completion
-        self.dismissViewControllerAnimated(true, completion:  {
-            
-            // Get an array of the current view controllers on your nav stack
-            let viewControllers: [UIViewController] = previousView!.viewControllers as [UIViewController];
-            
-            // Then either pop two view controllers, i.e. pop
-            // to viewControllers[viewControllers.count - 2], or
-            // pop to the second view controller in the nav stack,
-            // i.e. viewControllers[1]. (In this case I've used the
-            // first option.)
-            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 1], animated: true);
-            
-        });
+  
+        
+        
     }
     
     
@@ -212,10 +198,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         view.endEditing(true)
     }
     
-    
-    
-    
-    
+
     
     
     
