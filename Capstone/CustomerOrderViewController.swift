@@ -150,15 +150,21 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
       //  insertOrder["orderCreator"] = user.username
         //check on save into database
-        insertOrder.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                // The object has been saved.
-                print("Succesful save")
-            } else {
-                // There was a problem, check error.description
-                print("Error saving")
-            }
+        do {
+            
+         try insertOrder.save()
+        }//InBackgroundWithBlock {
+//            (success: Bool, error: NSError?) -> Void in
+//            if (success) {
+//                // The object has been saved.
+//                print("Succesful save")
+//            } else {
+//                // There was a problem, check error.description
+//                print("Error saving")
+//            }
+//        }
+        catch _ {
+            print ("fuck this shit didnt work")
         }
         //set to TRUE because user clicked SAVE button
         createdYet = true

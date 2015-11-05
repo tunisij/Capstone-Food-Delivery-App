@@ -128,7 +128,7 @@ class OrdersTableViewController: UITableViewController {
             cell2.orderHeaderLabel.text = object.orderName
           //  print ("Image loaded1 \(statusImage)")
             cell2.orderStatusImage.image = statusImage
-            cell2.orderNumberLabel.text = "\(object.orderNumber)"
+            cell2.orderNumberLabel.text = "Order Number: \(object.orderNumber)"
             object.printData()
             return cell2
         }
@@ -169,16 +169,16 @@ class OrdersTableViewController: UITableViewController {
     
     /**********************************
      *
-     *
+     * Got rid of this for now . . .
      **********************************/
      //alert box method
-    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        
-        let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-    }
+//    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+//        
+//        let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+//        self.presentViewController(alert, animated: true, completion: nil)
+//        
+//    }
     
     
     /**********************************
