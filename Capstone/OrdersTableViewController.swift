@@ -36,6 +36,17 @@ class OrdersTableViewController: UITableViewController {
         //        }
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        insertNewObject(self, index: 0)
+        self.refreshControl = refreshController
+        self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
+        
+        getOrders()
+        
+    }
+    
     /**********************************
      *
      *
@@ -53,6 +64,8 @@ class OrdersTableViewController: UITableViewController {
      *
      **********************************/
     func getOrders(){
+        orderList.removeAll()
+        
         let query = PFQuery(className: "Order")
         query.whereKeyExists("OrderHeader")
         query.addDescendingOrder("createdAt")

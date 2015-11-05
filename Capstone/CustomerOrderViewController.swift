@@ -90,6 +90,15 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
      **********************************/
     var myDebugCounter: Int = 0
     @IBAction func orderCompleteButton(sender: AnyObject) {
+        
+        if (headerField.text == "" || descriptionField.text == ""){
+            let simpleAlert = UIAlertController(title: "Order Save Error", message: "All fields are mandatory. ", preferredStyle: .Alert)
+            simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
+            self.presentViewController(simpleAlert, animated: true, completion: nil)
+            return;
+        }
+        
+        
         myDebugCounter++
         print("Button pressed, count at: \(myDebugCounter)")
         //PULL data from the DATABASE
@@ -109,9 +118,9 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
                             print("Error Saving order number")
                         }
                         else {
-                        object["oCounter"] = self.orderNumber
+                            object["oCounter"] = self.orderNumber
                             do {
-                        _ = try! object.save()
+                                _ = try! object.save()
                             }
                             catch _ {
                                 print("Fuck!!!")
@@ -124,7 +133,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
                 } }
             
         }
-
+        
         //get data from PFObject
         // let score = gameScore["score"] as Int
         let oHead: String = headerField.text!
@@ -148,28 +157,34 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         insertOrder["orderType"] = orderType
         insertOrder["OrderNumber"] = oNum
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
-      //  insertOrder["orderCreator"] = user.username
+        //  insertOrder["orderCreator"] = user.username
         //check on save into database
         do {
             
-         try insertOrder.save()
+            try insertOrder.save()
         }//InBackgroundWithBlock {
-//            (success: Bool, error: NSError?) -> Void in
-//            if (success) {
-//                // The object has been saved.
-//                print("Succesful save")
-//            } else {
-//                // There was a problem, check error.description
-//                print("Error saving")
-//            }
-//        }
+            //            (success: Bool, error: NSError?) -> Void in
+            //            if (success) {
+            //                // The object has been saved.
+            //                print("Succesful save")
+            //            } else {
+            //                // There was a problem, check error.description
+            //                print("Error saving")
+            //            }
+            //        }
         catch _ {
             print ("fuck this shit didnt work")
         }
         //set to TRUE because user clicked SAVE button
         createdYet = true
         
-  
+        let simpleAlert = UIAlertController(title: "Ordered Succesfully Placed", message: "Your order has been succesfully placed and will now be viewable for drivers to accept. ", preferredStyle: .Alert)
+        simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
+        self.presentViewController(simpleAlert, animated: true, completion: nil)
+        
+        headerField.text = ""
+        descriptionField.text = ""
+        
         
         
     }
@@ -211,7 +226,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         view.endEditing(true)
     }
     
-
+    
     
     
     

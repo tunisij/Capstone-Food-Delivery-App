@@ -48,6 +48,7 @@
 		E050BB0E1BE7DE0400ADEAE4 /* yellowstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */; };
 		E050BB0F1BE7DE0400ADEAE4 /* redstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */; };
 		E050BB121BE7E8B700ADEAE4 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB111BE7E8B700ADEAE4 /* search-button.png */; };
+		E0C0C1331BEBFEB300B188AB /* SecondCustomerOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C0C1321BEBFEB300B188AB /* SecondCustomerOrderViewController.swift */; };
 		E0C95BD81BEBF1F7000C4515 /* launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C95BD71BEBF1F7000C4515 /* launchscreen.png */; };
 		E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */; };
 		E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */; };
@@ -121,6 +122,7 @@
 		E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowstatus.png; sourceTree = "<group>"; };
 		E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redstatus.png; sourceTree = "<group>"; };
 		E050BB111BE7E8B700ADEAE4 /* search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button.png"; sourceTree = "<group>"; };
+		E0C0C1321BEBFEB300B188AB /* SecondCustomerOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomerOrderViewController.swift; sourceTree = "<group>"; };
 		E0C95BD71BEBF1F7000C4515 /* launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchscreen.png; sourceTree = "<group>"; };
 		E0C95BD91BEBF2B8000C4515 /* DPlogo.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DPlogo.pxm; sourceTree = "<group>"; };
 		E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrderViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */,
 				E01E3C591BE648260075155F /* OrdersTableCell.swift */,
 				E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */,
+				E0C0C1321BEBFEB300B188AB /* SecondCustomerOrderViewController.swift */,
 				AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */,
 				5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */,
 			);
@@ -517,6 +520,7 @@
 				5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */,
 				E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */,
 				E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */,
+				E0C0C1331BEBFEB300B188AB /* SecondCustomerOrderViewController.swift in Sources */,
 				5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */,
 				337A40C01BE6F65900965698 /* DriverTableViewController.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,

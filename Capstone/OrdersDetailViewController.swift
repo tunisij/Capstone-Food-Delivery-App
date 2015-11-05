@@ -49,6 +49,45 @@ class OrdersDetailViewController: UIViewController {
 
     }
     
+    
+    @IBAction func deleteOrderPressed(sender: AnyObject) {
+        let alert = UIAlertController(title: "Deleter Order", message: "Are you sure you want to delete your order?", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
+            
+            print ("you pressed yes")
+            //delete order from parse
+            //provide feedback
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
+            //dont do anything
+            print("You pressed no")
+            
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
+            //still dont do anything
+            print("You pressed cancel")
+            
+        }))
+        
+        
+        
+        //necessary for alert box to show
+        self.presentViewController(alert, animated: true) { () -> Void in
+            
+            print("This will run when the alert view is presented to the screen")
+            
+        }
+        
+
+    }
+    
+    
+    
+    
     /**********************************
      *
      *
