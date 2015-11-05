@@ -63,7 +63,7 @@ class OrdersTableViewController: UITableViewController {
                 for object in pfobjects! {
                     let uOrder = object["OrderHeader"] as! String
                     let uDesc = object["OrderDescription"] as! String
-                    let uNum: Int = 1 //object["OrderNumber"] as! Int
+                    let uNum: Int = object["OrderNumber"] as! Int
                     self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
                     print(uOrder)
                     self.tableView.reloadData()
@@ -128,6 +128,8 @@ class OrdersTableViewController: UITableViewController {
             cell2.orderHeaderLabel.text = object.orderName
           //  print ("Image loaded1 \(statusImage)")
             cell2.orderStatusImage.image = statusImage
+            cell2.orderNumberLabel.text = "\(object.orderNumber)"
+            object.printData()
             return cell2
         }
         return cell

@@ -35,10 +35,17 @@ class CustomerOrder{
         orderName = name;
         orderNumber = number;
         orderMessage = message;
-        orderStatus = 0
+        orderStatus = 0 
+    }
+    
+    func setStatus(status: Int){
+        orderStatus = status
     }
     
     
+    func printData(){
+        print("Order name: \(orderName)\nOrder number: \(orderNumber)\nOrder Message: \(orderMessage)\nOrder Status: \(orderStatus)")
+    }
     
     
 }

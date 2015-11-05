@@ -133,7 +133,13 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         // let oType: String =
         if oNum == -1{
             print( "shit this is not working")
-        }   
+        }
+        
+        let user = PFUser()
+        
+        
+        print(user.username)
+        
         //SAVE INTO DATABASE
         //insert user order into parse database
         let insertOrder = PFObject(className: classNameKey)
@@ -142,6 +148,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         insertOrder["orderType"] = orderType
         insertOrder["OrderNumber"] = oNum
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
+      //  insertOrder["orderCreator"] = user.username
         //check on save into database
         insertOrder.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

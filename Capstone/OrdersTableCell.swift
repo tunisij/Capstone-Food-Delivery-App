@@ -14,4 +14,7 @@ class OrdersTableCell: UITableViewCell {
     @IBOutlet weak var orderStatusImage: UIImageView!
     //label to display the order header in the order table view
     @IBOutlet weak var orderHeaderLabel: UILabel!
+    @IBOutlet weak var orderNumberLabel: UILabel!
+    
+    
 }
