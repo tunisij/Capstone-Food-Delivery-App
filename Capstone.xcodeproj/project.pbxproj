@@ -37,6 +37,7 @@
 		5B698FFC1BB633CE001DD03E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FFB1BB633CE001DD03E /* Accounts.framework */; };
 		5B698FFE1BB633D3001DD03E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B698FFD1BB633D3001DD03E /* Social.framework */; };
 		5B94D8951BBCCDCE006BD77E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94D8941BBCCDCE006BD77E /* LoginViewController.swift */; };
+		5BC7D0C51BED074B00BE771C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7D0C41BED074B00BE771C /* SignupViewController.swift */; };
 		5BF103FD1BB6511B00C5E318 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */; };
 		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; };
 		91446D2837C047DC7F87B423 /* Pods_Capstone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */; };
@@ -120,6 +121,7 @@
 		5B698FFB1BB633CE001DD03E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5B698FFD1BB633D3001DD03E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5B94D8941BBCCDCE006BD77E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5BC7D0C41BED074B00BE771C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleRequest.swift; sourceTree = "<group>"; };
@@ -239,7 +241,7 @@
 				5B692B971BE2C24E00351796 /* DrawerTableViewController.swift */,
 				5B3157241BCF1B7E00657003 /* Orders */,
 				E0CCDEA01BD9C3F700250167 /* Drivers */,
-				5B94D8941BBCCDCE006BD77E /* LoginViewController.swift */,
+				5BC7D0C31BED073200BE771C /* Login */,
 				AA3F2B021BBC85B300F47B1C /* SettingsTableViewController.swift */,
 				5B698FB41BB63300001DD03E /* Assets.xcassets */,
 				5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */,
@@ -267,6 +269,15 @@
 				5B698FCF1BB63300001DD03E /* Info.plist */,
 			);
 			path = CapstoneUITests;
+			sourceTree = "<group>";
+		};
+		5BC7D0C31BED073200BE771C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5B94D8941BBCCDCE006BD77E /* LoginViewController.swift */,
+				5BC7D0C41BED074B00BE771C /* SignupViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		656B829069D21AF01E72F799 /* Pods */ = {
@@ -560,6 +571,7 @@
 				5B94D8951BBCCDCE006BD77E /* LoginViewController.swift in Sources */,
 				5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */,
 				E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */,
+				5BC7D0C51BED074B00BE771C /* SignupViewController.swift in Sources */,
 				E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */,
 				E0C0C1331BEBFEB300B188AB /* SecondCustomerOrderViewController.swift in Sources */,
 				5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */,

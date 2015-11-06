@@ -24,30 +24,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("zvhXcEZ8w8FRpjCV4Kpsgo8LK1NbXgc1BxuOsbtV",
             clientKey: "Zjp5wewW8WW5HqqVlkzTlohJq7WvCKkcvdERGfpm")
         
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+                
         PFTwitterUtils.initializeWithConsumerKey("A9XzEBtc52Oc89GBnvI31EqB3", consumerSecret: "UObkkdmsvnP7xMsUrqVDdtjjYMlyxscS0RXvR31u5YVbNVW190")
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
         GMSServices.provideAPIKey("AIzaSyD6A3UC612PRvsyUIk_t5odUkVZveXjO0w")
 
- 
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-        let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
-        let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DrawerTableViewController") as! DrawerTableViewController
-                        
-        let leftSideNav = UINavigationController(rootViewController: leftViewController)
-        let centerNav = UINavigationController(rootViewController: centerViewController)
-            
-        centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
-        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
-        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
-            
-        window!.rootViewController = centerContainer
-        window!.makeKeyAndVisible()
+        
+        if PFUser.currentUser() == nil {
+            mainStoryboard.instantiateViewControllerWithIdentifier("LoginViewController")
+        } else {
+            loadMainView()
+        }
+        
         
         self.count = 0
 
         return true
+    }
+    
+    func loadMainView() {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DrawerTableViewController") as! DrawerTableViewController
+        
+        let leftSideNav = UINavigationController(rootViewController: leftViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
+        
+        centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
+        
+        window!.rootViewController = centerContainer
+        window!.makeKeyAndVisible()
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {

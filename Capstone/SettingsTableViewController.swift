@@ -46,7 +46,8 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func logoutButtonClicked(sender: UIBarButtonItem) {
         PFUser.logOut()
-        self.performSegueWithIdentifier("loginSegue", sender: self)
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
+        self.presentViewController(viewController, animated: true, completion: nil)
     }
     
     @IBAction func driverSwitch(sender: UISwitch) {
