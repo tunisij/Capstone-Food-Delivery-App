@@ -44,7 +44,8 @@ class OrdersTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
         
         getOrders()
-        
+        print("\n\ntesting\n\n---------")
+        print ( PFUser.currentUser()!.username )
     }
     
     /**********************************
@@ -68,6 +69,7 @@ class OrdersTableViewController: UITableViewController {
         
         let query = PFQuery(className: "Order")
         query.whereKeyExists("OrderHeader")
+        query.whereKey("orderCreator", equalTo: PFUser.currentUser()!.username!)
         query.addDescendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
             if error == nil {
