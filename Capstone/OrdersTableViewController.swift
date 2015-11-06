@@ -245,6 +245,7 @@ class OrdersTableViewController: UITableViewController {
                 controller.orderHeader = object.orderName
                 controller.orderDescription = object.orderMessage
                 controller.orderNumber = object.orderNumber
+                controller.oStatus = object.orderStatus
             }
         }
     }

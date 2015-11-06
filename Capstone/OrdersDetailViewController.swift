@@ -6,13 +6,15 @@
 //  Copyright © 2015 JJohn Tunisi, Ross Bryan, Ethan Christensen,  Ethan Keel . All rights reserved.
 //
 import UIKit
+import Parse
 
 class OrdersDetailViewController: UIViewController {
     
     var orderHeader: String = "detailTestHeader"
     var orderNumber: String = "negative 10"
     var orderDescription: String = "detailTestDescription"
-    
+    var orderStatus: String = "negative 0"
+    var oStatus: Int = -1
     var detailItem: AnyObject? {
         didSet {
             self.configureView()
@@ -20,6 +22,7 @@ class OrdersDetailViewController: UIViewController {
     }
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
     /**********************************
@@ -27,10 +30,33 @@ class OrdersDetailViewController: UIViewController {
      *
      **********************************/
     func configureView() {
-//        if let detail = self.detailItem as! NSArray? {
-//            
-//        }
+        //        if let detail = self.detailItem as! NSArray? {
+        //
+        //        }
     }
+    
+    func statusMessage(status: Int) -> String {
+        if status == 0 {
+            orderStatus = "Order created - no driver."
+        }
+        if status == 1 {
+            orderStatus = "Order accepted by driver."
+        }
+        if status == 2 {
+            orderStatus = "Order in progress by driver."
+        }
+        if status == 3 {
+            orderStatus = "Order completed by driver."
+        }
+        if status == 4 {
+            orderStatus = "Order en route to location."
+        }
+        if status == 5 {
+            orderStatus = "Order Completed"
+        }
+        return orderStatus
+    }
+    
     
     /**********************************
      *
@@ -44,23 +70,40 @@ class OrdersDetailViewController: UIViewController {
             headerLabel.text = orderHeader
             numberLabel.text = "\(orderNumber)"
             descriptionLabel.text = orderDescription
-            
+            statusLabel.text = statusMessage(oStatus)
         }
-
+        
     }
     
     
     @IBAction func deleteOrderPressed(sender: AnyObject) {
-        let alert = UIAlertController(title: "Deleter Order", message: "Are you sure you want to delete your order?", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Deleter Order", message: "Are you sure you want to delete your order? This can only be done if your order has not been accepted by a driver.", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
             
             print ("you pressed yes")
             //delete order from parse
             //provide feedback
-            
-            
-            
+            //PULL data from the DATABASE
+            //getting orderNumber to add to order
+            let query = PFQuery(className: "Order")
+            query.whereKey("orderNumber", containsString: self.numberLabel.text)
+            query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
+                if error == nil {
+                    let pfobjects = objects
+                    if objects != nil {
+                        for object in pfobjects! {
+                            object.deleteInBackground()
+                            self.headerLabel.text = "Order Deleted"
+                            self.numberLabel.text = "Order Deleted"
+                            self.descriptionLabel.text = "Order Deleted"
+                            
+                        }
+                    }
+                }
+            }
         }))
+        
+        
         
         alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
             //dont do anything
@@ -84,7 +127,7 @@ class OrdersDetailViewController: UIViewController {
             
         }
         
-
+        
     }
     
     
