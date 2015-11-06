@@ -83,6 +83,32 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         return pickerData[row]
     }
     
+    /**********************************
+     *
+     *
+     **********************************/
+    func displayOrderFeedbackPrompt(){
+        let simpleAlert = UIAlertController(title: "Ordered Succesfully Placed", message: "Your order has been succesfully placed and will now be viewable for drivers to accept. ", preferredStyle: .Alert)
+        simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
+        self.presentViewController(simpleAlert, animated: true, completion: nil)
+        
+    }
+    
+    /**********************************
+     *
+     *
+     **********************************/
+    func validOrder() -> Bool {
+        
+        if (headerField.text == "" || descriptionField.text == ""){
+            let simpleAlert = UIAlertController(title: "Order Save Error", message: "All fields are mandatory. ", preferredStyle: .Alert)
+            simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
+            self.presentViewController(simpleAlert, animated: true, completion: nil)
+            return false;
+        }
+        return true
+        
+    }
     
     /**********************************
      * SAVES order into the database
@@ -90,49 +116,45 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
      **********************************/
     var myDebugCounter: Int = 0
     @IBAction func orderCompleteButton(sender: AnyObject) {
-        
-        if (headerField.text == "" || descriptionField.text == ""){
-            let simpleAlert = UIAlertController(title: "Order Save Error", message: "All fields are mandatory. ", preferredStyle: .Alert)
-            simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
-            self.presentViewController(simpleAlert, animated: true, completion: nil)
-            return;
+        //Confirm that all forms are filled out
+        if !validOrder(){
+            return
         }
         
         
-        myDebugCounter++
-        print("Button pressed, count at: \(myDebugCounter)")
         //PULL data from the DATABASE
         //getting orderNumber to add to order
         let query = PFQuery(className: numberNameKey)
-        query.whereKeyExists("oCounter")
-        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
-            if error == nil {
-                let pfobjects = objects
-                if objects != nil {
-                    for object in pfobjects! {
-                        //get the number
-                        self.orderNumber = object["oCounter"] as! Int
-                        //increment by one
-                        self.orderNumber++
-                        if (self.orderNumber == -1){
-                            print("Error Saving order number")
-                        }
-                        else {
-                            object["oCounter"] = self.orderNumber
-                            do {
-                                _ = try! object.save()
-                            }
-                            catch _ {
-                                print("Fuck!!!")
-                            }
-                        }
-                    }
-                }
-                else {
-                    print("Error: \(error!)")
-                } }
-            
-        }
+        //Column Name
+//        query.whereKeyExists("oCounter")
+//        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
+//            if error == nil {
+//                let pfobjects = objects
+//                if objects != nil {
+//                    for object in pfobjects! {
+//                        //get the number
+//                        self.orderNumber = object["oCounter"] as! Int
+//                        //increment by one
+//                        self.orderNumber++
+//                        if (self.orderNumber == -1){
+//                            print("Error Saving order number")
+//                        }
+//                        else {
+//                            object["oCounter"] = self.orderNumber
+//                            do {
+//                                _ = try! object.save()
+//                            }
+//                            catch _ {
+//                                print("Fuck!!!")
+//                            }
+//                        }
+//                    }
+//                }
+//                else {
+//                    print("Error: \(error!)")
+//                } }
+//            
+//        }
         
         //get data from PFObject
         // let score = gameScore["score"] as Int
@@ -155,13 +177,16 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         insertOrder[orderNameKey] = oHead
         insertOrder[orderDescriptionKey] = oDesc
         insertOrder["orderType"] = orderType
-        insertOrder["OrderNumber"] = oNum
+        // insertOrder["OrderNumber"] = oNum
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
         //  insertOrder["orderCreator"] = user.username
         //check on save into database
         do {
             
             try insertOrder.save()
+            
+            displayOrderFeedbackPrompt()
+        
         }//InBackgroundWithBlock {
             //            (success: Bool, error: NSError?) -> Void in
             //            if (success) {
@@ -176,14 +201,17 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
             print ("fuck this shit didnt work")
         }
         //set to TRUE because user clicked SAVE button
+        //oNum =
         createdYet = true
         
-        let simpleAlert = UIAlertController(title: "Ordered Succesfully Placed", message: "Your order has been succesfully placed and will now be viewable for drivers to accept. ", preferredStyle: .Alert)
-        simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
-        self.presentViewController(simpleAlert, animated: true, completion: nil)
+       	        
+        
+        
+        
         
         headerField.text = ""
-        descriptionField.text = ""
+        headerField.placeholder = "Order Title"
+        descriptionField.text = "Enter order information here."
         
         
         

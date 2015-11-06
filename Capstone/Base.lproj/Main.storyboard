@@ -193,24 +193,31 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zb-wd-Uhn">
+                                <rect key="frame" x="477" y="72" width="123" height="32"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="2lt-vc-Wi8"/>
+                                    <constraint firstAttribute="width" constant="123" id="yX3-Vw-F9I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Delete Order">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteOrderPressed:" destination="Bw1-xB-YKM" eventType="touchUpInside" id="CwU-ES-g4r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Zb-wd-Uhn" secondAttribute="trailing" constant="-20" id="TVU-UK-di3"/>
+                            <constraint firstItem="4Zb-wd-Uhn" firstAttribute="top" secondItem="HEr-yq-jrO" secondAttribute="bottom" constant="8" id="VZu-oo-mhs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qc6-JD-AjM">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Zb-wd-Uhn">
-                            <rect key="frame" x="220" y="7" width="160" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <state key="normal" title="Delete Order">
-                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="deleteOrderPressed:" destination="Bw1-xB-YKM" eventType="touchUpInside" id="CwU-ES-g4r"/>
-                            </connections>
-                        </button>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="GGW-P2-4us" id="qcH-fS-5xo"/>

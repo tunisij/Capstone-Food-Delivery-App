@@ -10,7 +10,7 @@ import UIKit
 class OrdersDetailViewController: UIViewController {
     
     var orderHeader: String = "detailTestHeader"
-    var orderNumber: Int = -1
+    var orderNumber: Int = -10
     var orderDescription: String = "detailTestDescription"
     
     var detailItem: AnyObject? {
@@ -57,6 +57,8 @@ class OrdersDetailViewController: UIViewController {
             print ("you pressed yes")
             //delete order from parse
             //provide feedback
+            
+            
             
         }))
         
