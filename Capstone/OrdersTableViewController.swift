@@ -29,7 +29,7 @@ class OrdersTableViewController: UITableViewController {
         self.refreshControl = refreshController
         self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
  
-        getOrders()
+     //   getOrders()
         //        if let split = self.splitViewController {
         //            let controllers = split.viewControllers
         //            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? OrdersDetailViewController
