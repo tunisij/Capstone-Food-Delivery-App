@@ -47,6 +47,12 @@
 		AA3F2B071BBC85DC00F47B1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */; };
 		AAC55BA51BCC4808006CD873 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */; };
 		E01E3C5A1BE648260075155F /* OrdersTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E3C591BE648260075155F /* OrdersTableCell.swift */; };
+		E02828C91BEC434A002A0559 /* orderstatus0.png in Resources */ = {isa = PBXBuildFile; fileRef = E02828C81BEC434A002A0559 /* orderstatus0.png */; };
+		E02828CB1BEC434E002A0559 /* orderstatus1 .png in Resources */ = {isa = PBXBuildFile; fileRef = E02828CA1BEC434E002A0559 /* orderstatus1 .png */; };
+		E02828CD1BEC4353002A0559 /* orderstatus2.png in Resources */ = {isa = PBXBuildFile; fileRef = E02828CC1BEC4353002A0559 /* orderstatus2.png */; };
+		E02828CF1BEC4357002A0559 /* orderstatus3.png in Resources */ = {isa = PBXBuildFile; fileRef = E02828CE1BEC4357002A0559 /* orderstatus3.png */; };
+		E02828D11BEC435B002A0559 /* orderstatus4.png in Resources */ = {isa = PBXBuildFile; fileRef = E02828D01BEC435B002A0559 /* orderstatus4.png */; };
+		E02828D31BEC4362002A0559 /* orderstatus5.png in Resources */ = {isa = PBXBuildFile; fileRef = E02828D21BEC4362002A0559 /* orderstatus5.png */; };
 		E050BB0D1BE7DE0400ADEAE4 /* greenstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0A1BE7DE0400ADEAE4 /* greenstatus.png */; };
 		E050BB0E1BE7DE0400ADEAE4 /* yellowstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */; };
 		E050BB0F1BE7DE0400ADEAE4 /* redstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */; };
@@ -124,6 +130,12 @@
 		AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		AAC60DB21BE3EE960087AEC0 /* Capstone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Capstone-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		E01E3C591BE648260075155F /* OrdersTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableCell.swift; sourceTree = "<group>"; };
+		E02828C81BEC434A002A0559 /* orderstatus0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderstatus0.png; sourceTree = "<group>"; };
+		E02828CA1BEC434E002A0559 /* orderstatus1 .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orderstatus1 .png"; sourceTree = "<group>"; };
+		E02828CC1BEC4353002A0559 /* orderstatus2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderstatus2.png; sourceTree = "<group>"; };
+		E02828CE1BEC4357002A0559 /* orderstatus3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderstatus3.png; sourceTree = "<group>"; };
+		E02828D01BEC435B002A0559 /* orderstatus4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderstatus4.png; sourceTree = "<group>"; };
+		E02828D21BEC4362002A0559 /* orderstatus5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderstatus5.png; sourceTree = "<group>"; };
 		E050BB0A1BE7DE0400ADEAE4 /* greenstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenstatus.png; sourceTree = "<group>"; };
 		E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowstatus.png; sourceTree = "<group>"; };
 		E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redstatus.png; sourceTree = "<group>"; };
@@ -311,6 +323,12 @@
 				E050BB0A1BE7DE0400ADEAE4 /* greenstatus.png */,
 				E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */,
 				E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */,
+				E02828C81BEC434A002A0559 /* orderstatus0.png */,
+				E02828CA1BEC434E002A0559 /* orderstatus1 .png */,
+				E02828CC1BEC4353002A0559 /* orderstatus2.png */,
+				E02828CE1BEC4357002A0559 /* orderstatus3.png */,
+				E02828D01BEC435B002A0559 /* orderstatus4.png */,
+				E02828D21BEC4362002A0559 /* orderstatus5.png */,
 			);
 			name = OrderStatusImages;
 			sourceTree = "<group>";
@@ -439,9 +457,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02828D31BEC4362002A0559 /* orderstatus5.png in Resources */,
 				5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */,
+				E02828D11BEC435B002A0559 /* orderstatus4.png in Resources */,
 				E050BB121BE7E8B700ADEAE4 /* search-button.png in Resources */,
 				E050BB0E1BE7DE0400ADEAE4 /* yellowstatus.png in Resources */,
+				E02828CB1BEC434E002A0559 /* orderstatus1 .png in Resources */,
+				E02828C91BEC434A002A0559 /* orderstatus0.png in Resources */,
+				E02828CD1BEC4353002A0559 /* orderstatus2.png in Resources */,
+				E02828CF1BEC4357002A0559 /* orderstatus3.png in Resources */,
 				E050BB0F1BE7DE0400ADEAE4 /* redstatus.png in Resources */,
 				5B698FB81BB63300001DD03E /* LaunchScreen.storyboard in Resources */,
 				5B698FB51BB63300001DD03E /* Assets.xcassets in Resources */,
