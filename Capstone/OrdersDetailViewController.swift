@@ -10,7 +10,7 @@ import UIKit
 class OrdersDetailViewController: UIViewController {
     
     var orderHeader: String = "detailTestHeader"
-    var orderNumber: Int = -10
+    var orderNumber: String = "negative 10"
     var orderDescription: String = "detailTestDescription"
     
     var detailItem: AnyObject? {

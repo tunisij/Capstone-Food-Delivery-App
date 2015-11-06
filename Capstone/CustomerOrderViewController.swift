@@ -32,7 +32,6 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     //String that will combine the above 3 to provide 1 return into the Parse database
     //  let orderLocation: String
     
-    var orderNumber: Int = -1
     var orderType: String = ""
     //Has the user SAVED the order?
     //by default, no
@@ -159,13 +158,10 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         //get data from PFObject
         // let score = gameScore["score"] as Int
         let oHead: String = headerField.text!
-        let oNum: Int = orderNumber
+
         let oDesc: String = descriptionField.text
-        // let oType: String =
-        if oNum == -1{
-            print( "shit this is not working")
-        }
-        
+        var orNum: String = ""
+
         let user = PFUser()
         
         
@@ -184,8 +180,14 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         do {
             
             try insertOrder.save()
-            
-            displayOrderFeedbackPrompt()
+            orNum = insertOrder.objectId!
+            insertOrder["orderNumber"] = orNum
+                      do {
+                try insertOrder.save()
+                displayOrderFeedbackPrompt()
+                        print(orNum)
+
+            }
         
         }//InBackgroundWithBlock {
             //            (success: Bool, error: NSError?) -> Void in
