@@ -138,7 +138,12 @@ class OrdersTableViewController: UITableViewController {
             let object = orderList[indexPath.row-1]
             cell2.orderHeaderLabel.text = object.orderName
     
-
+//            var image1 = UIImage
+//            
+//            var imagename: String = getStatus(object.orderStatus)
+//            
+//            let image = UIImageAsset.setValue(image1, forKeyPath: imagename)
+            
             cell2.orderStatusImage.image = UIImage(named: getStatus(object.orderStatus))
             cell2.orderNumberLabel.text = "Order Number: \(object.orderNumber)"
             object.printData()
