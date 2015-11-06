@@ -126,6 +126,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         insertOrder[orderNameKey] = oHead
         insertOrder[orderDescriptionKey] = oDesc
         insertOrder["orderType"] = orderType
+        insertOrder["orderCreator"] = PFUser.currentUser()!.username
         // insertOrder["OrderNumber"] = oNum
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
         //  insertOrder["orderCreator"] = user.username
