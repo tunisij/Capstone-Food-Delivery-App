@@ -140,7 +140,6 @@
 		E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redstatus.png; sourceTree = "<group>"; };
 		E0C0C1321BEBFEB300B188AB /* SecondCustomerOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomerOrderViewController.swift; sourceTree = "<group>"; };
 		E0C95BD71BEBF1F7000C4515 /* launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchscreen.png; sourceTree = "<group>"; };
-		E0C95BD91BEBF2B8000C4515 /* DPlogo.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DPlogo.pxm; sourceTree = "<group>"; };
 		E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrderViewController.swift; sourceTree = "<group>"; };
 		E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,7 +242,6 @@
 				5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */,
 				AAC60DB21BE3EE960087AEC0 /* Capstone-Bridging-Header.h */,
 				5B698FB91BB63300001DD03E /* Info.plist */,
-				E0C95BD91BEBF2B8000C4515 /* DPlogo.pxm */,
 				E0C95BD71BEBF1F7000C4515 /* launchscreen.png */,
 			);
 			path = Capstone;

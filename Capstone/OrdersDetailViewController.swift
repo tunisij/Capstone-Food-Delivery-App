@@ -80,51 +80,69 @@ class OrdersDetailViewController: UIViewController {
         let alert = UIAlertController(title: "Deleter Order", message: "Are you sure you want to delete your order? This can only be done if your order has not been accepted by a driver.", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
             
-            print ("you pressed yes")
-            //delete order from parse
-            //provide feedback
-            //PULL data from the DATABASE
-            //getting orderNumber to add to order
-            let query = PFQuery(className: "Order")
-            query.whereKey("orderNumber", containsString: self.numberLabel.text)
-            query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
-                if error == nil {
-                    let pfobjects = objects
-                    if objects != nil {
-                        for object in pfobjects! {
-                            object.deleteInBackground()
-                            self.headerLabel.text = "Order Deleted"
-                            self.numberLabel.text = "Order Deleted"
-                            self.descriptionLabel.text = "Order Deleted"
-                            
+            let alert2 = UIAlertController(title: "Deleter Order", message: "Are you sure you want to delete this order?", preferredStyle:  .Alert)
+            alert2.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
+                
+                print ("you pressed yes")
+                //delete order from parse
+                //provide feedback
+                //PULL data from the DATABASE
+                //getting orderNumber to add to order
+                let query = PFQuery(className: "Order")
+                query.whereKey("orderNumber", containsString: self.numberLabel.text)
+                query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
+                    if error == nil {
+                        let pfobjects = objects
+                        if objects != nil {
+                            for object in pfobjects! {
+                                object.deleteInBackground()
+                                self.headerLabel.text = "Order Deleted"
+                                self.numberLabel.text = "Order Deleted"
+                                self.descriptionLabel.text = "Order Deleted"
+                                
+                            }
                         }
                     }
                 }
+            }))
+          
+            
+            alert2.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
+                //dont do anything
+                print("You pressed no")
+                
+            }))
+            
+            self.presentViewController(alert2, animated: true) { () -> Void in
+                
+                print("This will run when the alert view is presented to the screen")
+                
             }
-        }))
-        
-        
-        
-        alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
-            //dont do anything
-            print("You pressed no")
+
+            }))
             
-        }))
-        
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
-            //still dont do anything
-            print("You pressed cancel")
             
-        }))
-        
-        
-        
-        //necessary for alert box to show
-        self.presentViewController(alert, animated: true) { () -> Void in
             
-            print("This will run when the alert view is presented to the screen")
+            alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
+                //dont do anything
+                print("You pressed no")
+                
+            }))
             
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (alertAction: UIAlertAction!) -> Void in
+                //still dont do anything
+                print("You pressed cancel")
+                
+            }))
+            
+            
+            
+            //necessary for alert box to show
+            self.presentViewController(alert, animated: true) { () -> Void in
+                
+                print("This will run when the alert view is presented to the screen")
+                
         }
         
         

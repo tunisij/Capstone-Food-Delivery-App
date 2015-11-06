@@ -33,9 +33,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     //  let orderLocation: String
     
     var orderType: String = ""
-    //Has the user SAVED the order?
-    //by default, no
-    var createdYet: Bool = false
+ 
     //Order Type Picker View
     @IBOutlet weak var picker: UIPickerView!
     //Picker View Data
@@ -119,54 +117,9 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         if !validOrder(){
             return
         }
-        
-        
-        //PULL data from the DATABASE
-        //getting orderNumber to add to order
-        let query = PFQuery(className: numberNameKey)
-        //Column Name
-//        query.whereKeyExists("oCounter")
-//        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
-//            if error == nil {
-//                let pfobjects = objects
-//                if objects != nil {
-//                    for object in pfobjects! {
-//                        //get the number
-//                        self.orderNumber = object["oCounter"] as! Int
-//                        //increment by one
-//                        self.orderNumber++
-//                        if (self.orderNumber == -1){
-//                            print("Error Saving order number")
-//                        }
-//                        else {
-//                            object["oCounter"] = self.orderNumber
-//                            do {
-//                                _ = try! object.save()
-//                            }
-//                            catch _ {
-//                                print("Fuck!!!")
-//                            }
-//                        }
-//                    }
-//                }
-//                else {
-//                    print("Error: \(error!)")
-//                } }
-//            
-//        }
-        
-        //get data from PFObject
-        // let score = gameScore["score"] as Int
         let oHead: String = headerField.text!
-
         let oDesc: String = descriptionField.text
         var orNum: String = ""
-
-        let user = PFUser()
-        
-        
-        print(user.username)
-        
         //SAVE INTO DATABASE
         //insert user order into parse database
         let insertOrder = PFObject(className: classNameKey)
@@ -189,33 +142,13 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
 
             }
         
-        }//InBackgroundWithBlock {
-            //            (success: Bool, error: NSError?) -> Void in
-            //            if (success) {
-            //                // The object has been saved.
-            //                print("Succesful save")
-            //            } else {
-            //                // There was a problem, check error.description
-            //                print("Error saving")
-            //            }
-            //        }
+        }
         catch _ {
             print ("fuck this shit didnt work")
         }
-        //set to TRUE because user clicked SAVE button
-        //oNum =
-        createdYet = true
-        
-       	        
-        
-        
-        
-        
         headerField.text = ""
         headerField.placeholder = "Order Title"
         descriptionField.text = "Enter order information here."
-        
-        
         
     }
     
@@ -225,17 +158,13 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
      *
      **********************************/
     override func viewDidLoad() {
-        createdYet = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
-        
         // Connect data:
         self.picker.delegate = self
         self.picker.dataSource = self
-        
         // Input data into the Array:
         pickerData = ["Fast Food","Pick Up", "Groceries"]
-        
     }
     
     /**********************************
