@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var centerContainer: MMDrawerController?
+    var count: Int?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("zvhXcEZ8w8FRpjCV4Kpsgo8LK1NbXgc1BxuOsbtV",
@@ -43,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
+        
+        self.count = 0
 
         return true
     }
@@ -72,6 +75,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func incrementNetworkActivity() {
+        self.count!++
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    }
+    
+    func decrementNetworkActivity() {
+        if self.count! > 0 {
+            self.count!--
+        }
+        if self.count! == 0 {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        }
+    }
+    
+    func resetNetworkActivity() {
+        self.count! = 0
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
 
 

@@ -12,6 +12,15 @@ import MMDrawerController
 import GoogleMaps
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    
+    let dataFetcher = GoogleRequest()
+    //
+    //    let searchRadius: Double = 1000
+    //    var searchedTypes = ["pizza"]
+    
+    
+    
     //@IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -31,7 +40,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         view.addGestureRecognizer(tap)
         
         hasLocation = false
+        
     }
+    
+    
     
     /**********************************
      *
@@ -41,62 +53,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         super.viewDidAppear(animated)
     }
     
-//    override func viewDidLayoutSubviews() {
-//        let request = MKLocalSearchRequest()
-//        request.naturalLanguageQuery = "Pizza"
-//        request.region = mapView.region
-//        
-//        let search = MKLocalSearch(request: request)
-//        
-//        search.startWithCompletionHandler({(response: MKLocalSearchResponse!,
-//            error: NSError!) in
-//            
-//            if error != nil {
-//                println("Error occured in search: \(error.localizedDescription)")
-//            } else if response.mapItems.count == 0 {
-//                println("No matches found")
-//            } else {
-//                println("Matches found")
-//                
-//                for item in response.mapItems as! [MKMapItems] {
-//                    println("Name = \(item.name)")
-//                    println("Phone = \(item.phoneNumber)")
-//                }
-//            }
-//        })
-//    }
     
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if !hasLocation {
-//            hasLocation = true
-//            locationManager.stopUpdatingLocation()
-//            locationManager.startMonitoringSignificantLocationChanges()
-//            
-//            let locationArray = locations as NSArray
-//            let locationObj = locationArray.lastObject as! CLLocation
-//            let coord = locationObj.coordinate
-//            
-//            initZoom(coord.latitude, longitude: coord.longitude)
-//        }
-//    }
-    
-//    func initZoom(latitude: Double, longitude: Double) -> Void {
-//        let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-//        let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
-//        
-//        self.mapView.setRegion(region, animated: true)
-//    }
-//    
-//    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
-//        self.mapView.showsPointsOfInterest = true
-//        self.mapView.showsCompass = true
-//        self.mapView.showsBuildings = true
-//    }
     
     /**********************************
-    *
-    *
-    **********************************/
+     *
+     *
+     **********************************/
     @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
@@ -120,6 +82,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             locationManager.startUpdatingLocation()
             mapView.myLocationEnabled = true
             mapView.settings.myLocationButton = true
+            
         }
     }
     
@@ -131,10 +94,27 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         if let location = locations.first {
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
+            //loadPlaces(location.coordinate)
+            
         }
         
     }
+    
+    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+        mapView.clear()
+        dataFetcher.loadPlaces(coordinate) { places in
+            for place: Place in places {
+                let marker = PlaceMarker(place: place)
+                print("ADDRESS: \(marker.place.address)")
+                marker.map = self.mapView
+                
+            }
+        }
+    }
+    @IBAction func refreshPlaces(sender: AnyObject) {
+        mapView.clear()
+        self.fetchNearbyPlaces(mapView.camera.target)
+    }
+    
+    
 }
-
-
-
