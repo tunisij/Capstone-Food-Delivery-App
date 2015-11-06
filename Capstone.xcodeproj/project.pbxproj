@@ -57,7 +57,6 @@
 		E050BB0D1BE7DE0400ADEAE4 /* greenstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0A1BE7DE0400ADEAE4 /* greenstatus.png */; };
 		E050BB0E1BE7DE0400ADEAE4 /* yellowstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */; };
 		E050BB0F1BE7DE0400ADEAE4 /* redstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */; };
-		E050BB121BE7E8B700ADEAE4 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E050BB111BE7E8B700ADEAE4 /* search-button.png */; };
 		E0C0C1331BEBFEB300B188AB /* SecondCustomerOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C0C1321BEBFEB300B188AB /* SecondCustomerOrderViewController.swift */; };
 		E0C95BD81BEBF1F7000C4515 /* launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C95BD71BEBF1F7000C4515 /* launchscreen.png */; };
 		E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */; };
@@ -141,10 +140,8 @@
 		E050BB0A1BE7DE0400ADEAE4 /* greenstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenstatus.png; sourceTree = "<group>"; };
 		E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowstatus.png; sourceTree = "<group>"; };
 		E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redstatus.png; sourceTree = "<group>"; };
-		E050BB111BE7E8B700ADEAE4 /* search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button.png"; sourceTree = "<group>"; };
 		E0C0C1321BEBFEB300B188AB /* SecondCustomerOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomerOrderViewController.swift; sourceTree = "<group>"; };
 		E0C95BD71BEBF1F7000C4515 /* launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchscreen.png; sourceTree = "<group>"; };
-		E0C95BD91BEBF2B8000C4515 /* DPlogo.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DPlogo.pxm; sourceTree = "<group>"; };
 		E0CCDEA11BD9C47D00250167 /* CustomerOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrderViewController.swift; sourceTree = "<group>"; };
 		E0FEF4401BD97689000B7CC3 /* CustomerOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerOrder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,7 +244,6 @@
 				5B698FB61BB63300001DD03E /* LaunchScreen.storyboard */,
 				AAC60DB21BE3EE960087AEC0 /* Capstone-Bridging-Header.h */,
 				5B698FB91BB63300001DD03E /* Info.plist */,
-				E0C95BD91BEBF2B8000C4515 /* DPlogo.pxm */,
 				E0C95BD71BEBF1F7000C4515 /* launchscreen.png */,
 			);
 			path = Capstone;
@@ -330,7 +326,6 @@
 		E050BB101BE7E1FB00ADEAE4 /* OrderStatusImages */ = {
 			isa = PBXGroup;
 			children = (
-				E050BB111BE7E8B700ADEAE4 /* search-button.png */,
 				E050BB0A1BE7DE0400ADEAE4 /* greenstatus.png */,
 				E050BB0C1BE7DE0400ADEAE4 /* redstatus.png */,
 				E050BB0B1BE7DE0400ADEAE4 /* yellowstatus.png */,
@@ -471,7 +466,6 @@
 				E02828D31BEC4362002A0559 /* orderstatus5.png in Resources */,
 				5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */,
 				E02828D11BEC435B002A0559 /* orderstatus4.png in Resources */,
-				E050BB121BE7E8B700ADEAE4 /* search-button.png in Resources */,
 				E050BB0E1BE7DE0400ADEAE4 /* yellowstatus.png in Resources */,
 				E02828CB1BEC434E002A0559 /* orderstatus1 .png in Resources */,
 				E02828C91BEC434A002A0559 /* orderstatus0.png in Resources */,

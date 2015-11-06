@@ -11,7 +11,7 @@ import Foundation
 
 class CustomerOrder{
     let orderName: String;
-    let orderNumber: Int;
+    let orderNumber: String;
     var orderMessage: String;
     var orderStatus: Int
     //var orderType: String
@@ -31,7 +31,7 @@ class CustomerOrder{
     *
     *
     **********************************/
-    init(name: String, number: Int, message: String) {
+    init(name: String, number: String, message: String) {
         orderName = name;
         orderNumber = number;
         orderMessage = message;

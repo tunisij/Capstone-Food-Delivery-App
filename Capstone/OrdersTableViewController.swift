@@ -15,7 +15,7 @@ class OrdersTableViewController: UITableViewController {
     
     var count: Int = 0
     var detailViewController: OrdersDetailViewController? = nil
-    var nextOrder: CustomerOrder = CustomerOrder(name: "TableTestHeader", number: -1, message: "TableTestMessage")
+    var nextOrder: CustomerOrder = CustomerOrder(name: "TableTestHeader", number: "negative one", message: "TableTestMessage")
     var orderList = [CustomerOrder]()
     var refreshController = UIRefreshControl()
     
@@ -76,7 +76,7 @@ class OrdersTableViewController: UITableViewController {
                     for object in pfobjects! {
                         let uOrder = object["OrderHeader"] as! String
                         let uDesc = object["OrderDescription"] as! String
-                        let uNum: Int = object["OrderNumber"] as! Int
+                        let uNum: String = object["orderNumber"] as! String
                         self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
                         print(uOrder)
                         self.tableView.reloadData()
@@ -138,7 +138,12 @@ class OrdersTableViewController: UITableViewController {
             let object = orderList[indexPath.row-1]
             cell2.orderHeaderLabel.text = object.orderName
     
-
+//            var image1 = UIImage
+//            
+//            var imagename: String = getStatus(object.orderStatus)
+//            
+//            let image = UIImageAsset.setValue(image1, forKeyPath: imagename)
+            
             cell2.orderStatusImage.image = UIImage(named: getStatus(object.orderStatus))
             cell2.orderNumberLabel.text = "Order Number: \(object.orderNumber)"
             object.printData()
@@ -240,6 +245,7 @@ class OrdersTableViewController: UITableViewController {
                 controller.orderHeader = object.orderName
                 controller.orderDescription = object.orderMessage
                 controller.orderNumber = object.orderNumber
+                controller.oStatus = object.orderStatus
             }
         }
     }
