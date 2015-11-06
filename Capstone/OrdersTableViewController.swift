@@ -28,8 +28,8 @@ class OrdersTableViewController: UITableViewController {
         insertNewObject(self, index: 0)
         self.refreshControl = refreshController
         self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
- 
-     //   getOrders()
+        
+        //   getOrders()
         //        if let split = self.splitViewController {
         //            let controllers = split.viewControllers
         //            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? OrdersDetailViewController
@@ -73,17 +73,17 @@ class OrdersTableViewController: UITableViewController {
             if error == nil {
                 let pfobjects = objects
                 if objects != nil {
-                for object in pfobjects! {
-                    let uOrder = object["OrderHeader"] as! String
-                    let uDesc = object["OrderDescription"] as! String
-                    let uNum: Int = object["OrderNumber"] as! Int
-                    self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
-                    print(uOrder)
-                    self.tableView.reloadData()
+                    for object in pfobjects! {
+                        let uOrder = object["OrderHeader"] as! String
+                        let uDesc = object["OrderDescription"] as! String
+                        let uNum: Int = object["OrderNumber"] as! Int
+                        self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
+                        print(uOrder)
+                        self.tableView.reloadData()
+                    }
                 }
-            }
-            else {
-                print("Error: \(error!)")
+                else {
+                    print("Error: \(error!)")
                 } }
             
         }
@@ -129,9 +129,7 @@ class OrdersTableViewController: UITableViewController {
      **********************************/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        
-        let statusImage: UIImage = UIImage(named: "redstatus.png")!
-        
+              
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCellWithIdentifier("AddNewRowCell", forIndexPath: indexPath)
         } else {
@@ -139,14 +137,45 @@ class OrdersTableViewController: UITableViewController {
             cell2 = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! OrdersTableCell
             let object = orderList[indexPath.row-1]
             cell2.orderHeaderLabel.text = object.orderName
-          //  print ("Image loaded1 \(statusImage)")
-            cell2.orderStatusImage.image = statusImage
+    
+
+            cell2.orderStatusImage.image = UIImage(named: getStatus(object.orderStatus))
             cell2.orderNumberLabel.text = "Order Number: \(object.orderNumber)"
             object.printData()
             return cell2
         }
         return cell
     }
+    
+    
+    func getStatus(status: Int) -> String{
+        
+        if status == 0{
+            return "orderstatus0.png"
+        }
+        if status == 1{
+            return "orderstatus1.png"
+        }
+        
+        if status == 2{
+            return "orderstatus2.png"
+        }
+        
+        if status == 3{
+            return "orderstatus3.png"
+        }
+        
+        if status == 4{
+            return "orderstatus4.png"
+        }
+        
+        if status == 5{
+            return "orderstatus5.png"
+        }
+        return "error"
+    }
+    
+    
     
     /**********************************
      *
@@ -185,16 +214,16 @@ class OrdersTableViewController: UITableViewController {
      * Got rid of this for now . . .
      **********************************/
      //alert box method
-//    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-//        
-//        let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
-//        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-//        self.presentViewController(alert, animated: true, completion: nil)
-//        
-//    }
-    
-    
-    /**********************************
+     //    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+     //
+     //        let alert = UIAlertController(title: "Order Information", message: "You have tapped accessory for\n The current status of your order is: + orderStatus (something to be completed)", preferredStyle: .Alert)
+     //        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+     //        self.presentViewController(alert, animated: true, completion: nil)
+     //
+     //    }
+     
+     
+     /**********************************
      *
      *
      **********************************/
@@ -232,8 +261,8 @@ class OrdersTableViewController: UITableViewController {
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-
-
+    
+    
 }
 
 
