@@ -17,11 +17,21 @@ class SignupViewController: UIViewController {
     
     var window: UIWindow?
     var centerContainer: MMDrawerController?
+    var username: String? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.text = username
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
-
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -38,16 +48,19 @@ class SignupViewController: UIViewController {
             let alert = UIAlertController(title: "Invalid", message: "Username must be greater than 5 characters", preferredStyle: UIAlertControllerStyle.Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(defaultAction)
+            self.presentViewController(alert, animated: true, completion: nil)
             
         } else if password!.characters.count < 8 {
             let alert = UIAlertController(title: "Invalid", message: "Password must be greater than 8 characters", preferredStyle: UIAlertControllerStyle.Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(defaultAction)
+            self.presentViewController(alert, animated: true, completion: nil)
             
         } else if email!.characters.count < 8 {
             let alert = UIAlertController(title: "Invalid", message: "Please enter a valid email address", preferredStyle: UIAlertControllerStyle.Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(defaultAction)
+            self.presentViewController(alert, animated: true, completion: nil)
             
         } else {
             // Run a spinner to show a task in progress
@@ -69,11 +82,13 @@ class SignupViewController: UIViewController {
                     let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: UIAlertControllerStyle.Alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     alert.addAction(defaultAction)
+                    self.presentViewController(alert, animated: true, completion: nil)
                     
                 } else {
                     let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: UIAlertControllerStyle.Alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     alert.addAction(defaultAction)
+                    self.presentViewController(alert, animated: true, completion: nil)
 
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -84,6 +99,10 @@ class SignupViewController: UIViewController {
                 }
             })
         }
+    }
+    
+    @IBAction func backButtonClicked(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

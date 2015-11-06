@@ -40,6 +40,7 @@
 		5BC7D0C51BED074B00BE771C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC7D0C41BED074B00BE771C /* SignupViewController.swift */; };
 		5BF103FD1BB6511B00C5E318 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */; };
 		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; };
+		5BF311481BED561F00775C91 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF311471BED561F00775C91 /* ResetPasswordViewController.swift */; };
 		91446D2837C047DC7F87B423 /* Pods_Capstone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */; };
 		AA0CFE331BEC3D6F008B03C5 /* GoogleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */; };
 		AA0CFE351BEC3D98008B03C5 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE341BEC3D98008B03C5 /* Place.swift */; };
@@ -123,6 +124,7 @@
 		5BC7D0C41BED074B00BE771C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5BF311471BED561F00775C91 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleRequest.swift; sourceTree = "<group>"; };
 		AA0CFE341BEC3D98008B03C5 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				5B94D8941BBCCDCE006BD77E /* LoginViewController.swift */,
 				5BC7D0C41BED074B00BE771C /* SignupViewController.swift */,
+				5BF311471BED561F00775C91 /* ResetPasswordViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				5BC7D0C51BED074B00BE771C /* SignupViewController.swift in Sources */,
 				E0CCDEA21BD9C47D00250167 /* CustomerOrderViewController.swift in Sources */,
 				E0C0C1331BEBFEB300B188AB /* SecondCustomerOrderViewController.swift in Sources */,
+				5BF311481BED561F00775C91 /* ResetPasswordViewController.swift in Sources */,
 				5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */,
 				337A40C01BE6F65900965698 /* DriverTableViewController.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,
