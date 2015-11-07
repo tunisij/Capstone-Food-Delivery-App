@@ -39,6 +39,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
         
+        mapView.delegate = self
+        
         hasLocation = false
         
     }
@@ -117,4 +119,34 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     
+}
+extension HomeViewController: GMSMapViewDelegate {
+    
+    func didTapMyLocationButtonForMapView(mapView: GMSMapView!) -> Bool {
+        
+        mapView.selectedMarker = nil
+        return false
+    }
+    
+    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
+        
+        let placeMarker = marker as! PlaceMarker
+
+        if let infoView = NSBundle.mainBundle().loadNibNamed("PlaceInfoView", owner: nil, options: nil).first as? PlaceInfoView {
+            
+            infoView.nameLabel.text = placeMarker.place.name
+            infoView.addressLabel.text = placeMarker.place.address
+            
+            // 4
+//            if let photo = placeMarker.place.photo {
+//                infoView.placePhoto.image = photo
+//            } else {
+//                infoView.placePhoto.image = UIImage(named: "generic")
+//            }
+            
+            return infoView
+        } else {
+            return nil
+        }
+    }
 }
