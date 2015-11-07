@@ -85,11 +85,6 @@ class SignupViewController: UIViewController {
                     self.presentViewController(alert, animated: true, completion: nil)
                     
                 } else {
-                    let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: UIAlertControllerStyle.Alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    alert.addAction(defaultAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
-
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         appDelegate.loadMainView()
