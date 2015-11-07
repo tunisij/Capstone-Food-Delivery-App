@@ -6,9 +6,11 @@
 //  Copyright © 2015 John Tunisi. All rights reserved.
 //
 
+import Parse
+
 class DeliveryLocationsTableViewController: UITableViewController {
     
-    
+    var deliveryLocations = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,14 @@ class DeliveryLocationsTableViewController: UITableViewController {
         sender.endRefreshing();
     }
     
+    
+    //TODO grab delivery locations from parse
+    func getDeliveryLocations() {
+        PFUser.currentUser()!.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
+//            driver = ((PFUser.currentUser()!.objectForKey("Driver") as? Bool) == nil) ? false : PFUser.currentUser()!.objectForKey("Driver") as! Bool
+        }
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -35,8 +45,11 @@ class DeliveryLocationsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChannelCell", forIndexPath: indexPath)
-        return cell
+        if indexPath.row == 0 {
+            return tableView.dequeueReusableCellWithIdentifier("newDeliveryLocationCell", forIndexPath: indexPath)
+        } else {
+            return tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath)
+        }
     }
     
 }

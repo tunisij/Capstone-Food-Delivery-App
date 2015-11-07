@@ -26,27 +26,12 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        var cellIdentifier: String
-//        
-//        switch indexPath.row {
-//        case 0:
-//            cellIdentifier = "SwitchCell"
-//        case 1:
-//            cellIdentifier = "SliderCell"
-//        default:
-//            cellIdentifier = "SwitchCell"
-//        }
-//        
-//        return tableView.dequeueReusableCellWithIdentifier("\(cellIdentifier)", forIndexPath: indexPath)
-//    }
     
     @IBAction func searchDistanceChanged(sender: UISlider) {
         let distance = String(format: "%.1f", sender.value)

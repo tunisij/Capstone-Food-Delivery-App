@@ -632,6 +632,9 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="Id4-iZ-a82" kind="show" identifier="deliveryLocationsSegue" id="SUL-Pf-CJP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -691,7 +694,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newDeliveryLocationCell" id="Bpt-cB-mKq">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bpt-cB-mKq" id="SHs-4F-Jfl">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -701,17 +704,17 @@
                                             <rect key="frame" x="8" y="7" width="198" height="30"/>
                                             <animations/>
                                             <state key="normal" title="+ Add New Delivery Location"/>
+                                            <connections>
+                                                <segue destination="C9b-gG-rNp" kind="presentation" id="1mo-25-1cz"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <connections>
-                                    <segue destination="C9b-gG-rNp" kind="presentation" identifier="newDeliveryLocationSegue" id="h4E-iK-BKq"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="locationCell" id="Kr5-k6-rG0">
-                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kr5-k6-rG0" id="toO-fd-efg">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -740,10 +743,10 @@
             </objects>
             <point key="canvasLocation" x="3064" y="1469"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New Delivery Location View Controller-->
         <scene sceneID="bKG-vM-yC8">
             <objects>
-                <viewController id="C9b-gG-rNp" sceneMemberID="viewController">
+                <viewController id="C9b-gG-rNp" customClass="AddNewDeliveryLocationViewController" customModule="Capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zpJ-UN-PZT"/>
                         <viewControllerLayoutGuide type="bottom" id="1kV-Sf-oGI"/>
@@ -751,9 +754,84 @@
                     <view key="view" contentMode="scaleToFill" id="qah-IF-j8b">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-sh-Rra">
+                                <rect key="frame" x="20" y="28" width="147" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Zip Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpV-dh-jjU">
+                                <rect key="frame" x="20" y="206" width="70" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My House" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1GT-r9-KPd">
+                                <rect key="frame" x="0.0" y="57" width="600" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Street Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxX-Tr-SVP">
+                                <rect key="frame" x="20" y="117" width="114" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123 Street Ave" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g5b-cT-6X1">
+                                <rect key="frame" x="0.0" y="146" width="600" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="12345" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Yb-DM-X1H">
+                                <rect key="frame" x="0.0" y="235" width="600" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT1-79-1KP">
+                                <rect key="frame" x="21" y="289" width="41" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8q-0h-A8G">
+                                <rect key="frame" x="0.0" y="295" width="600" height="214"/>
+                                <animations/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAC-td-uUb">
+                                <rect key="frame" x="484" y="550" width="96" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Save Location">
+                                    <color key="titleColor" red="0.20605277286344811" green="0.81732657068062831" blue="0.13135847486876853" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveLocation:" destination="C9b-gG-rNp" eventType="touchUpInside" id="J8x-po-FjA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9s-5g-Aeh">
+                                <rect key="frame" x="21" y="550" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.81732657068062831" green="0.16519587699453478" blue="0.20019338644108528" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissViewController:" destination="C9b-gG-rNp" eventType="touchUpInside" id="3E2-Vc-z5N"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="statePickerView" destination="q8q-0h-A8G" id="yl9-Hm-qpb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7B-bN-jtl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -901,7 +979,7 @@
                                 <rect key="frame" x="0.0" y="285" width="600" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                         </subviews>
                         <animations/>
@@ -969,15 +1047,6 @@
                                     <action selector="signUpAction:" destination="FxG-cd-WGd" eventType="touchUpInside" id="mYI-Px-F4H"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wrB-NI-nhO">
-                                <rect key="frame" x="0.0" y="248" width="600" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Cdc-Dn-aEC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Pal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-H9-1uM">
                                 <rect key="frame" x="0.0" y="122" width="600" height="57"/>
                                 <animations/>
@@ -997,6 +1066,15 @@
                                     <action selector="backButtonClicked:" destination="FxG-cd-WGd" eventType="touchUpInside" id="OSq-Bk-OkO"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wrB-NI-nhO">
+                                <rect key="frame" x="0.0" y="248" width="600" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Cdc-Dn-aEC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
