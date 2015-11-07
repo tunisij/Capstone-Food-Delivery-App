@@ -11,10 +11,14 @@ import ParseFacebookUtilsV4
 import MMDrawerController
 
 class SettingsTableViewController: UITableViewController {
-    var currentUser = PFUser.currentUser()
 
+    @IBOutlet weak var searchDistanceTxt: UILabel!
+    
+    var currentUser = PFUser.currentUser()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        self.clearsSelectionOnViewWillAppear = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -22,17 +26,31 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SwitchCell", forIndexPath: indexPath)
-        
-        return cell
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        var cellIdentifier: String
+//        
+//        switch indexPath.row {
+//        case 0:
+//            cellIdentifier = "SwitchCell"
+//        case 1:
+//            cellIdentifier = "SliderCell"
+//        default:
+//            cellIdentifier = "SwitchCell"
+//        }
+//        
+//        return tableView.dequeueReusableCellWithIdentifier("\(cellIdentifier)", forIndexPath: indexPath)
+//    }
+    
+    @IBAction func searchDistanceChanged(sender: UISlider) {
+        let distance = String(format: "%.1f", sender.value)
+        searchDistanceTxt.text = "\(distance) mi."
     }
     
     func checkIfDriver() -> Bool {
@@ -51,11 +69,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func driverSwitch(sender: UISwitch) {
-        if sender.on {
-            PFUser.currentUser()?.setValue(true, forKey: "Driver")
-        } else {
-            PFUser.currentUser()?.setValue(false, forKey: "Driver")
-        }
+        PFUser.currentUser()?.setValue(sender.on, forKey: "Driver")
         PFUser.currentUser()?.saveEventually()
     }
     

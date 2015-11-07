@@ -57,18 +57,10 @@ class LoginViewController: UIViewController {
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
-            // Send a request to login
             PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
-                
-                // Stop the spinner
                 spinner.stopAnimating()
                 
-                if ((user) != nil) {
-                    let alert = UIAlertController(title: "Success", message: "Logged In", preferredStyle: UIAlertControllerStyle.Alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    alert.addAction(defaultAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    
+                if ((user) != nil) {                    
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         appDelegate.loadMainView()
@@ -103,47 +95,7 @@ class LoginViewController: UIViewController {
 //
 //        return driver
 //    }
-//    
-//    func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
-//        
-//        if (!username.isEmpty || !password.isEmpty) {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-//    
-//    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-//        if PFTwitterUtils.isLinkedWithUser(user) {
-//            let twitterUsername = PFTwitterUtils.twitter()!.screenName
-//            PFUser.currentUser()!.username = twitterUsername
-//            PFUser.currentUser()!.saveEventually(nil)
-//        } else if PFFacebookUtils.isLinkedWithUser(user) {
-//            getUserDataFromFacebookProfile(user)
-//        }
-//        self.performSegueWithIdentifier("HomeSegue", sender: self)
-//        
-//        askForLocation()
-//    }
-//    
-//    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
-//        let alert = UIAlertController(title: "Login Error", message: "Please login to Twitter", preferredStyle: UIAlertControllerStyle.Alert)
-//        alert.addAction(UIAlertAction(title: "dismiss", style: UIAlertActionStyle.Default, handler: nil))
-//        logInController.presentViewController(alert, animated: true, completion: nil)
-//    }
-//    
-//    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-//        if (PFTwitterUtils.isLinkedWithUser(user)) {
-//            let twitterUsername = PFTwitterUtils.twitter()!.screenName
-//            PFUser.currentUser()!.username = twitterUsername
-//            PFUser.currentUser()!.saveEventually(nil)
-//        }
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-//    
-//    func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
-//        print("Failed to sign up...")
-//    }
+
 //    
 //    func getUserDataFromFacebookProfile(user: PFUser) {
 //        var username  : String?
@@ -170,12 +122,6 @@ class LoginViewController: UIViewController {
 //            }
 //            thisUser.saveInBackground()
 //        })
-//    }
-//    
-//    func askForLocation() -> Void {
-//        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
 //    }
 
 }
