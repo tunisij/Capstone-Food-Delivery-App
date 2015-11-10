@@ -9,7 +9,7 @@
 import Foundation
 
 
-class CustomerOrder{
+class CustomerOrder: NSObject {
     let orderName: String;
     let orderNumber: String;
     var orderMessage: String;
