@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		33AE3D111BF18ED600A9BCC0 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D101BF18ED600A9BCC0 /* DriverTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		33AE3D131BF18FD800A9BCC0 /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D121BF18FD800A9BCC0 /* StrikeThroughText.swift */; settings = {ASSET_TAGS = (); }; };
 		33AE3D151BF1940400A9BCC0 /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D141BF1940400A9BCC0 /* DriverTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */; };
 		5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */; };
@@ -92,7 +91,6 @@
 		1B0E2C67F159ADFD8B136839 /* Pods-Capstone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.release.xcconfig"; sourceTree = "<group>"; };
 		33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		33AE3D101BF18ED600A9BCC0 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
-		33AE3D121BF18FD800A9BCC0 /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
 		33AE3D141BF1940400A9BCC0 /* DriverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTableViewController.swift; sourceTree = "<group>"; };
 		57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5D563C1BE2CE29004EB5B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 				33AE3D141BF1940400A9BCC0 /* DriverTableViewController.swift */,
 				33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */,
 				33AE3D101BF18ED600A9BCC0 /* DriverTableViewCell.swift */,
-				33AE3D121BF18FD800A9BCC0 /* StrikeThroughText.swift */,
 			);
 			name = Drivers;
 			sourceTree = "<group>";
@@ -611,7 +608,6 @@
 				5BF311481BED561F00775C91 /* ResetPasswordViewController.swift in Sources */,
 				5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */,
 				AA1D5E361BED57570051C8C2 /* PlaceInfoView.swift in Sources */,
-				33AE3D131BF18FD800A9BCC0 /* StrikeThroughText.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,
 				33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */,
 				E01E3C5A1BE648260075155F /* OrdersTableCell.swift in Sources */,
