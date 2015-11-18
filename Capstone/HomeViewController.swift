@@ -7,22 +7,32 @@
 //
 
 import UIKit
-import MapKit
 import MMDrawerController
 import GoogleMaps
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-    
+class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UISearchBarDelegate {
     
     let dataFetcher = GoogleRequest()
-    //
+    
+
     //    let searchRadius: Double = 1000
     //    var searchedTypes = ["pizza"]
     
     
     
-    //@IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapView: GMSMapView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var typePicker: UIPickerView!
+    
+    let pickerData = ["", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
+    let typeString = ["", "food", "restaurant", "grocery_or_supermarket", "convenience_store", "liquor_store"]
+    
+    var selectedType = ""
+    var searchString = ""
+    
+    var searchActive : Bool = false
+    
     
     let locationManager = CLLocationManager()
     var hasLocation = false
@@ -40,6 +50,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         view.addGestureRecognizer(tap)
         
         mapView.delegate = self
+        typePicker.dataSource = self
+        typePicker.delegate = self
+        searchBar.delegate = self
         
         hasLocation = false
         
@@ -102,17 +115,64 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
     }
     
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedType = typeString[row]
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        self.searchString = self.searchBar.text!
+        return pickerData.count
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchString = self.searchBar.text!
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.searchString = ""
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchString = self.searchBar.text!
+        self.fetchNearbyPlaces(mapView.camera.target)
+        searchActive = false;
+    }
+
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         mapView.clear()
-        dataFetcher.loadPlaces(coordinate) { places in
-            for place: Place in places {
-                let marker = PlaceMarker(place: place)
-                print("ADDRESS: \(marker.place.address)")
-                marker.map = self.mapView
+        if(self.searchString == "" && self.selectedType == ""){
+            let uiAlert = UIAlertController(title: "Missing Search Criteria", message: "Please select a catagory to search, or search for places by name.", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(uiAlert, animated: true, completion: nil)
+            
+            uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
                 
+            }))
+        }else{
+            dataFetcher.loadPlaces(coordinate, searchStr: self.searchString, typeStr: self.selectedType) { places in
+                for place: Place in places {
+                    let marker = PlaceMarker(place: place)
+                    print("ADDRESS: \(marker.place.address)")
+                    marker.map = self.mapView
+                
+                }
             }
         }
     }
+    
     @IBAction func refreshPlaces(sender: AnyObject) {
         mapView.clear()
         self.fetchNearbyPlaces(mapView.camera.target)

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		33AE3D111BF18ED600A9BCC0 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D101BF18ED600A9BCC0 /* DriverTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		33AE3D151BF1940400A9BCC0 /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D141BF1940400A9BCC0 /* DriverTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */; };
+		33AE3D111BF18ED600A9BCC0 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D101BF18ED600A9BCC0 /* DriverTableViewCell.swift */; };
+		33AE3D151BF1940400A9BCC0 /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D141BF1940400A9BCC0 /* DriverTableViewController.swift */; };
 		5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */; };
 		5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */; };
 		5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B971BE2C24E00351796 /* DrawerTableViewController.swift */; };
@@ -244,10 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */,
-				AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */,
-				AA1D5E331BED55870051C8C2 /* PlaceInfoView.xib */,
-				AA1D5E351BED57570051C8C2 /* PlaceInfoView.swift */,
-				AA0CFE311BEC3D50008B03C5 /* Model */,
+				AA0E4E811BFBF60400B200E6 /* Home */,
 				5BE3B6AE1BED2006007945DE /* ApplicationItems */,
 				5B3157241BCF1B7E00657003 /* Orders */,
 				E0CCDEA01BD9C3F700250167 /* Drivers */,
@@ -319,14 +316,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AA0CFE311BEC3D50008B03C5 /* Model */ = {
+		AA0E4E811BFBF60400B200E6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */,
 				AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */,
 				AA0CFE341BEC3D98008B03C5 /* Place.swift */,
 				AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */,
+				AA1D5E331BED55870051C8C2 /* PlaceInfoView.xib */,
+				AA1D5E351BED57570051C8C2 /* PlaceInfoView.swift */,
 			);
-			name = Model;
+			name = Home;
 			sourceTree = "<group>";
 		};
 		AA3F2AFF1BBC840F00F47B1C /* Frameworks */ = {

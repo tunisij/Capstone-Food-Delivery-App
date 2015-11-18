@@ -14,13 +14,18 @@ class GoogleRequest {
     
     var objects = [AnyObject]()
     
-    func loadPlaces(coordinate: CLLocationCoordinate2D, completion: (([Place]) -> Void)) -> ()
+    func loadPlaces(coordinate: CLLocationCoordinate2D, searchStr: String, typeStr: String, completion: (([Place]) -> Void)) -> ()
     {
         
-        // Get ready to fetch the list of dog videos from YouTube V3 Data API.
-        print("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(coordinate.latitude),\(coordinate.longitude)&radius=500&types=food&name=pizza&key=AIzaSyD6A3UC612PRvsyUIk_t5odUkVZveXjO0w")
+        // Get ready to fetch the list of dog videos from YouTube V3 Data API
+        var url = NSURL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(coordinate.latitude),\(coordinate.longitude)&radius=500&types=\(typeStr)&name=\(searchStr)&key=AIzaSyD6A3UC612PRvsyUIk_t5odUkVZveXjO0w")
+        if(searchStr == "" && typeStr != ""){
+            url = NSURL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(coordinate.latitude),\(coordinate.longitude)&radius=500&types=\(typeStr)&key=AIzaSyD6A3UC612PRvsyUIk_t5odUkVZveXjO0w")
+        }else if(searchStr != "" && typeStr == ""){
+            url = NSURL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(coordinate.latitude),\(coordinate.longitude)&radius=500&name=\(searchStr)&key=AIzaSyD6A3UC612PRvsyUIk_t5odUkVZveXjO0w")
+        }
         
-        let url = NSURL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(coordinate.latitude),\(coordinate.longitude)&radius=500&types=food&name=pizza&key=AIzaSyD6A3UC612PRvsyUIk_t5odUkVZveXjO0w")
+        print("REQUEST: \(url)")
         
         let session = NSURLSession.sharedSession()
         let task = session.downloadTaskWithURL(url!) {
