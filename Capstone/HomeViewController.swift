@@ -11,9 +11,6 @@ import MMDrawerController
 import GoogleMaps
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UISearchBarDelegate {
-    
-    let dataFetcher = GoogleRequest()
-    
 
     //    let searchRadius: Double = 1000
     //    var searchedTypes = ["pizza"]
@@ -115,8 +112,23 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+//    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return pickerData[row]
+//    }
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        var pickerLabel = view as! UILabel!
+        if view == nil {
+            pickerLabel = UILabel()
+            //color the label's background
+            let hue = CGFloat(row)/CGFloat(pickerData.count)
+            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 30.0, alpha: 30.0)
+        }
+        let titleData = pickerData[row]
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 20.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+        pickerLabel!.attributedText = myTitle
+        pickerLabel!.textAlignment = .Right
+        return pickerLabel
+        
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -153,6 +165,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
     }
 
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+        let dataFetcher = GoogleRequest()
+        self.searchString = self.searchBar.text!
         mapView.clear()
         if(self.searchString == "" && self.selectedType == ""){
             let uiAlert = UIAlertController(title: "Missing Search Criteria", message: "Please select a catagory to search, or search for places by name.", preferredStyle: UIAlertControllerStyle.Alert)

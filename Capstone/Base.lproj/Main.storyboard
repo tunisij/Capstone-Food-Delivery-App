@@ -370,7 +370,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1F-al-P7B" customClass="GMSMapView">
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="k1F-al-P7B" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="152" width="600" height="448"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -379,30 +379,30 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="Sc7-kK-ddH"/>
-                                    <constraint firstAttribute="height" constant="44" id="mGL-fz-tdN"/>
+                                    <constraint firstAttribute="height" constant="44" id="00f-zp-W4f"/>
+                                    <constraint firstAttribute="width" constant="600" id="715-Z8-A2H"/>
                                 </constraints>
                                 <color key="barTintColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJw-FL-O7T">
-                                <rect key="frame" x="200" y="108" width="400" height="44"/>
+                                <rect key="frame" x="150" y="108" width="450" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="5fs-AH-ObK"/>
-                                    <constraint firstAttribute="height" constant="44" id="pGJ-si-wqk"/>
+                                    <constraint firstAttribute="width" constant="450" id="Dei-YV-wEA"/>
+                                    <constraint firstAttribute="height" constant="44" id="Ffc-gQ-PHc"/>
                                 </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Catagory:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-bp-MFt">
-                                <rect key="frame" x="0.0" y="108" width="200" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Category:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-bp-MFt">
+                                <rect key="frame" x="0.0" y="108" width="150" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="77F-Ah-Eit"/>
-                                    <constraint firstAttribute="height" constant="44" id="czb-4w-E1U"/>
+                                    <constraint firstAttribute="width" constant="150" id="5eZ-5g-pKC"/>
+                                    <constraint firstAttribute="height" constant="44" id="rXC-F8-qK1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -410,17 +410,17 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BXU-9D-Kh4" firstAttribute="top" secondItem="fTv-3f-gAc" secondAttribute="bottom" id="9IZ-9D-6IO"/>
-                            <constraint firstAttribute="trailing" secondItem="k1F-al-P7B" secondAttribute="trailing" id="QEa-sQ-8sx"/>
-                            <constraint firstItem="IHT-bp-MFt" firstAttribute="leading" secondItem="4bA-si-Fat" secondAttribute="leading" id="QYr-Kv-TMi"/>
-                            <constraint firstItem="IHT-bp-MFt" firstAttribute="top" secondItem="fTv-3f-gAc" secondAttribute="bottom" constant="44" id="SUf-4v-1AK"/>
-                            <constraint firstItem="BXU-9D-Kh4" firstAttribute="leading" secondItem="4bA-si-Fat" secondAttribute="leading" id="XVw-iR-GLX"/>
-                            <constraint firstItem="k1F-al-P7B" firstAttribute="leading" secondItem="4bA-si-Fat" secondAttribute="leading" id="dYw-kY-nMt"/>
-                            <constraint firstItem="XJw-FL-O7T" firstAttribute="top" secondItem="fTv-3f-gAc" secondAttribute="bottom" constant="44" id="ftk-o5-RxH"/>
-                            <constraint firstItem="zT0-hT-dS3" firstAttribute="top" secondItem="k1F-al-P7B" secondAttribute="bottom" id="ht1-FI-tHG"/>
-                            <constraint firstItem="k1F-al-P7B" firstAttribute="top" secondItem="fTv-3f-gAc" secondAttribute="bottom" constant="88" id="nNG-F4-YvU"/>
-                            <constraint firstAttribute="trailing" secondItem="XJw-FL-O7T" secondAttribute="trailing" id="rVF-Zg-LB6"/>
-                            <constraint firstAttribute="trailing" secondItem="BXU-9D-Kh4" secondAttribute="trailing" id="vHc-wB-lep"/>
+                            <constraint firstItem="BXU-9D-Kh4" firstAttribute="top" secondItem="fTv-3f-gAc" secondAttribute="bottom" id="18R-PE-qLh"/>
+                            <constraint firstAttribute="trailing" secondItem="k1F-al-P7B" secondAttribute="trailing" id="1GK-YC-y9T"/>
+                            <constraint firstItem="zT0-hT-dS3" firstAttribute="top" secondItem="k1F-al-P7B" secondAttribute="bottom" id="C2p-pi-mBd"/>
+                            <constraint firstItem="k1F-al-P7B" firstAttribute="leading" secondItem="4bA-si-Fat" secondAttribute="leading" id="C80-Hl-UNF"/>
+                            <constraint firstItem="k1F-al-P7B" firstAttribute="top" secondItem="IHT-bp-MFt" secondAttribute="bottom" id="Ccm-XH-5hM"/>
+                            <constraint firstAttribute="trailing" secondItem="BXU-9D-Kh4" secondAttribute="trailing" id="HHw-eA-6jW"/>
+                            <constraint firstAttribute="trailing" secondItem="XJw-FL-O7T" secondAttribute="trailing" id="Jmo-Wh-mro"/>
+                            <constraint firstItem="IHT-bp-MFt" firstAttribute="leading" secondItem="4bA-si-Fat" secondAttribute="leading" id="YRw-bw-lnV"/>
+                            <constraint firstItem="BXU-9D-Kh4" firstAttribute="leading" secondItem="4bA-si-Fat" secondAttribute="leading" id="iaP-QV-q7K"/>
+                            <constraint firstItem="XJw-FL-O7T" firstAttribute="top" secondItem="BXU-9D-Kh4" secondAttribute="bottom" id="soK-sR-yKG"/>
+                            <constraint firstItem="IHT-bp-MFt" firstAttribute="top" secondItem="BXU-9D-Kh4" secondAttribute="bottom" id="uTw-Yc-vdz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5Lo-Pv-NUa">
