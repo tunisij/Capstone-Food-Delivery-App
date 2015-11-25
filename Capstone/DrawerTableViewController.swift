@@ -12,12 +12,25 @@ import Parse
 
 class DrawerTableViewController: UITableViewController {
     
-    let labels = ["Home", "Orders", "Driver", "Settings"]
+    var labels = ["Home", "Orders", "Settings", "Logout"]
+    var isDriver: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
         self.title = PFUser.currentUser()?.username
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.isDriver = (PFUser.currentUser()?.isDriver())!
+        
+        if isDriver {
+            labels = ["Home", "Orders", "Driver", "Settings", "Logout"]
+        } else {
+            labels = ["Home", "Orders", "Settings", "Logout"]
+        }
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,15 +71,16 @@ class DrawerTableViewController: UITableViewController {
             appDelegate.centerContainer!.centerViewController = ordersTableNavController
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
-        case 2:
+        case 2 where isDriver:
             let driverViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DriverTableViewController") as! DriverTableViewController
             let driverNavController = UINavigationController(rootViewController: driverViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
+                
             appDelegate.centerContainer!.centerViewController = driverNavController
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
-        case 3:
+        case 2 where !isDriver: fallthrough
+        case 3 where isDriver:
             let settingsTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsTableViewController") as! SettingsTableViewController
             let settingsNavController = UINavigationController(rootViewController: settingsTableViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -74,24 +88,14 @@ class DrawerTableViewController: UITableViewController {
             appDelegate.centerContainer!.centerViewController = settingsNavController
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
+        case 3 where !isDriver: fallthrough
+        case 4:
+            PFUser.logOut()
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
+            self.presentViewController(viewController, animated: true, completion: nil)
+            
         default: break
         }
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "HomeViewSegue" {
-//            if let indexPath = self.tableView.indexPathForSelectedRow {
-//                let object = objects[indexPath.row] as! Dictionary<String, AnyObject>
-//                let controller = segue.destinationViewController as! HomeViewController
-////                controller.detailItem = object
-//            } else if segue.identifier == "SettingsViewController" {
-//                if let indexPath = self.tableView.indexPathForSelectedRow {
-//                    let object = objects[indexPath.row] as! Dictionary<String, AnyObject>
-//                    let controller = segue.destinationViewController as! HomeViewController
-////                controller.detailItem = object
-//                }
-//            }
-//        }
     }
 
 }

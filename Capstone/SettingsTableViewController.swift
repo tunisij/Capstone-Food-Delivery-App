@@ -13,12 +13,16 @@ import MMDrawerController
 class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var searchDistanceTxt: UILabel!
+    @IBOutlet weak var driverSignupCell: UITableViewCell!
     
     var currentUser = PFUser.currentUser()
+    var isDriver: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = true
+        
+        isDriver = currentUser!.isDriver()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,29 +37,25 @@ class SettingsTableViewController: UITableViewController {
         return 1
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if super.tableView(tableView, cellForRowAtIndexPath: indexPath).reuseIdentifier == "DriverSignupCell" {
+            if isDriver {
+                return 0
+            }
+        }
+        
+        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    }
+    
     @IBAction func searchDistanceChanged(sender: UISlider) {
         let distance = String(format: "%.1f", sender.value)
         searchDistanceTxt.text = "\(distance) mi."
-    }
-    
-    func checkIfDriver() -> Bool {
-        var driver = false
-        PFUser.currentUser()!.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
-            driver = ((PFUser.currentUser()!.objectForKey("Driver") as? Bool) == nil) ? false : PFUser.currentUser()!.objectForKey("Driver") as! Bool
-        }
-        
-        return driver
     }
     
     @IBAction func logoutButtonClicked(sender: UIBarButtonItem) {
         PFUser.logOut()
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
         self.presentViewController(viewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func driverSwitch(sender: UISwitch) {
-        PFUser.currentUser()?.setValue(sender.on, forKey: "Driver")
-        PFUser.currentUser()?.saveEventually()
     }
     
     @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {

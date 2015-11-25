@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLk-xD-qnE" id="8R9-Fn-6Dk">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-HA-7P6">
@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="153"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tVX-WK-Tna" id="jri-rp-M97">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="152.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="152"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-hu-VzO">
@@ -459,7 +459,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rcb-dn-klb" id="4bZ-Su-Nhx">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -499,11 +499,11 @@
                         <sections>
                             <tableViewSection headerTitle="" id="LVz-kR-hni">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SwitchCell" id="wZN-nz-hAi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DriverSignupCell" id="wZN-nz-hAi">
                                         <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wZN-nz-hAi" id="tO4-Mt-iZW">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up To Be A Driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iL-Sn-IqR">
@@ -530,10 +530,10 @@
                             <tableViewSection headerTitle="Search Distance" id="LV7-rB-WCN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCell" id="d8W-eP-KaY">
-                                        <rect key="frame" x="0.0" y="193" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="194" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d8W-eP-KaY" id="eh4-Ag-l92">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="mS9-9X-1aq">
@@ -572,10 +572,10 @@
                             <tableViewSection headerTitle="" id="1Qj-1E-Wkr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SwitchCell" id="foJ-gz-zku">
-                                        <rect key="frame" x="0.0" y="273" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="274" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="foJ-gz-zku" id="lVh-pa-kdL">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delivery Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7O-Tt-nGn">
@@ -614,6 +614,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="driverSignupCell" destination="wZN-nz-hAi" id="g6A-2U-KJ8"/>
                         <outlet property="searchDistanceTxt" destination="P3P-zN-GpT" id="xAp-QN-Vpn"/>
                     </connections>
                 </tableViewController>
@@ -632,11 +633,104 @@
                     <view key="view" contentMode="scaleToFill" id="Ee7-RI-rXS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unchecked Checkbox-100" translatesAutoresizingMaskIntoConstraints="NO" id="pon-z3-jJt">
+                                <rect key="frame" x="20" y="313" width="42" height="39"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="a8E-6v-JVM"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Vuy-b1-1rQ" appends="YES" id="CN9-ym-OWe"/>
+                                </connections>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3Y-Mu-3Ov">
+                                <rect key="frame" x="20" y="125" width="560" height="180"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="0oO-vg-mbq"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Terms and Conditions" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oke-UG-xFs">
+                                <rect key="frame" x="20" y="72" width="560" height="45"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="By checking this box you agree to the terms and conditions stated above." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8a-TA-dDu">
+                                <rect key="frame" x="70" y="317" width="492" height="32"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="iiw-VA-gjH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzF-MX-akp">
+                                <rect key="frame" x="513" y="550" width="49" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.20605277289999999" green="0.81732657070000003" blue="0.13135847489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitClicked:" destination="MuY-RN-TeX" eventType="touchUpInside" id="Hyu-n8-gKn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9e-f4-wSi">
+                                <rect key="frame" x="20" y="550" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.81732657070000003" green="0.16519587699999999" blue="0.20019338640000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelClicked:" destination="MuY-RN-TeX" eventType="touchUpInside" id="vay-dl-l3d"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pon-z3-jJt" firstAttribute="top" secondItem="B3Y-Mu-3Ov" secondAttribute="bottom" constant="8" symbolic="YES" id="2KT-IW-MCw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q8a-TA-dDu" secondAttribute="trailing" constant="18" id="5Us-GW-HtT"/>
+                            <constraint firstItem="B3Y-Mu-3Ov" firstAttribute="trailing" secondItem="Ee7-RI-rXS" secondAttribute="trailingMargin" id="85c-e9-VYN"/>
+                            <constraint firstItem="pon-z3-jJt" firstAttribute="leading" secondItem="s9e-f4-wSi" secondAttribute="leading" id="A5c-jV-9Jq"/>
+                            <constraint firstItem="q8a-TA-dDu" firstAttribute="leading" secondItem="pon-z3-jJt" secondAttribute="trailing" constant="8" symbolic="YES" id="G8K-1a-IXV"/>
+                            <constraint firstItem="rzF-MX-akp" firstAttribute="trailing" secondItem="q8a-TA-dDu" secondAttribute="trailing" id="MqI-2L-320"/>
+                            <constraint firstItem="Oke-UG-xFs" firstAttribute="leading" secondItem="B3Y-Mu-3Ov" secondAttribute="leading" id="MtM-yE-Jmh"/>
+                            <constraint firstItem="B3Y-Mu-3Ov" firstAttribute="trailing" secondItem="Oke-UG-xFs" secondAttribute="trailing" id="TMT-mu-ZJe"/>
+                            <constraint firstItem="rzF-MX-akp" firstAttribute="baseline" secondItem="s9e-f4-wSi" secondAttribute="baseline" id="ZL2-75-jnh"/>
+                            <constraint firstItem="pon-z3-jJt" firstAttribute="centerY" secondItem="q8a-TA-dDu" secondAttribute="centerY" id="bln-Cr-Mg0"/>
+                            <constraint firstItem="q8a-TA-dDu" firstAttribute="top" secondItem="B3Y-Mu-3Ov" secondAttribute="bottom" constant="12" id="bqY-Py-rIB"/>
+                            <constraint firstItem="B3Y-Mu-3Ov" firstAttribute="top" secondItem="Oke-UG-xFs" secondAttribute="bottom" constant="8" symbolic="YES" id="cwM-QR-YXy"/>
+                            <constraint firstAttribute="bottom" secondItem="s9e-f4-wSi" secondAttribute="bottom" constant="20" symbolic="YES" id="fSY-im-R9a"/>
+                            <constraint firstItem="B3Y-Mu-3Ov" firstAttribute="leading" secondItem="pon-z3-jJt" secondAttribute="leading" id="sBY-fq-uEB"/>
+                            <constraint firstItem="B3Y-Mu-3Ov" firstAttribute="leading" secondItem="Ee7-RI-rXS" secondAttribute="leadingMargin" id="svL-7v-DE9"/>
+                            <constraint firstItem="Oke-UG-xFs" firstAttribute="top" secondItem="XB8-el-cX6" secondAttribute="bottom" constant="8" symbolic="YES" id="vRr-s3-W01"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkBox" destination="pon-z3-jJt" id="UeU-sF-PwX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kra-l6-mXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Vuy-b1-1rQ">
+                    <connections>
+                        <action selector="checkBoxClicked:" destination="MuY-RN-TeX" id="aR4-s6-Ghz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3064" y="755"/>
         </scene>
@@ -654,7 +748,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bpt-cB-mKq" id="SHs-4F-Jfl">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tb-no-VwE">
@@ -674,7 +768,7 @@
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kr5-k6-rG0" id="toO-fd-efg">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nr-H3-Jys">
@@ -762,16 +856,6 @@
                                 <rect key="frame" x="0.0" y="295" width="600" height="214"/>
                                 <animations/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAC-td-uUb">
-                                <rect key="frame" x="484" y="550" width="96" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Save Location">
-                                    <color key="titleColor" red="0.20605277286344811" green="0.81732657068062831" blue="0.13135847486876853" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveLocation:" destination="C9b-gG-rNp" eventType="touchUpInside" id="J8x-po-FjA"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9s-5g-Aeh">
                                 <rect key="frame" x="21" y="550" width="48" height="30"/>
                                 <animations/>
@@ -780,6 +864,16 @@
                                 </state>
                                 <connections>
                                     <action selector="dismissViewController:" destination="C9b-gG-rNp" eventType="touchUpInside" id="3E2-Vc-z5N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAC-td-uUb">
+                                <rect key="frame" x="284" y="550" width="96" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Save Location">
+                                    <color key="titleColor" red="0.20605277286344811" green="0.81732657068062831" blue="0.13135847486876853" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveLocation:" destination="C9b-gG-rNp" eventType="touchUpInside" id="J8x-po-FjA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1099,11 +1193,11 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N9n-8c-Xxc" id="C24-Jn-CmD">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="amC-6V-ba2">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1167,7 +1261,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tet-c5-8ph" id="sA6-Th-6Rs">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1220,6 +1314,7 @@
         <image name="Menu Filled-25" width="25" height="25"/>
         <image name="Settings Filled-25" width="25" height="25"/>
         <image name="Settings-25" width="25" height="25"/>
+        <image name="Unchecked Checkbox-100" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5kh-Iv-KxF"/>

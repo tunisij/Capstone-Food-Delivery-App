@@ -10,6 +10,7 @@
 		33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */; };
 		33AE3D111BF18ED600A9BCC0 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D101BF18ED600A9BCC0 /* DriverTableViewCell.swift */; };
 		33AE3D151BF1940400A9BCC0 /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D141BF1940400A9BCC0 /* DriverTableViewController.swift */; };
+		5B3F3EE01C06556100E13809 /* PFUserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F3EDF1C06556100E13809 /* PFUserExtension.swift */; };
 		5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D563B1BE2CE29004EB5B8 /* Main.storyboard */; };
 		5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */; };
 		5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B692B971BE2C24E00351796 /* DrawerTableViewController.swift */; };
@@ -93,6 +94,7 @@
 		33AE3D101BF18ED600A9BCC0 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
 		33AE3D141BF1940400A9BCC0 /* DriverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTableViewController.swift; sourceTree = "<group>"; };
 		57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B3F3EDF1C06556100E13809 /* PFUserExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFUserExtension.swift; sourceTree = "<group>"; };
 		5B5D563C1BE2CE29004EB5B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B692B8F1BE2B53000351796 /* OrdersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailViewController.swift; sourceTree = "<group>"; };
 		5B692B971BE2C24E00351796 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				5BD73C5D1BED7B9800722BE4 /* DriverSignupViewController.swift */,
 				5BD73C611BED7E2600722BE4 /* DeliveryLocationsTableViewController.swift */,
 				5BD73C631BED837100722BE4 /* AddNewDeliveryLocationViewController.swift */,
+				5B3F3EDF1C06556100E13809 /* PFUserExtension.swift */,
 			);
 			name = ApplicationItems;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 			files = (
 				5BD73C621BED7E2600722BE4 /* DeliveryLocationsTableViewController.swift in Sources */,
 				5BD73C641BED837100722BE4 /* AddNewDeliveryLocationViewController.swift in Sources */,
+				5B3F3EE01C06556100E13809 /* PFUserExtension.swift in Sources */,
 				5B94D8951BBCCDCE006BD77E /* LoginViewController.swift in Sources */,
 				5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */,
 				E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */,

@@ -84,17 +84,6 @@ class LoginViewController: UIViewController {
             controller.username = self.usernameTextField.text
         }
     }
-    
-    
-    
-//    func checkIfDriver() -> Bool {
-//        var driver = false
-//        PFUser.currentUser()!.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
-//            driver = ((PFUser.currentUser()!.objectForKey("Driver") as? Bool) == nil) ? false : PFUser.currentUser()!.objectForKey("Driver") as! Bool
-//        }
-//
-//        return driver
-//    }
 
 //    
 //    func getUserDataFromFacebookProfile(user: PFUser) {
