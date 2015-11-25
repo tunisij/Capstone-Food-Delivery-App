@@ -27,8 +27,6 @@ class DrawerTableViewController: UITableViewController {
         
         if isDriver {
             labels = ["Home", "Orders", "Driver", "Settings", "Logout"]
-        } else {
-            labels = ["Home", "Orders", "Settings", "Logout"]
         }
         tableView.reloadData()
     }
