@@ -70,7 +70,7 @@ class DrawerTableViewController: UITableViewController {
             appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
             
         case 2 where isDriver:
-            let driverViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DriverTableViewController") as! DriverTableViewController
+            let driverViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DriverViewController") as! DriverViewController
             let driverNavController = UINavigationController(rootViewController: driverViewController)
             let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 

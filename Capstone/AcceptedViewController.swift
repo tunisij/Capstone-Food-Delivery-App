@@ -9,10 +9,10 @@
 import UIKit
 import Parse
 
-class RequestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-
+class AcceptedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     var requests = [CustomerOrder]()
     
     
@@ -25,8 +25,9 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.separatorColor = UIColor.clearColor()
         tableView.rowHeight = 50
         
-
+        
         // Do any additional setup after loading the view.
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -35,12 +36,12 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("Requests will appear")
+        print("Ta-da: accepted")
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        print("Requests will disappear")
+        print("Accepted: poof")
     }
     
     
@@ -135,20 +136,20 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         // you need to implement this method too or you can't swipe to display the actions
     }
-
     
-
+    
+    
     
     // MARK: - Order Actions
     
-     func getOrders(){
+    func getOrders(){
         requests.removeAll()
         
         let query = PFQuery(className: "Order")
         query.whereKeyExists("OrderHeader")
         
         //Only get orders which haven't been accepted
-        query.whereKey("orderStatus", equalTo: 0)
+        query.whereKey("orderStatus", equalTo: 1)
         
         query.addDescendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
@@ -204,15 +205,15 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
