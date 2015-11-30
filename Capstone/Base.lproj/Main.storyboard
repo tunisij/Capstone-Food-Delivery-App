@@ -14,6 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewRowCell" editingAccessoryType="disclosureIndicator" rowHeight="44" id="GLk-xD-qnE">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -47,6 +48,7 @@
                                         </label>
                                     </subviews>
                                     <animations/>
+                                    <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="xsX-HA-7P6" firstAttribute="trailing" secondItem="8R9-Fn-6Dk" secondAttribute="trailingMargin" id="20n-aC-Gjl"/>
                                         <constraint firstItem="xsX-HA-7P6" firstAttribute="top" secondItem="8R9-Fn-6Dk" secondAttribute="topMargin" constant="-4" id="HBD-A8-yVN"/>
@@ -86,7 +88,7 @@
                                         </imageView>
                                     </subviews>
                                     <animations/>
-                                    <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
@@ -210,7 +212,7 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="4Zb-wd-Uhn" secondAttribute="trailing" constant="-20" id="TVU-UK-di3"/>
                             <constraint firstItem="4Zb-wd-Uhn" firstAttribute="top" secondItem="HEr-yq-jrO" secondAttribute="bottom" constant="8" id="VZu-oo-mhs"/>
@@ -293,7 +295,7 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="descriptionField" destination="MBE-pY-V1B" id="c5L-O3-50W"/>
