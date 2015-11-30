@@ -49,8 +49,8 @@
 		AA0CFE331BEC3D6F008B03C5 /* GoogleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */; };
 		AA0CFE351BEC3D98008B03C5 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE341BEC3D98008B03C5 /* Place.swift */; };
 		AA0CFE371BEC3DC8008B03C5 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */; };
-		AA1D5E341BED55870051C8C2 /* PlaceInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1D5E331BED55870051C8C2 /* PlaceInfoView.xib */; };
 		AA1D5E361BED57570051C8C2 /* PlaceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D5E351BED57570051C8C2 /* PlaceInfoView.swift */; };
+		AA21716A1C0CD52D000FF830 /* PlaceInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2171691C0CD52D000FF830 /* PlaceInfoView.xib */; };
 		AA3F2B031BBC85B300F47B1C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B021BBC85B300F47B1C /* SettingsTableViewController.swift */; };
 		AA3F2B071BBC85DC00F47B1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */; };
 		AAC55BA51BCC4808006CD873 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */; };
@@ -138,8 +138,8 @@
 		AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleRequest.swift; sourceTree = "<group>"; };
 		AA0CFE341BEC3D98008B03C5 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
-		AA1D5E331BED55870051C8C2 /* PlaceInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceInfoView.xib; sourceTree = "<group>"; };
 		AA1D5E351BED57570051C8C2 /* PlaceInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceInfoView.swift; sourceTree = "<group>"; };
+		AA2171691C0CD52D000FF830 /* PlaceInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceInfoView.xib; sourceTree = "<group>"; };
 		AA3F2B021BBC85B300F47B1C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AAC55BA41BCC4808006CD873 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 				AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */,
 				AA0CFE341BEC3D98008B03C5 /* Place.swift */,
 				AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */,
-				AA1D5E331BED55870051C8C2 /* PlaceInfoView.xib */,
+				AA2171691C0CD52D000FF830 /* PlaceInfoView.xib */,
 				AA1D5E351BED57570051C8C2 /* PlaceInfoView.swift */,
 			);
 			name = Home;
@@ -500,7 +500,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA1D5E341BED55870051C8C2 /* PlaceInfoView.xib in Resources */,
 				E02828D31BEC4362002A0559 /* orderstatus5.png in Resources */,
 				5B5D563D1BE2CE29004EB5B8 /* Main.storyboard in Resources */,
 				E02828D11BEC435B002A0559 /* orderstatus4.png in Resources */,
@@ -513,6 +512,7 @@
 				5B698FB81BB63300001DD03E /* LaunchScreen.storyboard in Resources */,
 				5B698FB51BB63300001DD03E /* Assets.xcassets in Resources */,
 				E050BB0D1BE7DE0400ADEAE4 /* greenstatus.png in Resources */,
+				AA21716A1C0CD52D000FF830 /* PlaceInfoView.xib in Resources */,
 				E0C95BD81BEBF1F7000C4515 /* launchscreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
