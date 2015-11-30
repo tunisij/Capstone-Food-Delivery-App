@@ -17,7 +17,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typePicker: UIPickerView!
     
-    let pickerData = ["Scroll to Search by Catagoy", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
+    let pickerData = ["Scroll to Search by Category", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
     let typeString = ["", "food", "restaurant", "grocery_or_supermarket", "convenience_store", "liquor_store"]
     
     var selectedType = ""
