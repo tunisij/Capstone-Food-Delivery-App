@@ -339,7 +339,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BXU-9D-Kh4">
+                            <searchBar contentMode="redraw" placeholder="Enter an eatery!" translatesAutoresizingMaskIntoConstraints="NO" id="BXU-9D-Kh4">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <animations/>
                                 <constraints>
