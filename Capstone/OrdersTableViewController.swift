@@ -28,7 +28,7 @@ class OrdersTableViewController: UITableViewController {
         insertNewObject(self, index: 0)
         self.refreshControl = refreshController
         self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
-        
+        self.tableView.backgroundColor = UIColor.lightTextColor()
         //   getOrders()
         //        if let split = self.splitViewController {
         //            let controllers = split.viewControllers
@@ -147,7 +147,7 @@ class OrdersTableViewController: UITableViewController {
 //            let image = UIImageAsset.setValue(image1, forKeyPath: imagename)
             
             cell2.orderStatusImage.image = UIImage(named: getStatus(object.orderStatus))
-            cell2.orderNumberLabel.text = "Order Number: \(object.orderNumber)"
+        //    cell2.orderNumberLabel.text = "Order Number: \(object.orderNumber)"
             object.printData()
             return cell2
         }
