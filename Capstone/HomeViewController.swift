@@ -11,25 +11,24 @@ import MMDrawerController
 import GoogleMaps
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UISearchBarDelegate {
-
-    //    let searchRadius: Double = 1000
-    //    var searchedTypes = ["pizza"]
-    
-    
     
     @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typePicker: UIPickerView!
     
-    let pickerData = ["", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
+    let pickerData = ["Scroll to Search by Category", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
     let typeString = ["", "food", "restaurant", "grocery_or_supermarket", "convenience_store", "liquor_store"]
     
     var selectedType = ""
     var searchString = ""
     
+    var placeName = ""
+    var placeAddress = ""
+    
     var searchActive : Bool = false
     
+    var currentInfoView = PlaceInfoView()
     
     let locationManager = CLLocationManager()
     var hasLocation = false
@@ -50,6 +49,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         typePicker.dataSource = self
         typePicker.delegate = self
         searchBar.delegate = self
+        
+        self.view.addSubview(self.currentInfoView)
+        self.view.bringSubviewToFront(self.currentInfoView)
+        print("Subview Count0: \(self.view.subviews.indexOf(self.currentInfoView))")
+        
         
         hasLocation = false
         
@@ -124,9 +128,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
             pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 30.0, alpha: 30.0)
         }
         let titleData = pickerData[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 20.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 18.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
         pickerLabel!.attributedText = myTitle
-        pickerLabel!.textAlignment = .Right
+        pickerLabel!.textAlignment = .Center
         return pickerLabel
         
     }
@@ -163,7 +167,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         self.fetchNearbyPlaces(mapView.camera.target)
         searchActive = false;
     }
-
+    
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         let dataFetcher = GoogleRequest()
         self.searchString = self.searchBar.text!
@@ -181,7 +185,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
                     let marker = PlaceMarker(place: place)
                     print("ADDRESS: \(marker.place.address)")
                     marker.map = self.mapView
-                
+                    
                 }
             }
         }
@@ -196,6 +200,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
 }
 extension HomeViewController: GMSMapViewDelegate {
     
+    
     func didTapMyLocationButtonForMapView(mapView: GMSMapView!) -> Bool {
         
         mapView.selectedMarker = nil
@@ -205,22 +210,48 @@ extension HomeViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
         
         let placeMarker = marker as! PlaceMarker
-
+        
         if let infoView = NSBundle.mainBundle().loadNibNamed("PlaceInfoView", owner: nil, options: nil).first as? PlaceInfoView {
             
             infoView.nameLabel.text = placeMarker.place.name
             infoView.addressLabel.text = placeMarker.place.address
             
-            // 4
-//            if let photo = placeMarker.place.photo {
-//                infoView.placePhoto.image = photo
-//            } else {
-//                infoView.placePhoto.image = UIImage(named: "generic")
-//            }
+            if(placeMarker.place.open){
+                infoView.openLabel.text = "Open Now"
+                infoView.openLabel.textColor = UIColor.greenColor()
+            }else{
+                infoView.openLabel.text = "Closed Now"
+                infoView.openLabel.textColor = UIColor.redColor()
+            }
             
+            
+            self.placeName = placeMarker.place.name
+            self.placeAddress = placeMarker.place.address
+            
+            infoView.iconView.image = placeMarker.place.icon
+            
+            //            if let icon = placeMarker.place.icon {
+            //                infoView.iconView = icon
+            //            } else {
+            //                infoView.placePhoto.image = UIImage(named: "generic")
+            //            }
             return infoView
         } else {
             return nil
         }
+    }
+    
+    
+    
+    func placeOrderFromLocButtonPressed(){
+        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //        let vc = storyboard.instantiateViewControllerWithIdentifier("ViewControllerID") as UIViewController
+        //        self.presentViewController(vc, animated: true, completion: nil)
+        
+        //CustomerOrderViewController()
+        //CustomerOrderViewController().pickUpAddressField.text = placeAddress
+        //presentViewController(CustomerOrderViewController(), animated: true, completion: nil)
+        print("placeOrderFromLocButtonPressed")
+        
     }
 }
