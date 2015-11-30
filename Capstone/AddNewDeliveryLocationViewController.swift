@@ -38,7 +38,8 @@ class AddNewDeliveryLocationViewController: UIViewController, UIPickerViewDelega
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return states[row]
+        selectedState = states[row]
+        return selectedState
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -47,7 +48,7 @@ class AddNewDeliveryLocationViewController: UIViewController, UIPickerViewDelega
     
     @IBAction func saveLocation(sender: UIButton) {
         let deliveryLocation = PFObject(className:"DeliveryLocation")
-        deliveryLocation["LocationCoordinates"] = nil
+        deliveryLocation["Username"] = PFUser.currentUser()
         deliveryLocation["Address"] = streetAddress.text
         deliveryLocation["City"] = city.text
         deliveryLocation["ZipCode"] = zipCode.text
