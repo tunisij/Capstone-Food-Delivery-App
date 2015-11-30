@@ -88,6 +88,8 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         let simpleAlert = UIAlertController(title: "Ordered Succesfully Placed", message: "Your order has been succesfully placed and will now be viewable for drivers to accept. ", preferredStyle: .Alert)
         simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
         self.presentViewController(simpleAlert, animated: true, completion: nil)
+    
+        
         
     }
     
@@ -138,7 +140,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
             insertOrder["orderNumber"] = orNum
                       do {
                 try insertOrder.save()
-                displayOrderFeedbackPrompt()
+               // displayOrderFeedbackPrompt()
                         print(orNum)
 
             }
@@ -151,11 +153,21 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         headerField.placeholder = "Order Title"
         descriptionField.text = "Enter order information here."
         
+       // self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+       navigationController!.popViewControllerAnimated(true)
+        
+//        self.presentingViewController?.dismissViewControllerAnimated(true, completion: {
+//            let secondPresentingVC = self.presentingViewController?.presentingViewController;
+//            secondPresentingVC?.dismissViewControllerAnimated(true, completion: {});
+//        });
+        
     }
     
     
     /**********************************
-     *
+     *   textView.layer.cornerRadius = 5
+     textView.layer.borderColor = UIColor.purpleColor().CGColor
+     textView.layer.borderWidth = 1
      *
      **********************************/
     override func viewDidLoad() {
@@ -166,6 +178,9 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         self.picker.dataSource = self
         // Input data into the Array:
         pickerData = ["Fast Food","Pick Up", "Groceries"]
+        descriptionField.layer.borderColor = UIColor.purpleColor().CGColor
+        descriptionField.layer.borderWidth = 1
+        
     }
     
     /**********************************
