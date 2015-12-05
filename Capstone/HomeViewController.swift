@@ -12,10 +12,16 @@ import GoogleMaps
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UISearchBarDelegate {
     
+    
+    
+    @IBOutlet weak var placeOptionsView: UIView!
+    
     @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typePicker: UIPickerView!
+    
+    
     
     let pickerData = ["Scroll to Search by Category", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
     let typeString = ["", "food", "restaurant", "grocery_or_supermarket", "convenience_store", "liquor_store"]
@@ -27,8 +33,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
     var placeAddress = ""
     
     var searchActive : Bool = false
-    
-    var currentInfoView = PlaceInfoView()
+    var showSearchFields = true
     
     let locationManager = CLLocationManager()
     var hasLocation = false
@@ -50,18 +55,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         typePicker.delegate = self
         searchBar.delegate = self
         
-        self.view.addSubview(self.currentInfoView)
-        self.view.bringSubviewToFront(self.currentInfoView)
-        print("Subview Count0: \(self.view.subviews.indexOf(self.currentInfoView))")
-        
-        
         hasLocation = false
+        
+        self.view.sendSubviewToBack(placeOptionsView)
         
     }
     
     
     
-    /**********************************
+    /*********************************
      *
      *
      **********************************/
@@ -79,6 +81,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
+    
+    
     
     /**********************************
      *
@@ -191,11 +195,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         }
     }
     
-    @IBAction func refreshPlaces(sender: AnyObject) {
+    @IBAction func refreshSearchButtonAction(sender: UIBarButtonItem) {
         mapView.clear()
+        self.view.sendSubviewToBack(self.placeOptionsView)
         self.fetchNearbyPlaces(mapView.camera.target)
     }
+    @IBAction func placeOrderButtonAction(sender: UIBarButtonItem) {
+    }
     
+    @IBAction func placeOrderFromHereButtonAction(sender: UIButton) {
+        
+    }
+    @IBAction func addToFavoritesButtonAction(sender: UIButton) {
+    }
+   
     
 }
 extension HomeViewController: GMSMapViewDelegate {
@@ -207,8 +220,12 @@ extension HomeViewController: GMSMapViewDelegate {
         return false
     }
     
-    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-        
+    
+    func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        self.view.sendSubviewToBack(placeOptionsView)
+    }
+
+    func mapView(mapView: GMSMapView!, markerInfoWindow marker: GMSMarker!) -> UIView! {
         let placeMarker = marker as! PlaceMarker
         
         if let infoView = NSBundle.mainBundle().loadNibNamed("PlaceInfoView", owner: nil, options: nil).first as? PlaceInfoView {
@@ -224,34 +241,17 @@ extension HomeViewController: GMSMapViewDelegate {
                 infoView.openLabel.textColor = UIColor.redColor()
             }
             
-            
             self.placeName = placeMarker.place.name
             self.placeAddress = placeMarker.place.address
             
             infoView.iconView.image = placeMarker.place.icon
-            
-            //            if let icon = placeMarker.place.icon {
-            //                infoView.iconView = icon
-            //            } else {
-            //                infoView.placePhoto.image = UIImage(named: "generic")
-            //            }
+            self.view.bringSubviewToFront(placeOptionsView)
+            self.showSearchFields = false
             return infoView
         } else {
             return nil
         }
     }
     
-    
-    
-    func placeOrderFromLocButtonPressed(){
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let vc = storyboard.instantiateViewControllerWithIdentifier("ViewControllerID") as UIViewController
-        //        self.presentViewController(vc, animated: true, completion: nil)
-        
-        //CustomerOrderViewController()
-        //CustomerOrderViewController().pickUpAddressField.text = placeAddress
-        //presentViewController(CustomerOrderViewController(), animated: true, completion: nil)
-        print("placeOrderFromLocButtonPressed")
-        
-    }
+
 }

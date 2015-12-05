@@ -17,14 +17,5 @@ class PlaceInfoView: UIView {
     @IBOutlet weak var iconView: UIImageView!
     
     
-    @IBOutlet weak var placeOrderButton: UIButton!
-    
-    
-    @IBAction func placeOrderButtonAction(sender: UIButton) {
-        print("ButtonPressed!")
-        HomeViewController().placeOrderFromLocButtonPressed()
-    }
-    
-    
     
 }
