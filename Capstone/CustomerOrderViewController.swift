@@ -19,6 +19,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     let orderNameKey: String = "OrderHeader"
     let orderDescriptionKey: String = "OrderDescription"
     
+    
     //Text Field for User Input Order Header
     @IBOutlet weak var headerField: UITextField!
     //Text Field for User Input Order Description
@@ -31,6 +32,15 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var zipField: UITextField!
     //String that will combine the above 3 to provide 1 return into the Parse database
     //  let orderLocation: String
+    
+    
+    
+    @IBOutlet weak var pickUpNameField: UITextField!
+    
+    @IBOutlet weak var pickUpAddressField: UITextField!
+    
+    var pickUpNameText: String = ""
+    var pickUpAddressText: String = ""
     
     var orderType: String = ""
  
@@ -180,6 +190,9 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         pickerData = ["Fast Food","Pick Up", "Groceries"]
         descriptionField.layer.borderColor = UIColor.purpleColor().CGColor
         descriptionField.layer.borderWidth = 1
+        
+        self.pickUpNameField.text = self.pickUpNameText
+        self.pickUpAddressField.text = self.pickUpAddressText
         
     }
     

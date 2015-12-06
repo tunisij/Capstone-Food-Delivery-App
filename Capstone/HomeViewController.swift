@@ -26,11 +26,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
     let pickerData = ["Scroll to Search by Category", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
     let typeString = ["", "food", "restaurant", "grocery_or_supermarket", "convenience_store", "liquor_store"]
     
-    var selectedType = ""
-    var searchString = ""
+    var selectedType:String = ""
+    var searchString:String = ""
     
-    var placeName = ""
-    var placeAddress = ""
+    var placeName:String = ""
+    var placeAddress: String = ""
     
     var searchActive : Bool = false
     var showSearchFields = true
@@ -200,11 +200,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         self.view.sendSubviewToBack(self.placeOptionsView)
         self.fetchNearbyPlaces(mapView.camera.target)
     }
-    @IBAction func placeOrderButtonAction(sender: UIBarButtonItem) {
-    }
-    
+   
     @IBAction func placeOrderFromHereButtonAction(sender: UIButton) {
+        //CustomerOrderViewController().pickUpNameField.text = self.placeName
+        //CustomerOrderViewController().pickUpAddressField.text = self.placeAddress
+
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        if(segue.identifier == "PlaceOrderFromHereSegue") {
+        
+            let custOrderViewController = segue.destinationViewController as! CustomerOrderViewController
+            custOrderViewController.pickUpNameText = self.placeName
+            custOrderViewController.pickUpAddressText = self.placeAddress
+        }
     }
     @IBAction func addToFavoritesButtonAction(sender: UIButton) {
     }
