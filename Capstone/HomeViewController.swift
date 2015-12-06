@@ -120,24 +120,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         
     }
     
-//    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return pickerData[row]
-//    }
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        var pickerLabel = view as! UILabel!
-        if view == nil {
-            pickerLabel = UILabel()
-            //color the label's background
-            let hue = CGFloat(row)/CGFloat(pickerData.count)
-            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 30.0, alpha: 30.0)
-        }
-        let titleData = pickerData[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 18.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-        pickerLabel!.attributedText = myTitle
-        pickerLabel!.textAlignment = .Center
-        return pickerLabel
-        
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
     }
+//    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+//        var pickerLabel = view as! UILabel!
+//        if view == nil {
+//            pickerLabel = UILabel()
+//            //color the label's background
+//            let hue = CGFloat(row)/CGFloat(pickerData.count)
+//            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 30.0, alpha: 30.0)
+//        }
+//        let titleData = pickerData[row]
+//        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 18.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+//        pickerLabel!.attributedText = myTitle
+//        pickerLabel!.textAlignment = .Center
+//        return pickerLabel
+//        
+//    }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedType = typeString[row]
@@ -184,7 +184,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
                 
             }))
         }else{
-            dataFetcher.loadPlaces(coordinate, searchStr: self.searchString, typeStr: self.selectedType) { places in
+            
+            dataFetcher.loadPlaces(coordinate, searchStr: self.cleanSearchString(self.searchString), typeStr: self.selectedType) { places in
                 for place: Place in places {
                     let marker = PlaceMarker(place: place)
                     print("ADDRESS: \(marker.place.address)")
@@ -193,6 +194,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
                 }
             }
         }
+    }
+    func cleanSearchString(text: String) -> String {
+        let charSet = NSCharacterSet(charactersInString: " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789").invertedSet
+        
+        let cleanedString = text.componentsSeparatedByCharactersInSet(charSet).joinWithSeparator("").stringByReplacingOccurrencesOfString(" ", withString: "_")
+        print(cleanedString)
+        
+        return cleanedString
+
     }
     
     @IBAction func refreshSearchButtonAction(sender: UIBarButtonItem) {
