@@ -16,6 +16,7 @@ class DeliveryLocationsTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -29,11 +30,30 @@ class DeliveryLocationsTableViewController: UITableViewController {
     }
     
     
-    //TODO grab delivery locations from parse
     func getDeliveryLocations() {
-        PFUser.currentUser()!.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
-//            driver = ((PFUser.currentUser()!.objectForKey("Driver") as? Bool) == nil) ? false : PFUser.currentUser()!.objectForKey("Driver") as! Bool
+        let query = PFQuery(className:"DeliveryLocation")
+        query.whereKey("Username", equalTo: PFUser.currentUser()!.username!)
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    self.deliveryLocations.removeAll()
+                    for object in objects {
+                        var instance = Dictionary<String, String>()
+                        instance["Nickname"] = object["Nickname"] as? String
+                        instance["Address"] = object["Address"] as? String
+                        instance["City"] = object["City"] as? String
+                        instance["State"] = object["State"] as? String
+                        instance["ZipCode"] = object["ZipCode"] as? String
+                        
+                        self.deliveryLocations.append(instance)
+                        self.tableView.reloadData()
+                    }
+                }
+            } else {
+                print("Error: \(error!) \(error!.userInfo)")
+            }
         }
+
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,14 +61,20 @@ class DeliveryLocationsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return deliveryLocations.count + 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             return tableView.dequeueReusableCellWithIdentifier("newDeliveryLocationCell", forIndexPath: indexPath)
         } else {
-            return tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath)
+            
+            if let object = deliveryLocations[indexPath.row] as? Dictionary<String, String> {
+                cell.textLabel?.text = object["Nickname"]
+            }
+            
+            return cell
         }
     }
     

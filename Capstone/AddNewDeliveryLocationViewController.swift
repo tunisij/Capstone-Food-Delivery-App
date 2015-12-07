@@ -49,6 +49,7 @@ class AddNewDeliveryLocationViewController: UIViewController, UIPickerViewDelega
     @IBAction func saveLocation(sender: UIButton) {
         let deliveryLocation = PFObject(className:"DeliveryLocation")
         deliveryLocation["Username"] = PFUser.currentUser()
+        deliveryLocation["Nickname"] = locationNickame.text
         deliveryLocation["Address"] = streetAddress.text
         deliveryLocation["City"] = city.text
         deliveryLocation["ZipCode"] = zipCode.text
