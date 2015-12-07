@@ -77,15 +77,23 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if row == 0 {
-            orderType = "Fast Food"
+            orderType = "Food/Fast Food"
         }
         
         if row == 1 {
-            orderType = "Pick Up"
+            orderType = "Restaurant"
         }
         
         if row == 2 {
-            orderType = "Groceries"
+            orderType = "Grocery Store"
+        }
+        
+        if row == 3 {
+            orderType = "Convenience Store"
+        }
+        
+        if row == 4 {
+            orderType = "Liquor Store"
         }
         
         return pickerData[row]
@@ -190,7 +198,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         self.picker.delegate = self
         self.picker.dataSource = self
         // Input data into the Array:
-        pickerData = ["Fast Food","Pick Up", "Groceries"]
+        pickerData = ["Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
         descriptionField.layer.borderColor = UIColor.purpleColor().CGColor
         descriptionField.layer.borderWidth = 1
         

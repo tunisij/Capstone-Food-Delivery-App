@@ -37,6 +37,7 @@ class DriverViewController: UIViewController {
         segmentedControl.initUI()
         segmentedControl.selectedSegmentIndex = TabIndex.FirstChildTab.rawValue
         displayCurrentTab(TabIndex.FirstChildTab.rawValue)
+
     }
     
     override func viewWillDisappear(animated: Bool) {
