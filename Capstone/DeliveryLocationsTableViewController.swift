@@ -19,6 +19,8 @@ class DeliveryLocationsTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        getDeliveryLocations()
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,13 +28,14 @@ class DeliveryLocationsTableViewController: UITableViewController {
     }
     
     @IBAction func pullToRefreshActivated(sender: UIRefreshControl) {
+        getDeliveryLocations()
         sender.endRefreshing();
     }
     
     
     func getDeliveryLocations() {
         let query = PFQuery(className:"DeliveryLocation")
-        query.whereKey("Username", equalTo: PFUser.currentUser()!.username!)
+        query.whereKey("User", equalTo: PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
@@ -70,12 +73,20 @@ class DeliveryLocationsTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath)
             
-            if let object = deliveryLocations[indexPath.row] as? Dictionary<String, String> {
+            if let object = deliveryLocations[indexPath.row - 1] as? Dictionary<String, String> {
                 cell.textLabel?.text = object["Nickname"]
+                let address = object["Address"]
+                let city = object["City"]
+                let state = object["State"]
+                cell.detailTextLabel?.text = "\(address!) \(city!), \(state!)"
             }
             
             return cell
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
     }
     
 }

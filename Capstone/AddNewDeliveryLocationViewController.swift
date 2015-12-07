@@ -47,8 +47,16 @@ class AddNewDeliveryLocationViewController: UIViewController, UIPickerViewDelega
     }
     
     @IBAction func saveLocation(sender: UIButton) {
+        if locationNickame.text == "" || streetAddress.text == "" || city.text == "" || zipCode.text == "" || selectedState == "" {
+            let allFieldsRequiredAlert = UIAlertController(title: "All Fields Required", message: "All fields are required. Please make sure you have entered all fields then try again.", preferredStyle: .Alert)
+            allFieldsRequiredAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
+            self.presentViewController(allFieldsRequiredAlert, animated: true, completion: nil)
+            
+            return
+        }
+        
         let deliveryLocation = PFObject(className:"DeliveryLocation")
-        deliveryLocation["Username"] = PFUser.currentUser()
+        deliveryLocation["User"] = PFUser.currentUser()
         deliveryLocation["Nickname"] = locationNickame.text
         deliveryLocation["Address"] = streetAddress.text
         deliveryLocation["City"] = city.text
