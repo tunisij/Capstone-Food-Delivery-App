@@ -34,6 +34,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     //  let orderLocation: String
     
     
+    @IBOutlet weak var deliveryField: UITextField!
     
     @IBOutlet weak var pickUpNameField: UITextField!
     
@@ -109,7 +110,7 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
      **********************************/
     func validOrder() -> Bool {
         
-        if (headerField.text == "" || descriptionField.text == ""){
+        if (headerField.text == "" || descriptionField.text == "" || pickUpNameField.text! == "" || pickUpAddressField.text! == "" || deliveryField.text! == ""){
             let simpleAlert = UIAlertController(title: "Order Save Error", message: "All fields are mandatory. ", preferredStyle: .Alert)
             simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
             self.presentViewController(simpleAlert, animated: true, completion: nil)
@@ -139,7 +140,9 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         insertOrder[orderDescriptionKey] = oDesc
         insertOrder["orderType"] = orderType
         insertOrder["orderCreator"] = PFUser.currentUser()!.username
-        // insertOrder["OrderNumber"] = oNum
+        insertOrder["pickUpName"] = pickUpNameField.text!
+        insertOrder["pickUpAddress"] = pickUpAddressField.text!
+        insertOrder["deliveryAddress"] = deliveryField.text!
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
         //  insertOrder["orderCreator"] = user.username
         //check on save into database
