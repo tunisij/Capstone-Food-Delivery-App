@@ -18,4 +18,17 @@ extension PFUser {
         
         return driver
     }
+    
+    func getSearchDistance() -> Float {
+        var distance: Float = 15.0
+        PFUser.currentUser()!.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
+            distance = ((PFUser.currentUser()!.objectForKey("SearchDistance") as? Float) == nil) ? 15 : PFUser.currentUser()!.objectForKey("SearchDistance") as! Float
+        }
+        return distance
+    }
+    
+    func setSearchDistance(searchDistance: Float) {
+        PFUser.currentUser()!["SearchDistance"] = searchDistance
+        PFUser.currentUser()?.saveEventually()
+    }
 }

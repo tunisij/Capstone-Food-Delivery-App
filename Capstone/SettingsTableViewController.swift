@@ -12,11 +12,13 @@ import MMDrawerController
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet weak var searchDistanceSlider: UISlider!
     @IBOutlet weak var searchDistanceTxt: UILabel!
     @IBOutlet weak var driverSignupCell: UITableViewCell!
     
     var currentUser = PFUser.currentUser()
     var isDriver: Bool = false
+    var searchDistance: Float = 15
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,12 @@ class SettingsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         isDriver = currentUser!.isDriver()
+        searchDistance = currentUser!.getSearchDistance()
+        searchDistanceSlider.value = searchDistance
+        
+        let distance = String(format: "%.1f", searchDistance)
+        searchDistanceTxt.text = "\(distance) mi."
+        
         tableView.reloadData()
     }
     
@@ -51,6 +59,7 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func searchDistanceChanged(sender: UISlider) {
         let distance = String(format: "%.1f", sender.value)
         searchDistanceTxt.text = "\(distance) mi."
+        PFUser.currentUser()!.setSearchDistance(sender.value)
     }
     
     @IBAction func logoutButtonClicked(sender: UIBarButtonItem) {
