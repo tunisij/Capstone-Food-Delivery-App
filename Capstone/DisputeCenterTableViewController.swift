@@ -1,26 +1,26 @@
 //
-//  DeliveryLocationsTableViewController.swift
+//  DisputeCenterTableViewController.swift
 //  Capstone
 //
-//  Created by John Tunisi on 11/6/15.
+//  Created by John Tunisi on 12/15/15.
 //  Copyright © 2015 John Tunisi. All rights reserved.
 //
 
+import UIKit
 import Parse
 
-class DeliveryLocationsTableViewController: UITableViewController {
+class DisputeCenterTableViewController: UITableViewController {
     
-    var deliveryLocations = [AnyObject]()
+    var disputeClaims = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        getDeliveryLocations()
+        getDisputeClaims()
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,27 +28,24 @@ class DeliveryLocationsTableViewController: UITableViewController {
     }
     
     @IBAction func pullToRefreshActivated(sender: UIRefreshControl) {
-        getDeliveryLocations()
+        getDisputeClaims()
         sender.endRefreshing();
     }
     
     
-    func getDeliveryLocations() {
-        let query = PFQuery(className:"DeliveryLocation")
+    func getDisputeClaims() {
+        let query = PFQuery(className:"DisputeClaims")
         query.whereKey("User", equalTo: PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
-                    self.deliveryLocations.removeAll()
+                    self.disputeClaims.removeAll()
                     for object in objects {
-                        var instance = Dictionary<String, String>()
-                        instance["Nickname"] = object["Nickname"] as? String
-                        instance["Address"] = object["Address"] as? String
-                        instance["City"] = object["City"] as? String
-                        instance["State"] = object["State"] as? String
-                        instance["ZipCode"] = object["ZipCode"] as? String
+                        var instance = Dictionary<String, AnyObject>()
+                        instance["Date"] = object["Date"] as? NSDate
+                        instance["Status"] = object["Status"] as? String
                         
-                        self.deliveryLocations.append(instance)
+                        self.disputeClaims.append(instance)
                         self.tableView.reloadData()
                     }
                 }
@@ -56,7 +53,6 @@ class DeliveryLocationsTableViewController: UITableViewController {
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
-
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -64,14 +60,14 @@ class DeliveryLocationsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return deliveryLocations.count + 1
+        return disputeClaims.count + 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            return tableView.dequeueReusableCellWithIdentifier("newDeliveryLocationCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCellWithIdentifier("newDisputeClaimCell", forIndexPath: indexPath)
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("locationCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("disputeCell", forIndexPath: indexPath)
             
             if indexPath.row % 2 == 1 {
                 cell.backgroundColor = UIColor(red: 203/255, green: 239/255, blue: 255/255, alpha: 1.0)
@@ -79,20 +75,15 @@ class DeliveryLocationsTableViewController: UITableViewController {
                 cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
             }
             
-            if let object = deliveryLocations[indexPath.row - 1] as? Dictionary<String, String> {
-                cell.textLabel?.text = object["Nickname"]
-                let address = object["Address"]
-                let city = object["City"]
-                let state = object["State"]
-                cell.detailTextLabel?.text = "\(address!) \(city!), \(state!)"
+            if let object = disputeClaims[indexPath.row - 1] as? Dictionary<String, AnyObject> {
+                let date = object["Date"] as! NSDate
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "EEEE, MMMM d, yyyy"
+                cell.textLabel?.text = formatter.stringFromDate(date)
+                let status = object["Status"]!
+                cell.detailTextLabel?.text = "Dispute Status: \(status)"
             }
-            
             return cell
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-    }
-    
 }
