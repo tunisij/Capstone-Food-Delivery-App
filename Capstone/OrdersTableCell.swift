@@ -10,11 +10,7 @@ import UIKit
 import Foundation
 
 class OrdersTableCell: UITableViewCell {
-     //Image that displays the order status
     @IBOutlet weak var orderStatusImage: UIImageView!
-    //label to display the order header in the order table view
     @IBOutlet weak var orderHeaderLabel: UILabel!
     @IBOutlet weak var orderNumberLabel: UILabel!
-    
-    
 }

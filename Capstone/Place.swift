@@ -39,7 +39,6 @@ class Place{
                 }
             }
             
-            
             if let openHrs = object["opening_hours"] as? Dictionary<String, AnyObject> {
                 open = (openHrs["open_now"] as? Bool)!
             }

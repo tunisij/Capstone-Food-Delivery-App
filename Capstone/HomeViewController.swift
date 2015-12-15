@@ -12,16 +12,10 @@ import GoogleMaps
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UISearchBarDelegate {
     
-    
-    
     @IBOutlet weak var placeOptionsView: UIView!
-    
     @IBOutlet weak var mapView: GMSMapView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typePicker: UIPickerView!
-    
-    
     
     let pickerData = ["Scroll to Search by Category", "Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
     let typeString = ["", "food", "restaurant", "grocery_or_supermarket", "convenience_store", "liquor_store"]
@@ -38,10 +32,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
     let locationManager = CLLocationManager()
     var hasLocation = false
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -58,45 +48,21 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         hasLocation = false
         
         self.view.sendSubviewToBack(placeOptionsView)
-        
     }
     
-    
-    
-    /*********************************
-     *
-     *
-     **********************************/
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    
-    
-    /**********************************
-     *
-     *
-     **********************************/
     @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-    
-    
-    /**********************************
-     *
-     *
-     **********************************/
     func DismissKeyboard(){
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
@@ -106,10 +72,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         }
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
@@ -117,12 +79,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
             //loadPlaces(location.coordinate)
             
         }
-        
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
+    
 //    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
 //        var pickerLabel = view as! UILabel!
 //        if view == nil {
@@ -184,7 +146,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
                 
             }))
         }else{
-            
             dataFetcher.loadPlaces(coordinate, searchStr: self.cleanSearchString(self.searchString), typeStr: self.selectedType) { places in
                 for place: Place in places {
                     let marker = PlaceMarker(place: place)
@@ -227,18 +188,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
     }
     @IBAction func addToFavoritesButtonAction(sender: UIButton) {
     }
-   
-    
+
 }
+
 extension HomeViewController: GMSMapViewDelegate {
     
-    
     func didTapMyLocationButtonForMapView(mapView: GMSMapView!) -> Bool {
-        
         mapView.selectedMarker = nil
         return false
     }
-    
     
     func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
         self.view.sendSubviewToBack(placeOptionsView)
@@ -271,6 +229,5 @@ extension HomeViewController: GMSMapViewDelegate {
             return nil
         }
     }
-    
 
 }

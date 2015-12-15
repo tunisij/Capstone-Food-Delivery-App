@@ -11,33 +11,20 @@ import Parse
 
 class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    //DB Key
     let classNameKey: String = "Order"
     let numberNameKey: String = "OrderNumberClass"
-    //Orders DB Key for order number
     let orderNumberColumnKey: String = "orderNumber"
     let orderNameKey: String = "OrderHeader"
     let orderDescriptionKey: String = "OrderDescription"
     
-    
-    //Text Field for User Input Order Header
     @IBOutlet weak var headerField: UITextField!
-    //Text Field for User Input Order Description
     @IBOutlet weak var descriptionField: UITextView!
-    //Text Field for User order street address
     @IBOutlet weak var adressField: UITextField!
-    //Text Field for User ORder city
     @IBOutlet weak var cityField: UITextField!
-    //Text Field for user order zip code
     @IBOutlet weak var zipField: UITextField!
-    //String that will combine the above 3 to provide 1 return into the Parse database
-    //  let orderLocation: String
-    
-    
+
     @IBOutlet weak var deliveryField: UITextField!
-    
     @IBOutlet weak var pickUpNameField: UITextField!
-    
     @IBOutlet weak var pickUpAddressField: UITextField!
     
     var pickUpNameText: String = ""
@@ -45,77 +32,40 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     
     var orderType: String = ""
  
-    //Order Type Picker View
     @IBOutlet weak var picker: UIPickerView!
-    //Picker View Data
     var pickerData: [String] = [String]()
     
-    //picker view set up
-    // The number of columns of data
-    /**********************************
-    *
-    *
-    **********************************/
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    // The number of rows of data
-    /**********************************
-    *
-    *
-    **********************************/
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
     
-    // The data to return for the row and component (column) that's being passed in
-    /**********************************
-    *
-    *
-    **********************************/
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if row == 0 {
             orderType = "Food/Fast Food"
-        }
-        
-        if row == 1 {
+        } else if row == 1 {
             orderType = "Restaurant"
-        }
-        
-        if row == 2 {
+        } else if row == 2 {
             orderType = "Grocery Store"
-        }
-        
-        if row == 3 {
+        } else if row == 3 {
             orderType = "Convenience Store"
-        }
-        
-        if row == 4 {
+        } else if row == 4 {
             orderType = "Liquor Store"
         }
         
         return pickerData[row]
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     func displayOrderFeedbackPrompt(){
         let simpleAlert = UIAlertController(title: "Ordered Succesfully Placed", message: "Your order has been succesfully placed and will now be viewable for drivers to accept. ", preferredStyle: .Alert)
         simpleAlert.addAction(UIAlertAction(title:"Ok", style: .Default, handler: nil))
         self.presentViewController(simpleAlert, animated: true, completion: nil)
-    
-        
-        
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     func validOrder() -> Bool {
         
         if (headerField.text == "" || descriptionField.text == "" || pickUpNameField.text! == "" || pickUpAddressField.text! == "" || deliveryField.text! == ""){
@@ -130,19 +80,17 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     
     /**********************************
      * SAVES order into the database
-     *
      **********************************/
     var myDebugCounter: Int = 0
     @IBAction func orderCompleteButton(sender: AnyObject) {
-        //Confirm that all forms are filled out
         if !validOrder(){
             return
         }
+        
         let oHead: String = headerField.text!
         let oDesc: String = descriptionField.text
         var orNum: String = ""
-        //SAVE INTO DATABASE
-        //insert user order into parse database
+
         let insertOrder = PFObject(className: classNameKey)
         insertOrder[orderNameKey] = oHead
         insertOrder[orderDescriptionKey] = oDesc
@@ -152,23 +100,17 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
         insertOrder["pickUpAddress"] = pickUpAddressField.text!
         insertOrder["deliveryAddress"] = deliveryField.text!
         insertOrder["orderStatus"] = 0 //order created, not yet assigned
-        //  insertOrder["orderCreator"] = user.username
-        //check on save into database
+
         do {
-            
             try insertOrder.save()
             orNum = insertOrder.objectId!
             insertOrder["orderNumber"] = orNum
-                      do {
+            
+            do {
                 try insertOrder.save()
-               // displayOrderFeedbackPrompt()
-                        print(orNum)
-
             }
-        
         }
         catch _ {
-            print ("fuck this shit didnt work")
         }
         headerField.text = ""
         headerField.placeholder = "Order Title"
@@ -194,42 +136,24 @@ class CustomerOrderViewController:  UIViewController, UIPickerViewDelegate, UIPi
     override func viewDidLoad() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
-        // Connect data:
+
         self.picker.delegate = self
         self.picker.dataSource = self
-        // Input data into the Array:
+
         pickerData = ["Food/Fast Food", "Restaurant", "Grocery Store", "Convenience Store", "Liquor Store"]
         descriptionField.layer.borderColor = UIColor.purpleColor().CGColor
         descriptionField.layer.borderWidth = 1
         
         self.pickUpNameField.text = self.pickUpNameText
         self.pickUpAddressField.text = self.pickUpAddressText
-        
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    
-    /**********************************
-     *
-     *
-     **********************************/
     func DismissKeyboard(){
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
-    
-    
-    
-    
-    
-    
     
 }

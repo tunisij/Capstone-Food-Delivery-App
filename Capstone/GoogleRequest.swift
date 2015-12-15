@@ -31,23 +31,16 @@ class GoogleRequest {
         let task = session.downloadTaskWithURL(url!) {
             (loc:NSURL?, response:NSURLResponse?, error:NSError?) in
             if error != nil {
-                print(error)
                 return
             }
             
-            // print out the fetched string for debug purposes.
-            let d = NSData(contentsOfURL: loc!)!
-            print("got data")
-            let datastring = NSString(data: d, encoding: NSUTF8StringEncoding)
-            print(datastring)
-            
             // Parse the top level  JSON object.
             let parsedObject: AnyObject?
+            let d = NSData(contentsOfURL: loc!)!
             do {
                 parsedObject = try NSJSONSerialization.JSONObjectWithData(d,
                     options: NSJSONReadingOptions.AllowFragments)
-            } catch let error as NSError {
-                print(error)
+            } catch _ as NSError {
                 return
             } catch {
                 fatalError()
@@ -60,8 +53,6 @@ class GoogleRequest {
                         self.objects.append(i)
                         
                     }
-                    print("Objects Count: \(self.objects.count)")
-                    
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         (UIApplication.sharedApplication().delegate as! AppDelegate).decrementNetworkActivity()
@@ -79,14 +70,10 @@ class GoogleRequest {
             dispatch_async(dispatch_get_main_queue()) {
                 completion(placesArray)
             }
-            
-            
         }
         
         (UIApplication.sharedApplication().delegate as! AppDelegate).incrementNetworkActivity()
         task.resume()
-        
-        
     }
     
 }

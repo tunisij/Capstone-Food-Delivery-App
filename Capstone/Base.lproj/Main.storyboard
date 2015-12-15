@@ -16,7 +16,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewRowCell" editingAccessoryType="disclosureIndicator" rowHeight="44" id="GLk-xD-qnE">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -25,6 +24,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Orders: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utd-Km-53f">
+                                            <rect key="frame" x="8" y="7" width="321" height="28"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="E4F-rX-QBd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-HA-7P6">
                                             <rect key="frame" x="378" y="4" width="214" height="36"/>
                                             <animations/>
@@ -38,19 +47,8 @@
                                                 <segue destination="9lS-Eh-6FN" kind="show" id="7Yu-UR-hFU"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Orders: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utd-Km-53f">
-                                            <rect key="frame" x="8" y="8" width="321" height="28"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="28" id="E4F-rX-QBd"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <animations/>
-                                    <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="xsX-HA-7P6" firstAttribute="trailing" secondItem="8R9-Fn-6Dk" secondAttribute="trailingMargin" id="20n-aC-Gjl"/>
                                         <constraint firstItem="xsX-HA-7P6" firstAttribute="top" secondItem="8R9-Fn-6Dk" secondAttribute="topMargin" constant="-4" id="HBD-A8-yVN"/>
@@ -60,7 +58,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" editingAccessoryType="disclosureIndicator" rowHeight="84" id="tVX-WK-Tna" customClass="OrdersTableCell" customModule="Capstone" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="600" height="84"/>
@@ -69,8 +66,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="83"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYo-u2-hU4">
+                                            <rect key="frame" x="236" y="8" width="50" height="50"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-hu-VzO">
-                                            <rect key="frame" x="0.0" y="8" width="209" height="32"/>
+                                            <rect key="frame" x="8" y="8" width="201" height="32"/>
                                             <animations/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Header">
@@ -83,14 +85,8 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYo-u2-hU4">
-                                            <rect key="frame" x="236" y="8" width="50" height="50"/>
-                                            <animations/>
-                                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </imageView>
                                     </subviews>
                                     <animations/>
-                                    <color key="backgroundColor" red="0.79594220419999995" green="0.93718926229999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
@@ -246,7 +242,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter order title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-kf-jwz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter order title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT0-kf-jwz">
                                 <rect key="frame" x="0.0" y="72" width="600" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -257,7 +253,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="one hard shell taco and a bean burrito with a XL baja blast" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MBE-pY-V1B">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="one hard shell taco and a bean burrito with a XL baja blast" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MBE-pY-V1B">
                                 <rect key="frame" x="20" y="357" width="560" height="114"/>
                                 <animations/>
                                 <constraints>
@@ -268,7 +264,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Details:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5d1-3M-WFM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Order Details:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5d1-3M-WFM">
                                 <rect key="frame" x="20" y="328" width="122" height="21"/>
                                 <animations/>
                                 <constraints>
@@ -280,7 +276,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHv-Bo-p6j">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHv-Bo-p6j">
                                 <rect key="frame" x="0.0" y="234" width="600" height="41"/>
                                 <animations/>
                                 <constraints>
@@ -289,7 +285,7 @@
                                     <constraint firstAttribute="width" constant="600" id="qoi-tx-i4r"/>
                                 </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select order type:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXf-5g-Sa1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select order type:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXf-5g-Sa1">
                                 <rect key="frame" x="20" y="205" width="148" height="21"/>
                                 <animations/>
                                 <constraints>
@@ -323,7 +319,7 @@
                                     <segue destination="hfZ-bq-QJ7" kind="presentation" id="5kh-Iv-KxF"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick Up Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ec-rB-QBS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick Up Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ec-rB-QBS">
                                 <rect key="frame" x="0.0" y="148" width="600" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -345,7 +341,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick Up Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="09C-GI-9E2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick Up Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="09C-GI-9E2">
                                 <rect key="frame" x="0.0" y="110" width="600" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -1845,7 +1841,7 @@
         <image name="Unchecked Checkbox-100" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7Yu-UR-hFU"/>
         <segue reference="5kh-Iv-KxF"/>
-        <segue reference="T8P-Yb-b6A"/>
     </inferredMetricsTieBreakers>
 </document>

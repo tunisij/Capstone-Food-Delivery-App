@@ -24,9 +24,6 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorColor = UIColor.clearColor()
         tableView.rowHeight = 50
-        
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -35,36 +32,15 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("Requests will appear")
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        print("Requests will disappear")
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Table view delegate
-    
-    func colorForIndex(index: Int) -> UIColor {
-        let itemCount = requests.count - 1
-        let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
-        return UIColor(red: 0.0, green: 0.8-val, blue: 0.6, alpha: 0.8)
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
-        forRowAtIndexPath indexPath: NSIndexPath) {
-            cell.backgroundColor = colorForIndex(indexPath.row)
-    }
-    
-    
-    // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -80,8 +56,13 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var cell = UITableViewCell(frame: cellFrame)
         cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        //cell.textLabel?.backgroundColor = UIColor.clearColor()
         let item = requests[indexPath.row]
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor(red: 203/255, green: 239/255, blue: 255/255, alpha: 1.0)
+        } else {
+            cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        }
         
         let textLabel = UILabel(frame: CGRectMake(10.0, 0.0, UIScreen.mainScreen().bounds.width - 20.0, 50.0 - 4.0))
         textLabel.textColor = UIColor.blackColor()
@@ -91,25 +72,21 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     //TEST
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50.0
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
-            print("Gimmie da info. plz.")
         }
         more.backgroundColor = UIColor.lightGrayColor()
         
         let accept = UITableViewRowAction(style: .Normal, title: "Accept") { action, index in
-            print("You got it bruh")
             let row = indexPath.row
             let item = self.requests[row]
             self.orderAccepted(item)
@@ -117,7 +94,6 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         accept.backgroundColor = UIColor.greenColor()
         
         let deny = UITableViewRowAction(style: .Normal, title: "Deny") { action, index in
-            print("ORDER DENIED BITCH")
             let row = indexPath.row
             let item = self.requests[row]
             self.orderRemoved(item)
@@ -128,18 +104,11 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // the cells you would like the actions to appear needs to be editable
         return true
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        // you need to implement this method too or you can't swipe to display the actions
     }
-
-    
-
-    
-    // MARK: - Order Actions
     
      func getOrders(){
         requests.removeAll()
@@ -160,14 +129,12 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
                         let uDesc = object["OrderDescription"] as! String
                         let uNum: String = object["orderNumber"] as! String
                         self.requests.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
-                        print(uOrder)
                         self.tableView.reloadData()
                     }
                 }
                 else {
-                    print("Error: \(error!)")
+
                 } }
-            
         }
     }
     
@@ -195,7 +162,6 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         query.getObjectInBackgroundWithId(orderID){
             (accepted: PFObject?, error: NSError?) -> Void in
             if error != nil {
-                print(error)
             } else if let accepted = accepted {
                 accepted.incrementKey("orderStatus")
                 accepted.saveInBackground()
@@ -203,16 +169,5 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

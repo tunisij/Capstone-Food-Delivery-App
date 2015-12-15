@@ -26,11 +26,6 @@ class CustomerOrder: NSObject {
     5: Order delivered / Complete
     */
     
-    
-    /**********************************
-    *
-    *
-    **********************************/
     init(name: String, number: String, message: String) {
         orderName = name;
         orderNumber = number;
@@ -41,11 +36,4 @@ class CustomerOrder: NSObject {
     func setStatus(status: Int){
         orderStatus = status
     }
-    
-    
-    func printData(){
-        print("Order name: \(orderName)\nOrder number: \(orderNumber)\nOrder Message: \(orderMessage)\nOrder Status: \(orderStatus)")
-    }
-    
-    
 }

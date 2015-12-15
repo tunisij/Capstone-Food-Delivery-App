@@ -15,7 +15,6 @@ class DriverViewController: UIViewController {
     }
     
     @IBOutlet weak var segmentedControl: SegmentedDriverControl!
-    
     @IBOutlet weak var contentView: UIView!
     
     var currentViewController: UIViewController?
@@ -27,10 +26,6 @@ class DriverViewController: UIViewController {
         let secondChildTabVC = self.storyboard?.instantiateViewControllerWithIdentifier("AcceptedViewController")
         return secondChildTabVC
         }()
-    
-    
-    
-    // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +42,6 @@ class DriverViewController: UIViewController {
         }
     }
     
-    // MARK: - Switching Tabs Functions
     @IBAction func switchTabs(sender: UISegmentedControl) {
         self.currentViewController!.view.removeFromSuperview()
         self.currentViewController!.removeFromParentViewController()
@@ -80,11 +74,7 @@ class DriverViewController: UIViewController {
         
         return vc
     }
-    
-    /**********************************
-    *
-    *
-    **********************************/
+
     @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)

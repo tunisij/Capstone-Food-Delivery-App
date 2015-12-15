@@ -19,10 +19,6 @@ class OrdersTableViewController: UITableViewController {
     var orderList = [CustomerOrder]()
     var refreshController = UIRefreshControl()
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         insertNewObject(self, index: 0)
@@ -44,14 +40,8 @@ class OrdersTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "didRefresh", forControlEvents: .ValueChanged)
         
         getOrders()
-        print("\n\ntesting\n\n---------")
-        print ( PFUser.currentUser()!.username )
     }
-    
-    /**********************************
-     *
-     *
-     **********************************/
+
     func didRefresh() {
         self.refreshControl?.beginRefreshing()
         orderList.removeAll()
@@ -59,11 +49,7 @@ class OrdersTableViewController: UITableViewController {
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
     }
-    
-    /**********************************
-     *
-     *
-     **********************************/
+
     func getOrders(){
         orderList.removeAll()
         
@@ -80,55 +66,32 @@ class OrdersTableViewController: UITableViewController {
                         let uDesc = object["OrderDescription"] as! String
                         let uNum: String = object["orderNumber"] as! String
                         self.orderList.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
-                        print(uOrder)
                         self.tableView.reloadData()
                     }
                 }
                 else {
-                    print("Error: \(error!)")
-                } }
-            
+                    
+                }
+            }
         }
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - Table view data source
-    
-    /**********************************
-    *
-    *
-    **********************************/
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orderList.count+1
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell
               
@@ -139,6 +102,12 @@ class OrdersTableViewController: UITableViewController {
             cell2 = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! OrdersTableCell
             let object = orderList[indexPath.row-1]
             cell2.orderHeaderLabel.text = object.orderName
+            
+            if indexPath.row % 2 == 1 {
+                cell2.backgroundColor = UIColor(red: 203/255, green: 239/255, blue: 255/255, alpha: 1.0)
+            } else {
+                cell2.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+            }
     
 //            var image1 = UIImage
 //            
@@ -148,7 +117,6 @@ class OrdersTableViewController: UITableViewController {
             
             cell2.orderStatusImage.image = UIImage(named: getStatus(object.orderStatus))
         //    cell2.orderNumberLabel.text = "Order Number: \(object.orderNumber)"
-            object.printData()
             return cell2
         }
         return cell
@@ -159,43 +127,24 @@ class OrdersTableViewController: UITableViewController {
         
         if status == 0{
             return "orderstatus0.png"
-        }
-        if status == 1{
+        } else if status == 1{
             return "orderstatus1.png"
-        }
-        
-        if status == 2{
+        } else if status == 2{
             return "orderstatus2.png"
-        }
-        
-        if status == 3{
+        } else if status == 3{
             return "orderstatus3.png"
-        }
-        
-        if status == 4{
+        } else if status == 4{
             return "orderstatus4.png"
-        }
-        
-        if status == 5{
+        } else if status == 5{
             return "orderstatus5.png"
         }
         return "error"
     }
     
-    
-    
-    /**********************************
-     *
-     *
-     **********************************/
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
-    
-    /**********************************
-     *
-     *
-     **********************************/
+
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             orderList.removeAtIndex(indexPath.row)
@@ -205,10 +154,6 @@ class OrdersTableViewController: UITableViewController {
         }
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     func insertNewObject(sender: AnyObject, index: Int) {
         //   orderList.insert(, atIndex: 0)
         _ = (forRow: index, inSection: 0)
@@ -230,11 +175,6 @@ class OrdersTableViewController: UITableViewController {
      //    }
      
      
-     /**********************************
-     *
-     *
-     **********************************/
-     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showOrderDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -252,42 +192,13 @@ class OrdersTableViewController: UITableViewController {
         }
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     @IBAction func AddNewRow(sender: UIButton) {
         insertNewObject(self, index: 0)
     }
     
-    /**********************************
-     *
-     *
-     **********************************/
     @IBAction func drawerMenuClicked(sender: UIBarButtonItem) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
