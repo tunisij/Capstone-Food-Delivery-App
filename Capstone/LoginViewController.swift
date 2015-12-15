@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
         let username = self.usernameTextField.text
         let password = self.passwordTextField.text
         
-        // Validate the text fields
         if username!.characters.count < 5 {
             let alert = UIAlertController(title: "Invalid", message: "Username must be at least 5 characters", preferredStyle: UIAlertControllerStyle.Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -53,13 +52,7 @@ class LoginViewController: UIViewController {
             presentViewController(alert, animated: true, completion: nil)
             
         } else {
-            // Run a spinner to show a task in progress
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
-            spinner.startAnimating()
-            
-            PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
-                spinner.stopAnimating()
-                
+            PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in                
                 if ((user) != nil) {                    
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -77,6 +70,23 @@ class LoginViewController: UIViewController {
             })
         }
     }
+
+    @IBAction func loginWithFacebook(sender: UITapGestureRecognizer) {
+        let permissions = ["public_profile"]
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                self.getUserDataFromFacebookProfile(user!)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.loadMainView()
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            }
+        })
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "signupSegue" {
@@ -85,32 +95,30 @@ class LoginViewController: UIViewController {
         }
     }
 
-//    
-//    func getUserDataFromFacebookProfile(user: PFUser) {
-//        var username  : String?
-//        var userEmail : String?
-//
-//        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "email, name"] )
-//        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-//            
-//            if ((error) != nil) {
-//                // Process error
-//            } else {
-//                userEmail = result.valueForKey("email") as? String
-//                username = result.valueForKey("name") as? String
-//            }
-//            
-//            let thisUser: PFUser = user
-//            
-//            if let uName = username {
-//                thisUser.username = uName
-//            }
-//            
-//            if let uEmail = userEmail {
-//                thisUser.email = uEmail
-//            }
-//            thisUser.saveInBackground()
-//        })
-//    }
+    
+    func getUserDataFromFacebookProfile(user: PFUser) {
+        var username  : String?
+        var userEmail : String?
+
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "email, name"] )
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) == nil) {
+                userEmail = result.valueForKey("email") as? String
+                username = result.valueForKey("name") as? String
+            }
+            
+            let thisUser: PFUser = user
+            
+            if let uName = username {
+                thisUser.username = uName
+            }
+            
+            if let uEmail = userEmail {
+                thisUser.email = uEmail
+            }
+            thisUser.saveInBackground()
+        })
+    }
 
 }

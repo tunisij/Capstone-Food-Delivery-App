@@ -35,7 +35,6 @@ class SignupViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
     @IBAction func signUpAction(sender: AnyObject) {
         let username = self.usernameTextField.text
@@ -43,7 +42,6 @@ class SignupViewController: UIViewController {
         let email = self.emailTextField.text
         let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
-        // Validate the text fields
         if username!.characters.count < 5 {
             let alert = UIAlertController(title: "Invalid", message: "Username must be greater than 5 characters", preferredStyle: UIAlertControllerStyle.Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -63,21 +61,12 @@ class SignupViewController: UIViewController {
             self.presentViewController(alert, animated: true, completion: nil)
             
         } else {
-            // Run a spinner to show a task in progress
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
-            spinner.startAnimating()
-            
             let newUser = PFUser()
             
             newUser.username = username
             newUser.password = password
             newUser.email = finalEmail
-            
-            // Sign up the user asynchronously
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
-                
-                // Stop the spinner
-                spinner.stopAnimating()
                 if ((error) != nil) {
                     let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: UIAlertControllerStyle.Alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)

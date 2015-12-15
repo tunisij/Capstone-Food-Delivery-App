@@ -18,12 +18,11 @@ class DrawerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
-        self.title = PFUser.currentUser()?.username
-
     }
     
     override func viewWillAppear(animated: Bool) {
         self.isDriver = (PFUser.currentUser()?.isDriver())!
+        self.title = PFUser.currentUser()?.username
         
         if isDriver {
             labels = ["Home", "Orders", "Driver", "Settings", "Logout"]
