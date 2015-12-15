@@ -9,6 +9,7 @@
 import UIKit
 import MMDrawerController
 import GoogleMaps
+import Parse
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UISearchBarDelegate {
     
@@ -46,6 +47,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         searchBar.delegate = self
         
         hasLocation = false
+        if(PFUser.currentUser()!["FavoritePlaces"] == nil){
+            PFUser.currentUser()!["FavoritePlaces"] = []
+            PFUser.currentUser()!.saveInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo["error"] as? NSString
+                    print(errorString)
+                }
+            }
+        }
         
         self.view.sendSubviewToBack(placeOptionsView)
     }
@@ -172,21 +183,37 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         self.fetchNearbyPlaces(mapView.camera.target)
     }
    
-    @IBAction func placeOrderFromHereButtonAction(sender: UIButton) {
-        //CustomerOrderViewController().pickUpNameField.text = self.placeName
-        //CustomerOrderViewController().pickUpAddressField.text = self.placeAddress
-
-    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if(segue.identifier == "PlaceOrderFromHereSegue") {
-        
             let custOrderViewController = segue.destinationViewController as! CustomerOrderViewController
             custOrderViewController.pickUpNameText = self.placeName
             custOrderViewController.pickUpAddressText = self.placeAddress
         }
     }
+    
     @IBAction func addToFavoritesButtonAction(sender: UIButton) {
+        var userFavorites:[String] = PFUser.currentUser()!["FavoritePlaces"] as! [String]
+        let newFavorite:String = "\(self.placeName)|||\(self.placeAddress)"
+        if(!userFavorites.contains(newFavorite)){
+            userFavorites.append(newFavorite)
+            PFUser.currentUser()!["FavoritePlaces"] = userFavorites
+            PFUser.currentUser()!.saveInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo["error"] as? NSString
+                    print(errorString)
+                }
+            }
+            let uiAlert = UIAlertController(title: "Favorites", message: "\(self.placeName) was added to your Favorite Places list.", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(uiAlert, animated: true, completion: nil)
+            uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            }))
+        }else{
+            let uiAlert = UIAlertController(title: "Favorites", message: "\(self.placeName) is already in your Favorite Places list.", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(uiAlert, animated: true, completion: nil)
+            uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            }))
+        }
     }
 
 }
