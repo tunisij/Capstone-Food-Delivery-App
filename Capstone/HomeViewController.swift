@@ -114,6 +114,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedType = typeString[row]
+        if(row != 0){
+            self.fetchNearbyPlaces(mapView.camera.target)
+        }
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
