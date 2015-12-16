@@ -51,6 +51,7 @@
 		5BF103FF1BB6514500C5E318 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */; };
 		5BF311481BED561F00775C91 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF311471BED561F00775C91 /* ResetPasswordViewController.swift */; };
 		91446D2837C047DC7F87B423 /* Pods_Capstone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57772DB162C1FC8A05BED408 /* Pods_Capstone.framework */; };
+		AA0A9B201C20C2B200C69883 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A9B1F1C20C2B200C69883 /* FavoritesTableViewController.swift */; };
 		AA0CFE331BEC3D6F008B03C5 /* GoogleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */; };
 		AA0CFE351BEC3D98008B03C5 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE341BEC3D98008B03C5 /* Place.swift */; };
 		AA0CFE371BEC3DC8008B03C5 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */; };
@@ -145,6 +146,7 @@
 		5BF103FC1BB6511B00C5E318 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5BF103FE1BB6514500C5E318 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5BF311471BED561F00775C91 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		AA0A9B1F1C20C2B200C69883 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleRequest.swift; sourceTree = "<group>"; };
 		AA0CFE341BEC3D98008B03C5 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				AA3F2B061BBC85DC00F47B1C /* HomeViewController.swift */,
+				AA0A9B1F1C20C2B200C69883 /* FavoritesTableViewController.swift */,
 				AA0CFE321BEC3D6F008B03C5 /* GoogleRequest.swift */,
 				AA0CFE341BEC3D98008B03C5 /* Place.swift */,
 				AA0CFE361BEC3DC8008B03C5 /* PlaceMarker.swift */,
@@ -643,6 +646,7 @@
 				338B30841C21262300962807 /* DriverOrder.swift in Sources */,
 				33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */,
 				E01E3C5A1BE648260075155F /* OrdersTableCell.swift in Sources */,
+				AA0A9B201C20C2B200C69883 /* FavoritesTableViewController.swift in Sources */,
 				5BD73C5E1BED7B9800722BE4 /* DriverSignupViewController.swift in Sources */,
 				AA0CFE351BEC3D98008B03C5 /* Place.swift in Sources */,
 				AA3F2B031BBC85B300F47B1C /* SettingsTableViewController.swift in Sources */,

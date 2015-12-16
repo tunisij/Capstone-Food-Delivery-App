@@ -9,6 +9,7 @@
 import UIKit
 import MMDrawerController
 import GoogleMaps
+import Parse
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UISearchBarDelegate {
     
@@ -46,6 +47,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         searchBar.delegate = self
         
         hasLocation = false
+        if(PFUser.currentUser()!["FavoritePlaces"] == nil){
+            PFUser.currentUser()!["FavoritePlaces"] = []
+            PFUser.currentUser()!.saveInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo["error"] as? NSString
+                    print(errorString)
+                }
+            }
+        }
         
         self.view.sendSubviewToBack(placeOptionsView)
     }
@@ -85,24 +96,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         return pickerData[row]
     }
     
-//    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-//        var pickerLabel = view as! UILabel!
-//        if view == nil {
-//            pickerLabel = UILabel()
-//            //color the label's background
-//            let hue = CGFloat(row)/CGFloat(pickerData.count)
-//            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 30.0, alpha: 30.0)
-//        }
-//        let titleData = pickerData[row]
-//        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 18.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-//        pickerLabel!.attributedText = myTitle
-//        pickerLabel!.textAlignment = .Center
-//        return pickerLabel
-//        
-//    }
-    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedType = typeString[row]
+        if(row != 0){
+            self.fetchNearbyPlaces(mapView.camera.target)
+        }
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -146,7 +144,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
                 
             }))
         }else{
-            dataFetcher.loadPlaces(coordinate, searchStr: self.cleanSearchString(self.searchString), typeStr: self.selectedType) { places in
+            let searchDist:Float = PFUser.currentUser()!.getSearchDistance()
+            let metersSearchDist: Int = Int(searchDist*1609.34)
+            print("MetersDist: \(metersSearchDist)")
+            dataFetcher.loadPlaces(coordinate, searchDist: metersSearchDist, searchStr: self.cleanSearchString(self.searchString), typeStr: self.selectedType) { places in
                 for place: Place in places {
                     let marker = PlaceMarker(place: place)
                     print("ADDRESS: \(marker.place.address)")
@@ -172,21 +173,37 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         self.fetchNearbyPlaces(mapView.camera.target)
     }
    
-    @IBAction func placeOrderFromHereButtonAction(sender: UIButton) {
-        //CustomerOrderViewController().pickUpNameField.text = self.placeName
-        //CustomerOrderViewController().pickUpAddressField.text = self.placeAddress
-
-    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if(segue.identifier == "PlaceOrderFromHereSegue") {
-        
             let custOrderViewController = segue.destinationViewController as! CustomerOrderViewController
             custOrderViewController.pickUpNameText = self.placeName
             custOrderViewController.pickUpAddressText = self.placeAddress
         }
     }
+    
     @IBAction func addToFavoritesButtonAction(sender: UIButton) {
+        var userFavorites:[String] = PFUser.currentUser()!["FavoritePlaces"] as! [String]
+        let newFavorite:String = "\(self.placeName)|||\(self.placeAddress)"
+        if(!userFavorites.contains(newFavorite)){
+            userFavorites.append(newFavorite)
+            PFUser.currentUser()!["FavoritePlaces"] = userFavorites
+            PFUser.currentUser()!.saveInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo["error"] as? NSString
+                    print(errorString)
+                }
+            }
+            let uiAlert = UIAlertController(title: "Favorites", message: "\(self.placeName) was added to your Favorite Places list.", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(uiAlert, animated: true, completion: nil)
+            uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            }))
+        }else{
+            let uiAlert = UIAlertController(title: "Favorites", message: "\(self.placeName) is already in your Favorite Places list.", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(uiAlert, animated: true, completion: nil)
+            uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            }))
+        }
     }
 
 }
@@ -212,7 +229,7 @@ extension HomeViewController: GMSMapViewDelegate {
             
             if(placeMarker.place.open){
                 infoView.openLabel.text = "Open Now"
-                infoView.openLabel.textColor = UIColor.greenColor()
+                infoView.openLabel.textColor = UIColor(red: 34/255, green: 139/255, blue: 34/255, alpha: 1.0)
             }else{
                 infoView.openLabel.text = "Closed Now"
                 infoView.openLabel.textColor = UIColor.redColor()
