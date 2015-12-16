@@ -14,7 +14,7 @@ class GoogleRequest {
     
     var objects = [AnyObject]()
     
-    func loadPlaces(coordinate: CLLocationCoordinate2D, searchStr: String, typeStr: String, completion: (([Place]) -> Void)) -> ()
+    func loadPlaces(coordinate: CLLocationCoordinate2D, searchDist: Int, searchStr: String, typeStr: String, completion: (([Place]) -> Void)) -> ()
     {
         
         // Get ready to fetch the list of dog videos from YouTube V3 Data API

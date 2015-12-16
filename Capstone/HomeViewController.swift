@@ -144,7 +144,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
                 
             }))
         }else{
-            dataFetcher.loadPlaces(coordinate, searchStr: self.cleanSearchString(self.searchString), typeStr: self.selectedType) { places in
+            let searchDist:Float = PFUser.currentUser()!.getSearchDistance()
+            let metersSearchDist: Int = Int(searchDist*1609.34)
+            print("MetersDist: \(metersSearchDist)")
+            dataFetcher.loadPlaces(coordinate, searchDist: metersSearchDist, searchStr: self.cleanSearchString(self.searchString), typeStr: self.selectedType) { places in
                 for place: Place in places {
                     let marker = PlaceMarker(place: place)
                     print("ADDRESS: \(marker.place.address)")
