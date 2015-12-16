@@ -2,7 +2,6 @@
 //  DriverViewController.swift
 //
 //  Created by Travis Keel
-//  Copyright © 2015 A. Abdurrahman. All rights reserved.
 
 import UIKit
 import MMDrawerController

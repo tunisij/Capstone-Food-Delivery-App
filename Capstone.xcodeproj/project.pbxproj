@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33105F4F1C20CCC800032CD3 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33105F4E1C20CCC800032CD3 /* DriverTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		338B30841C21262300962807 /* DriverOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338B30831C21262300962807 /* DriverOrder.swift */; settings = {ASSET_TAGS = (); }; };
 		338E44121C0BF2B20065BBC5 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338E44111C0BF2B20065BBC5 /* DriverViewController.swift */; };
 		33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */; };
 		33CBBC3F1C0BF4D6000F96DF /* SegmentedDriverControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBBC3E1C0BF4D6000F96DF /* SegmentedDriverControl.swift */; };
@@ -93,6 +95,8 @@
 /* Begin PBXFileReference section */
 		1680421F72E45D1DE78B1F24 /* Pods-Capstone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0E2C67F159ADFD8B136839 /* Pods-Capstone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone/Pods-Capstone.release.xcconfig"; sourceTree = "<group>"; };
+		33105F4E1C20CCC800032CD3 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
+		338B30831C21262300962807 /* DriverOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverOrder.swift; sourceTree = "<group>"; };
 		338E44111C0BF2B20065BBC5 /* DriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
 		33AE3D0E1BF18C4B00A9BCC0 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		33CBBC3E1C0BF4D6000F96DF /* SegmentedDriverControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedDriverControl.swift; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				338E44111C0BF2B20065BBC5 /* DriverViewController.swift */,
 				33CBBC3E1C0BF4D6000F96DF /* SegmentedDriverControl.swift */,
 				33CBBC401C0BF8DE000F96DF /* AcceptedViewController.swift */,
+				33105F4E1C20CCC800032CD3 /* DriverTableViewCell.swift */,
+				338B30831C21262300962807 /* DriverOrder.swift */,
 			);
 			name = Drivers;
 			sourceTree = "<group>";
@@ -623,6 +629,7 @@
 				5B3F3EE01C06556100E13809 /* PFUserExtension.swift in Sources */,
 				33CBBC3F1C0BF4D6000F96DF /* SegmentedDriverControl.swift in Sources */,
 				5B94D8951BBCCDCE006BD77E /* LoginViewController.swift in Sources */,
+				33105F4F1C20CCC800032CD3 /* DriverTableViewCell.swift in Sources */,
 				5B692B981BE2C24E00351796 /* DrawerTableViewController.swift in Sources */,
 				E0FEF4411BD97689000B7CC3 /* CustomerOrder.swift in Sources */,
 				5BC7D0C51BED074B00BE771C /* SignupViewController.swift in Sources */,
@@ -633,6 +640,7 @@
 				5B692B901BE2B53000351796 /* OrdersDetailViewController.swift in Sources */,
 				AA1D5E361BED57570051C8C2 /* PlaceInfoView.swift in Sources */,
 				5B698FAE1BB63300001DD03E /* AppDelegate.swift in Sources */,
+				338B30841C21262300962807 /* DriverOrder.swift in Sources */,
 				33AE3D0F1BF18C4B00A9BCC0 /* RequestViewController.swift in Sources */,
 				E01E3C5A1BE648260075155F /* OrdersTableCell.swift in Sources */,
 				5BD73C5E1BED7B9800722BE4 /* DriverSignupViewController.swift in Sources */,

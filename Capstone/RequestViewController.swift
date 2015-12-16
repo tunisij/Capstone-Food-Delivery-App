@@ -13,7 +13,9 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
 
-    var requests = [CustomerOrder]()
+    var orderStatus = -1
+    var selectedIndexPath: NSIndexPath?
+    var requests = [DriverOrder]()
     
     
     override func viewDidLoad() {
@@ -21,7 +23,6 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorColor = UIColor.clearColor()
         tableView.rowHeight = 50
     }
@@ -34,9 +35,6 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewWillAppear(animated)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,10 +50,7 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cellFrame = CGRectMake(0, 0, self.tableView.frame.width, 50.0)
-        
-        var cell = UITableViewCell(frame: cellFrame)
-        cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DriverTableViewCell
         let item = requests[indexPath.row]
         
         if indexPath.row % 2 == 0 {
@@ -64,27 +59,65 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
         }
         
-        let textLabel = UILabel(frame: CGRectMake(10.0, 0.0, UIScreen.mainScreen().bounds.width - 20.0, 50.0 - 4.0))
-        textLabel.textColor = UIColor.blackColor()
-        textLabel.text = item.orderName
-        cell.addSubview(textLabel)
+        cell.orderTitle.text = item.orderName
+        cell.pickUpName.text = item.pName
+        cell.pLocation.text = item.pLocation
+        cell.dLocation.text = item.dLocation
+        cell.oDescription.text = item.orderMessage
+        cell.oID.text = item.orderNumber
+        
+        
         return cell
     }
     
-    //TEST
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50.0
-    }
-    
+    //Controls cell expansion
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let previousIndexPath = selectedIndexPath
+        if indexPath == selectedIndexPath {
+            selectedIndexPath = nil
+        } else {
+            selectedIndexPath = indexPath
+        }
+        
+        var indexPaths : Array<NSIndexPath> = []
+        if let previous = previousIndexPath {
+            indexPaths += [previous]
+        }
+        if let current = selectedIndexPath {
+            indexPaths += [current]
+        }
+        if indexPaths.count > 0 {
+            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! DriverTableViewCell).watchFrameChanges()
+    }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! DriverTableViewCell).ignoreFrameChanges()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        for cell in tableView.visibleCells as! [DriverTableViewCell] {
+            cell.ignoreFrameChanges()
         }
-        more.backgroundColor = UIColor.lightGrayColor()
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == selectedIndexPath {
+            return DriverTableViewCell.expandedHeight
+        } else {
+            return DriverTableViewCell.defaultHeight
+        }
+    }
+    
+   /*
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let accept = UITableViewRowAction(style: .Normal, title: "Accept") { action, index in
             let row = indexPath.row
@@ -100,8 +133,9 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         deny.backgroundColor = UIColor.redColor()
         
-        return [deny, accept, more]
+        return [deny, accept]
     }
+*/
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -128,7 +162,10 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
                         let uOrder = object["OrderHeader"] as! String
                         let uDesc = object["OrderDescription"] as! String
                         let uNum: String = object["orderNumber"] as! String
-                        self.requests.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
+                        let uPickup: String = object["pickUpAddress"] as! String
+                        let pName: String = object["pickUpName"] as! String
+                        let uDeliv: String = object["deliveryAddress"] as! String
+                        self.requests.append(DriverOrder(name: uOrder, number: uNum, message: uDesc, pickup: uPickup, pName: pName, deliver: uDeliv))
                         self.tableView.reloadData()
                     }
                 }
@@ -136,9 +173,12 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
 
                 } }
         }
+        self.tableView.reloadData()
     }
     
-    func orderRemoved(order: CustomerOrder) {
+    
+    
+    func orderRemoved(order: DriverOrder) {
         let index = (requests as NSArray).indexOfObject(order)
         if index == NSNotFound { return }
         
@@ -152,7 +192,7 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.endUpdates()
     }
     
-    func orderAccepted(order: CustomerOrder) {
+    func orderAccepted(sender:UIButton!, order:DriverOrder) {
         let index = (requests as NSArray).indexOfObject(order)
         if index == NSNotFound { return }
         
@@ -168,6 +208,10 @@ class RequestViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.orderRemoved(order)
             }
         }
+    }
+    
+    func buttonClicked(sender: UIButton!) {
+        print("yayyyyy")
     }
 
 }

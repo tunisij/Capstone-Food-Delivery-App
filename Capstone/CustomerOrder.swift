@@ -2,8 +2,8 @@
 //  CustomerOrder.swift
 //  Capstone
 //
-//  Created by John Tunisi, Ross Bryan, Ethan Christensen,  Ethan Keel  on 10/22/15.
-//  Copyright © 2015 JJohn Tunisi, Ross Bryan, Ethan Christensen,  Ethan Keel . All rights reserved.
+//  Created by John Tunisi, Ross Bryan, Ethan Christensen,  Travis Keel  on 10/22/15.
+//  Copyright © 2015 JJohn Tunisi, Ross Bryan, Ethan Christensen,  Travis Keel . All rights reserved.
 //
 
 import Foundation
@@ -14,6 +14,7 @@ class CustomerOrder: NSObject {
     let orderNumber: String;
     var orderMessage: String;
     var orderStatus: Int
+    
     //var orderType: String
     
     /*

@@ -13,16 +13,16 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    var requests = [CustomerOrder]()
+    var orderStatus = -1
+    var selectedIndexPath: NSIndexPath?
+    var requests = [DriverOrder]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorColor = UIColor.clearColor()
-        tableView.rowHeight = 50
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,9 +33,6 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewWillAppear(animated)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,10 +48,7 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cellFrame = CGRectMake(0, 0, self.tableView.frame.width, 50.0)
-        
-        var cell = UITableViewCell(frame: cellFrame)
-        cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DriverTableViewCell
         let item = requests[indexPath.row]
         
         if indexPath.row % 2 == 0 {
@@ -63,31 +57,69 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
         }
         
-        let textLabel = UILabel(frame: CGRectMake(10.0, 0.0, UIScreen.mainScreen().bounds.width - 20.0, 50.0 - 4.0))
-        textLabel.textColor = UIColor.blackColor()
-        textLabel.text = item.orderName
-        cell.addSubview(textLabel)
+        cell.orderTitle.text = item.orderName
+        cell.pickUpName.text = item.pName
+        cell.pLocation.text = item.pLocation
+        cell.dLocation.text = item.dLocation
+        cell.oDescription.text = item.orderMessage
+        cell.oID.text = item.orderNumber
+        cell.updateOrderLabel(orderStatus)
         return cell
     }
     
-    //TEST
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50.0
-    }
-    
+    //Controls cell expansion
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let previousIndexPath = selectedIndexPath
+        if indexPath == selectedIndexPath {
+            selectedIndexPath = nil
+        } else {
+            selectedIndexPath = indexPath
+        }
+        
+        var indexPaths : Array<NSIndexPath> = []
+        if let previous = previousIndexPath {
+            indexPaths += [previous]
+        }
+        if let current = selectedIndexPath {
+            indexPaths += [current]
+        }
+        if indexPaths.count > 0 {
+            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! DriverTableViewCell).watchFrameChanges()
+    }
+    
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! DriverTableViewCell).ignoreFrameChanges()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        for cell in tableView.visibleCells as! [DriverTableViewCell] {
+            cell.ignoreFrameChanges()
         }
-        more.backgroundColor = UIColor.lightGrayColor()
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == selectedIndexPath {
+            return DriverTableViewCell.expandedHeight
+        } else {
+            return DriverTableViewCell.defaultHeight
+        }
+    }
+    
+    //Allows for slide left gesture to display buttons
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
-        let accept = UITableViewRowAction(style: .Normal, title: "Accept") { action, index in
+        let accept = UITableViewRowAction(style: .Normal, title: "Update") { action, index in
             let row = indexPath.row
             let item = self.requests[row]
-            self.orderAccepted(item)
+            self.updateStatus(item)
         }
         accept.backgroundColor = UIColor.greenColor()
         
@@ -98,8 +130,9 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         deny.backgroundColor = UIColor.redColor()
         
-        return [deny, accept, more]
+        return [deny, accept]
     }
+
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -115,7 +148,7 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
         query.whereKeyExists("OrderHeader")
         
         //Only get orders which haven't been accepted
-        query.whereKey("orderStatus", equalTo: 1)
+        query.whereKey("orderStatus", notEqualTo: 0)
         
         query.addDescendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
@@ -123,10 +156,16 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
                 let pfobjects = objects
                 if objects != nil {
                     for object in pfobjects! {
+                        
                         let uOrder = object["OrderHeader"] as! String
                         let uDesc = object["OrderDescription"] as! String
                         let uNum: String = object["orderNumber"] as! String
-                        self.requests.append(CustomerOrder(name: uOrder, number: uNum, message: uDesc))
+                        let uPickup: String = object["pickUpAddress"] as! String
+                        let pName: String = object["pickUpName"] as! String
+                        
+                        let uDeliv: String = object["deliveryAddress"] as! String
+                        self.orderStatus = object["orderStatus"] as! Int
+                        self.requests.append(DriverOrder(name: uOrder, number: uNum, message: uDesc, pickup: uPickup, pName: pName, deliver: uDeliv))
                         self.tableView.reloadData()
                     }
                 }
@@ -135,7 +174,8 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func orderRemoved(order: CustomerOrder) {
+    
+    func orderRemoved(order: DriverOrder) {
         let index = (requests as NSArray).indexOfObject(order)
         if index == NSNotFound { return }
         
@@ -149,7 +189,7 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.endUpdates()
     }
     
-    func orderAccepted(order: CustomerOrder) {
+    func updateStatus(order: DriverOrder) {
         let index = (requests as NSArray).indexOfObject(order)
         if index == NSNotFound { return }
         
@@ -161,8 +201,8 @@ class AcceptedViewController: UIViewController, UITableViewDataSource, UITableVi
             if error != nil {
             } else if let accepted = accepted {
                 accepted.incrementKey("orderStatus")
+                self.orderStatus++
                 accepted.saveInBackground()
-                self.orderRemoved(order)
             }
         }
     }
