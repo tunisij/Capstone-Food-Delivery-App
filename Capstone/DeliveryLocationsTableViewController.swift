@@ -53,7 +53,6 @@ class DeliveryLocationsTableViewController: UITableViewController {
                     }
                 }
             } else {
-                print("Error: \(error!) \(error!.userInfo)")
             }
         }
 
@@ -91,8 +90,23 @@ class DeliveryLocationsTableViewController: UITableViewController {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        if let object = deliveryLocations[indexPath.row - 1] as? Dictionary<String, String> {
+            let address = object["Address"]!.stringByReplacingOccurrencesOfString(" ", withString: "+")
+            let city = object["City"]!.stringByReplacingOccurrencesOfString(" ", withString: "+")
+            let state = object["State"]!.stringByReplacingOccurrencesOfString(" ", withString: "+")
+            let zipCode = object["ZipCode"]!.stringByReplacingOccurrencesOfString(" ", withString: "+")
+            let search = "\(address)+\(city),+\(state)+\(zipCode)"
+            
+            if UIApplication.sharedApplication().canOpenURL(NSURL(string: "comgooglemaps://")!) {
+                UIApplication.sharedApplication().openURL(NSURL(string: "comgooglemaps://?q=\(search)")!)
+            } else {
+                if UIApplication.sharedApplication().canOpenURL(NSURL(string: "maps://")!) {
+                    UIApplication.sharedApplication().openURL(NSURL(string: "http://maps.apple.com/?q=\(search)")!)
+                }
+            }
+
+        }
     }
     
 }
