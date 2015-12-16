@@ -96,22 +96,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIPickerV
         return pickerData[row]
     }
     
-//    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-//        var pickerLabel = view as! UILabel!
-//        if view == nil {
-//            pickerLabel = UILabel()
-//            //color the label's background
-//            let hue = CGFloat(row)/CGFloat(pickerData.count)
-//            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 30.0, alpha: 30.0)
-//        }
-//        let titleData = pickerData[row]
-//        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 18.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-//        pickerLabel!.attributedText = myTitle
-//        pickerLabel!.textAlignment = .Center
-//        return pickerLabel
-//        
-//    }
-    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedType = typeString[row]
         if(row != 0){
@@ -242,7 +226,7 @@ extension HomeViewController: GMSMapViewDelegate {
             
             if(placeMarker.place.open){
                 infoView.openLabel.text = "Open Now"
-                infoView.openLabel.textColor = UIColor.greenColor()
+                infoView.openLabel.textColor = UIColor(red: 34/255, green: 139/255, blue: 34/255, alpha: 1.0)
             }else{
                 infoView.openLabel.text = "Closed Now"
                 infoView.openLabel.textColor = UIColor.redColor()
